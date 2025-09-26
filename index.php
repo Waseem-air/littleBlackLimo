@@ -69,7 +69,7 @@
         </p>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-4 ">
   <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
     <div>
       <img src="assets/images/travel-1.png" alt="" >
@@ -417,6 +417,6 @@
     </div>
 </div>
 <?php require_once('apps/footer.php'); ?>
- 
+ <script src="assets/js/custom.js"></script>
 </body>
 </html>

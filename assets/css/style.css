@@ -16,6 +16,14 @@ body {
     height:128px ;
     margin-bottom: 0px;
 }
+.navbar-toggler {
+  border-color: white; /* optional: white border */
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+
 /* center the indicators and use our own layout to avoid Bootstrap overrides */
     .carousel-indicators.custom-indicators {
       position: absolute;
@@ -183,5 +191,14 @@ body {
 }
 
 
-
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex
+;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+}
 
