@@ -2,8 +2,8 @@ body {
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
-.navbar{
-    background-color: black;
+.bg-color{
+    background-color: black!important;
 }
 .nav-button {
     width: 132px;
@@ -69,4 +69,119 @@ body {
   height: 17px;
   width: 17px;
 }
+
+
+
+
+    .hero-section {
+        background: url("{{ asset('assets/images/hero-skybackground.jpeg') }}");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+        background: #fff;
+        /* padding-top: 30px; */
+        /* padding-bottom: 60px; */
+        padding-top: 80px;
+        padding-bottom: 48px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    .p-select {
+        min-width: 60px;
+        padding-right: 2.5rem !important;
+    }
+
+    /* Hide the default calendar icon */
+    input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+        display: none;
+    }
+
+    /* Make the input look like plain text */
+    .search-bar-value {
+        appearance: none;
+        -webkit-appearance: none;
+        color: transparent;
+        /* Hide the default input text */
+    }
+
+    /* Ensure the display span is properly aligned */
+    .position-relative {
+        position: relative;
+    }
+    .top-section{
+        background: url("{{ asset('assets/images/hero-skybackground.jpeg') }}");
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+    }
+
+    .border-0-focus:focus {
+        border: 0 !important;
+        outline: none !important;
+        box-shadow: none !important;
+    }
+.search-bar-container {
+  background-color: #ffffff;
+  border-radius: 999px!important;
+  padding: 25px 30px;
+  box-shadow: 0px 90px 80px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 60px 60px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 30px 40px 0px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.1);
+
+}
+.booking-btn{
+  width: 132px;
+  height: 61px;
+  border-radius: 100px;
+}
+/* .oneway{
+  height: 60px;
+} */
+@media (max-width: 576px) {
+  .search-bar-input {
+    font-size: 13px !important;  /* slightly smaller on mobile */
+    font-weight: 500 !important;
+    padding: 0.25rem 0.4rem;     /* tighter padding */
+  }
+
+  .search-bar-input::placeholder {
+    font-size: 12px !important; /* smaller placeholder */
+    font-weight: 400;
+    color: #999 !important;     /* lighter gray for mobile */
+  }
+
+  .search-bar-container {
+      border-radius: 12px !important;
+      padding: 12px 16px !important;
+
+    }
+
+  .glass-card {
+    border-radius: 15px;
+    padding: 20px 12px !important;
+  }
+}
+
+.slide-bg {
+  height: 100vh;              /* Full screen height */
+  min-height: 400px;          /* Fallback for small devices */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.carousel-indicators.custom-indicators {
+  bottom: 20px; /* keep circles at bottom */
+}
+
+.carousel-indicators.custom-indicators button img {
+  width: 30px;
+  height: 30px;
+  color: white;
+}
+
+
+
 

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark  p-0 m-0 ">
+<nav class="navbar navbar-expand-lg bg-color p-0 m-0 ">
   <div class="container mb-0">
     <!-- Logo -->
     <a class="navbar-brand mb-0 p-0" href="#">

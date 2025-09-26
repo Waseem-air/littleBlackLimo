@@ -115,7 +115,248 @@
 <!-- Travel and Tour Section End -->
 
 
+<!-- Booking Section Start -->
+<section style="background-color: black;">
+  <!-- Hero Content -->
+  <div class="container mt-2">
 
-  <?php require_once('apps/footer.php'); ?>
+    <!-- Heading -->
+    <div class="row">
+      <div class="col-12 text-white">
+        <h1>Book Airport Transfers</h1>
+      </div>
+    </div>
+
+    <!-- Desktop Toggle -->
+    <div class="row d-none d-md-block">
+      <div class="d-flex flex-wrap justify-content-between align-items-center mt-4 px-0">
+        <div class="booking-toggle" style="background-color: #868686 !important;">
+          <button class="toggle-btn active" data-type="oneway" style="width: 176px; height: 40px;">
+            one-way
+          </button>
+          <button class="toggle-btn" id="multipleBtn" data-bs-toggle="modal"
+                  data-bs-target="#multipleTripModal" style="width: 176px; height: 40px;">
+            Multiple
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Toggle -->
+    <div class="row d-md-none mt-4">
+      <div class="booking-toggle col-12" style="background-color: #868686 !important;">
+        <button class="toggle-btn active col-6" data-type="oneway">one-way</button>
+        <button class="toggle-btn col-6" id="multipleBtn" data-bs-toggle="modal"
+                data-bs-target="#multipleTripModal">
+          Multiple
+        </button>
+      </div>
+    </div>
+
+    <!-- Booking Form -->
+    <div class="row">
+  <div class="search-bar-container mt-4">
+    <form method="post" action="#">
+      <div class="row oneway">
+
+        <!-- From -->
+        <div class="col-12 col-md-5 ps-2 d-flex justify-content-between align-items-end">
+          <div>
+            <label for="oneway_pick" class="form-label">From</label>
+            <input type="text" name="pick" id="oneway_pick"
+                  class="form-control search-bar-input placesAPI"
+                  placeholder="Per International Airport" required>
+          </div>
+
+          <!-- Image visible only on large screens -->
+          <div class="d-none d-lg-block">
+            <img src="assets/images/b-arrow.png" alt="" width="55px" height="55px">
+          </div>
+        </div>
+
+
+        <!-- To -->
+        <div class="col-12 col-md-5 mb-3 mb-md-0">
+          <label for="oneway_drop" class="form-label">To</label>
+          <input type="text" name="drop" id="oneway_drop"
+                 class="form-control search-bar-input placesAPI"
+                 placeholder="Enter Destination" required>
+        </div>
+
+        <!-- Button -->
+        <div class="col-12 col-md-2">
+          <button type="submit" class="btn btn-dark booking-btn w-100">
+            Book now
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 text-white mt-5 text-center">
+      <h1>What Our Clients Say</h1>
+      <div id="customSlider" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Slide 1 -->
+          <div class="carousel-item active">
+            <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
+                 style="background-image: url('assets/images/slider-2.png');">
+              <div>
+                <h2 class="fw-bold">Luxury Transfers</h2>
+                <p>Travel in comfort with our premium fleet.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="carousel-item">
+            <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
+                 style="background-image: url('assets/images/slider-2.png');">
+              <div>
+                <h2 class="fw-bold">Weddings & Events</h2>
+                <p>Make your special day unforgettable.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="carousel-item">
+            <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
+                 style="background-image: url('assets/images/slider-2.png');">
+              <div>
+                <h2 class="fw-bold">Airport Transfers</h2>
+                <p>Reliable, luxury rides to and from the airport.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4 -->
+          <div class="carousel-item">
+            <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
+                 style="background-image: url('assets/images/slider-2.png');">
+              <div>
+                <h2 class="fw-bold">Wine Tours</h2>
+                <p>Enjoy the best vineyards with style.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5 -->
+          <div class="carousel-item">
+            <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
+                 style="background-image: url('assets/images/slider-2.png');">
+              <div>
+                <h2 class="fw-bold">Corporate Travel</h2>
+                <p>Professional rides for business needs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicators -->
+        <div class="carousel-indicators custom-indicators">
+          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+            <img src="assets/images/custom-circle.png" alt="dot 1">
+          </button>
+          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="1" aria-label="Slide 2">
+            <img src="assets/images/custom-circle.png" alt="dot 2">
+          </button>
+          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="2" aria-label="Slide 3">
+            <img src="assets/images/custom-circle.png" alt="dot 3">
+          </button>
+          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="3" aria-label="Slide 4">
+            <img src="assets/images/custom-circle.png" alt="dot 4">
+          </button>
+          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="4" aria-label="Slide 5">
+            <img src="assets/images/custom-circle.png" alt="dot 5">
+          </button>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+  </div>
+</section>
+<!-- Booking Section End -->
+
+
+
+
+<div class="modal fade mb-5 pb-5" id="multipleTripModal" tabindex="-1" aria-labelledby="multipleTripLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-end">
+        <div class="modal-content border-0">
+
+            <!-- Fixed Header -->
+            <div class="modal-header border-bottom position-sticky top-0 bg-white z-3">
+                <h5 class="modal-title fw-semibold mx-auto" id="multipleTripLabel">
+                    Multiple Stops
+                </h5>
+                <button type="button" class="btn-close position-absolute end-0 me-3" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Scrollable Body -->
+            <div class="modal-body overflow-auto pb-0" style="max-height: calc(100vh - 136px); background:#f5f5f5;">
+                <form class="form" id="createJob" method="post" action="#">
+
+                    <!-- TRIP 1 -->
+                    <div class="trip-segment bg-white rounded-4 p-3 trip-shadow mb-3">
+                        <div class="fw-semibold text-uppercase small mb-2">Trip</div>
+                        <div class="position-relative mb-3">
+                            <label class="form-label small mb-1">Pickup</label>
+                            <input type="text" class="form-control search-bar-input border-0 border-bottom rounded-0 ps-0 fw-semibold placesAPI pickup" name="pick" placeholder="Enter pickup location" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small mb-1">Dropoff</label>
+                            <input type="text" class="form-control search-bar-input border-0 border-bottom rounded-0 ps-0 fw-semibold placesAPI dropoff" name="drop" placeholder="Enter dropoff location" required>
+                        </div>
+
+                        <div>
+                            <label class="form-label small mb-1">Date & Time</label>
+                            <input type="text" class="form-control search-bar-input border-0 p-0 fw-semibold datetime" id="pickupDateTime" placeholder="Select date & time" required>
+                        </div>
+                    </div>
+
+                    <!-- Additional trips get injected here -->
+                    <div id="moreSegments"></div>
+
+                    <!-- Add Another Trip -->
+                    <div class="d-grid mb-3">
+                        <button type="button" class="btn rounded-pill py-2 fw-medium" id="addSegment" style="background:#fff; border: 1px solid #CCCCCC; color:#323232;">
+                            <i class="bi bi-plus-lg me-1"></i>
+                            Add Stop
+                        </button>
+                    </div>
+
+                    <!-- Passengers -->
+                    <div class="bg-white rounded-4 p-3 trip-shadow mb-3">
+                        <label class="form-label small mb-1">Passengers</label>
+                        <select class="form-select p-select text-start" name="total_passenger" id="total_passenger">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                        </select>
+                    </div>
+
+                    <!-- Fixed Footer -->
+                    <div class="modal-footer border-0 p-3 position-sticky bottom-0 bg-white z-3">
+                        <button type="submit" class="btn btn-dark rounded-pill w-100 py-2 fw-semibold">
+                            See Prices
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<?php require_once('apps/footer.php'); ?>
+ 
 </body>
 </html>
