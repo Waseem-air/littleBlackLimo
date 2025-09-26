@@ -69,46 +69,52 @@
         </p>
       </div>
 
-      <div class="row mt-4 text-center" >
-          <div class="col-sm-4" >
-            <div >
-                <img src="assets/images/travel-1.png" alt="" >
-                <h5 class="mt-2">Wedding & Events</h5>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div>
-                <img src="assets/images/travel-2.png" alt="">
-                <h5 class="mt-2">Winery & Coastal</h5>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div>
-                <img src="assets/images/travel-3.png" alt="">
-                <h5 class="mt-2">Corporate Services</h5>
-            </div>
-          </div>
-      </div>
-      <div class="row mt-4 text-center" >
-          <div class="col-sm-4" >
-            <div >
-                <img src="assets/images/travel-4.png" alt="" >
-                <h5 class="mt-2">Airport Transfers</h5>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div>
-                <img src="assets/images/travel-5.png" alt="">
-                <h5 class="mt-2">Extras</h5>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div>
-                <img src="assets/images/travel-6.png" alt="">
-                <h5 class="mt-2">Our Why</h5>
-            </div>
-          </div>
-      </div>
+      <div class="row mt-4">
+  <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
+    <div>
+      <img src="assets/images/travel-1.png" alt="" >
+      <h5 class="mt-2">Wedding & Events</h5>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
+    <div>
+      <img src="assets/images/travel-2.png" alt="" >
+      <h5 class="mt-2">Winery & Coastal</h5>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-4 d-flex justify-content-center text-center">
+    <div>
+      <img src="assets/images/travel-3.png" alt="" >
+      <h5 class="mt-2">Corporate Services</h5>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
+    <div>
+      <img src="assets/images/travel-4.png" alt="" class="img-fluid">
+      <h5 class="mt-2">Airport Transfers</h5>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
+    <div>
+      <img src="assets/images/travel-5.png" alt="" class="img-fluid">
+      <h5 class="mt-2">Extras</h5>
+    </div>
+  </div>
+
+  <div class="col-12 col-sm-4 d-flex justify-content-center text-center">
+    <div>
+      <img src="assets/images/travel-6.png" alt="" class="img-fluid">
+      <h5 class="mt-2">Our Why</h5>
+    </div>
+  </div>
+</div>
+
     </div>
   </div>
 </section>
@@ -122,7 +128,7 @@
 
     <!-- Heading -->
     <div class="row">
-      <div class="col-12 text-white">
+      <div class="col-12 text-white mt-5">
         <h1>Book Airport Transfers</h1>
       </div>
     </div>
@@ -258,7 +264,7 @@
 
         <!-- Indicators -->
         <div class="carousel-indicators custom-indicators">
-          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">
+          <button type="button" data-bs-target="#customSlider" data-bs-slide-to="0" class="active text-white" aria-current="true" aria-label="Slide 1">
             <img src="assets/images/custom-circle.png" alt="dot 1">
           </button>
           <button type="button" data-bs-target="#customSlider" data-bs-slide-to="1" aria-label="Slide 2">
@@ -282,6 +288,60 @@
   </div>
 </section>
 <!-- Booking Section End -->
+
+
+ <!-- blog Section Start -->
+
+
+ <div class="container">
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <h3>Latest News about Little Black Limo</h3>
+    </div>
+
+    <!-- Blog 1 -->
+    <div class="col-12 col-md-6 mt-4 text-center">
+      <img src="assets/images/blog-1.png" alt="" class="img-fluid">
+      <h6 class="mt-4">WAWA Accredited Business</h6>
+      <p>
+        Little Black Limo is a Western Australian Wedding <br>
+        Association accredited business.
+      </p>
+    </div>
+
+    <!-- Blog 2 -->
+    <div class="col-12 col-md-6 mt-4 text-center">
+      <img src="assets/images/blog-2.png" alt="" class="img-fluid">
+      <h6 class="mt-3">Supplied or BYO</h6>
+      <p class="mt-2 mb-0">
+        Little Black Limo is licenced for BYO and the supply of <br> alcohol.
+      </p>
+      <p>
+        Drivers have RSA and we are fully insured with all DOT <br> licences.
+      </p>
+    </div>
+  </div>
+
+  <!-- Blog 3 -->
+  <div class="row align-items-center mt-5 text-center">
+    <div class="col-12 col-md-6 mb-4 mb-md-0 p-5">
+      <img src="assets/images/blog-3.png" alt="" class="w-100">
+    </div>
+    <div class="col-12 col-md-6 text-center text-md-start p-5">
+      <h1 class="fw-bold">Little Black Limo is <br> proud to be part of <br> WCLA.</h1>
+      <p>
+        The Wedding Car and Limousine Association W.A. is a body formed
+        to promote professionalism in the wedding car and limousine industry.  
+        We are here to ensure the highest standards of ethics are maintained
+        by our members at all times.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- blog Section End -->
+
+
 
 
 
