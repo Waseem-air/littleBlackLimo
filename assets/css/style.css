@@ -1,0 +1,72 @@
+body {
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.navbar{
+    background-color: black;
+}
+.nav-button {
+    width: 132px;
+    height: 61px;
+    border-radius: 100px;
+    font-family: 'Montserrat', sans-serif; /* ensures button also uses Montserrat */
+}
+.nav-logo{
+    width:166px ;
+    height:128px ;
+    margin-bottom: 0px;
+}
+/* center the indicators and use our own layout to avoid Bootstrap overrides */
+    .carousel-indicators.custom-indicators {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 12px;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      z-index: 15;
+      list-style: none;
+    }
+
+    /* remove default button visuals and size the button */
+    .carousel-indicators.custom-indicators button {
+      width: 28px;
+      height: 35px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.6;
+      transition: opacity .15s ease, transform .12s ease;
+      cursor: pointer;
+       
+    }
+
+    /* image inside the button */
+    .carousel-indicators.custom-indicators button img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      pointer-events: none; 
+    }
+
+    /* active indicator */
+    .carousel-indicators.custom-indicators button.active {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    /* optional: make the carousel visible in demos */
+    .carousel-item img { height: 576px; object-fit: cover; width: 100%; }
+
+    /* Remove all default Bootstrap card styles */
+
+.icons-size{
+  height: 17px;
+  width: 17px;
+}
+
