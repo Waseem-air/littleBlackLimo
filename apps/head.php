@@ -14,4 +14,16 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+      <link href="asset/css/bootstrap.min.css" rel="stylesheet">
+            <link href="asset/css/main.css" rel="stylesheet">
+
+
+  <style>
+    .booking-bg {
+  background-image: url("assets/images/booking-confirm.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:210px;
+}
+  </style>
 </head>
