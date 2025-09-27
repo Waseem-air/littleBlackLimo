@@ -48,9 +48,9 @@
 <!-- Travel and Tour Section Start -->
 <section id="travel-tour" class="py-5">
   <div class="container">
-    <div class="row">
+    <div class="row montserrat-p">
       <div class="col-sm-12 text-center">
-        <h1 class="fw-bold mb-4">Where travel and luxury meet</h1>
+        <h1 class="charm fw-bold mb-4">Where travel and luxury meet</h1>
         
         <p class="mb-3">
           Our commitment to making every person feel welcome, cared for, and at home,
@@ -69,7 +69,7 @@
         </p>
       </div>
 
-      <div class="row mt-4 ">
+      <div class="row mt-4 montserrat">
   <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
     <div>
       <img src="assets/images/travel-1.png" alt="" >
@@ -96,7 +96,7 @@
   <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
     <div>
       <img src="assets/images/travel-4.png" alt="" class="img-fluid">
-      <h5 class="mt-2">Airport Transfers</h5>
+      <h5 class="mt-2 ">Airport Transfers</h5>
     </div>
   </div>
 
@@ -124,12 +124,12 @@
 <!-- Booking Section Start -->
 <section style="background-color: black;">
   <!-- Hero Content -->
-  <div class="container mt-2">
+  <div class="container mt-2 montserrat">
 
     <!-- Heading -->
     <div class="row">
       <div class="col-12 text-white mt-5">
-        <h1>Book Airport Transfers</h1>
+        <h1 class="charm fw-bold">Book Airport Transfers</h1>
       </div>
     </div>
 
@@ -200,9 +200,9 @@
     </form>
   </div>
 </div>
-<div class="row">
+<div class="row montserrat-p">
   <div class="col-12 text-white mt-5 text-center">
-      <h1>What Our Clients Say</h1>
+      <h1 class="charm fw-bold">What Our Clients Say</h1>
       <div id="customSlider" class="carousel slide mb-5" data-bs-ride="carousel">
         <div class="carousel-inner">
 
@@ -319,9 +319,9 @@
 
 
  <div class="container">
-  <div class="row mt-5">
+  <div class="row mt-5 montserrat-p">
     <div class="col-12 text-center">
-      <h3>Latest News about Little Black Limo</h3>
+      <h3 class="charm">Latest News about Little Black Limo</h3>
     </div>
 
     <!-- Blog 1 -->
@@ -353,7 +353,7 @@
       <img src="assets/images/blog-3.png" alt="" class="w-100">
     </div>
     <div class="col-12 col-md-6 text-center text-md-start p-5">
-      <h1 class="fw-bold">Little Black Limo is <br> proud to be part of <br> WCLA.</h1>
+      <h1 class="fw-bold montserrat">Little Black Limo is <br> proud to be part of <br> WCLA.</h1>
       <p>
         The Wedding Car and Limousine Association W.A. is a body formed
         to promote professionalism in the wedding car and limousine industry.  
@@ -373,7 +373,7 @@
 
 <div class="modal fade mb-5 pb-5" id="multipleTripModal" tabindex="-1" aria-labelledby="multipleTripLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen-sm-down modal-dialog-centered modal-dialog-end">
-        <div class="modal-content border-0">
+        <div class="modal-content border-0 montserrat-p">
 
             <!-- Fixed Header -->
             <div class="modal-header border-bottom position-sticky top-0 bg-white z-3">

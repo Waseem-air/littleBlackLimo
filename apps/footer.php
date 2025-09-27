@@ -1,8 +1,8 @@
 <section style="background-color:black;">
-  <div class="container">
-      <div class="row text-white">
+  <div class="container ">
+      <div class="row text-white montserrat-p">
           <div class="col-sm-9 mt-3">
-              <h5>Contact</h5>
+              <h5 class="montserrat">Contact</h5>
               <div class="d-flex align-items-center mt-4">
                 <img src="assets/images/location.png" alt="Location" width="17" height="17">
                 <p class="ms-2 mb-0 text-nowrap">Wembley WA 6014</p>
@@ -27,7 +27,7 @@
               
           </div>
           <div class="col-sm-3 mt-3 text-white justify-content-between">
-              <h5>LOCATION</h5>
+              <h5 class="montserrat">LOCATION</h5>
               <img src="assets/images/map.png" alt="" class="w-100 mb-2">
           </div>
           <div class="col-12">
@@ -40,10 +40,19 @@
   
   
   
-  <!-- Bootstrap JS (with Popper.js included) -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Bootstrap Bundle (includes Popper) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=en&key=YOUR_GOOGLE_MAPS_KEY" async defer></script>
+<!-- Flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<!-- Google Maps Places API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_KEY&libraries=places&callback=initAutocomplete" async defer></script>
+
+<!-- Your Custom Script -->
+<script src="assets/js/custom.js"></script>
+
 

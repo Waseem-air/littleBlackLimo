@@ -15,7 +15,7 @@
     <!-- Menu + Button -->
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <!-- Center Menu -->
-     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+     <ul class="navbar-nav mx-auto mb-2 mb-lg-0 jakarta">
   <li class="nav-item px-lg-3">
     <a class="nav-link text-white" aria-current="page" href="#">Home</a>
   </li>
@@ -39,7 +39,7 @@
 
       <!-- Right Button -->
       <form class="d-flex">
-        <button class="btn bg-white text-black nav-button" type="submit">Book now</button>
+        <button class="btn bg-white text-black nav-button montserrat" type="submit">Book now</button>
       </form>
     </div>
   </div>
