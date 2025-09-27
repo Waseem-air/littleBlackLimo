@@ -34,6 +34,12 @@
   background-repeat: no-repeat;
   height:210px;
 }
+.ourwhy-bg {
+  background-image: url("assets/images/ourwhy1.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height:359px;
+}
 
 /*** Booking ***/
 .booking {
@@ -686,6 +692,11 @@ hr {
     color: #FFFFFF;
     background-color: #006DDE;
 }
-
+/* our why */
+.vertical-center {
+  display: flex;
+  align-items: center;   /* vertical */
+  justify-content: center; /* horizontal if needed */
+}
   </style>
 </head>

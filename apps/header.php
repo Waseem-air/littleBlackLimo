@@ -20,7 +20,7 @@
     <a class="nav-link text-white" aria-current="page" href="#">Home</a>
   </li>
   <li class="nav-item px-lg-3">
-    <a class="nav-link text-white" href="#">Our Why</a>
+    <a class="nav-link text-white" href="ourwhy.php">Our Why</a>
   </li>
   <li class="nav-item px-lg-3">
     <a class="nav-link text-white">Wedding & Events</a>
@@ -39,7 +39,7 @@
 
       <!-- Right Button -->
       <form class="d-flex">
-        <button class="btn bg-white text-black nav-button montserrat" type="submit">Book now</button>
+        <button class="btn bg-white text-black nav-button montserrat " type="submit">Book now</button>
       </form>
     </div>
   </div>
