@@ -305,18 +305,22 @@ hr {
 /*** Booking-card ***/
 .booking-card1 {
     border: 1px solid #D9D9D9;
-    background-color: #F9F9F9;
+    background-color: white;
     border-radius: 8px;
     margin-left: 12px;
 }
-
 .booking-card {
     border: 1px solid #D9D9D9;
     background-color: #F9F9F9;
     border-radius: 8px;
     margin-bottom: 10px;
 }
-
+.booking-card-modal{
+    border: 1px solid #D9D9D9;
+    background-color: black;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
 .card-item {
     display: flex; 
     justify-content: space-between;
@@ -379,7 +383,19 @@ hr {
     background-color: black;
     font-weight: bold;
 }
-
+.badge2 {
+    width: 75px;
+    height: 28px;
+    font-size: 12px;
+    margin: 0px;
+    padding: 0;
+    border: none;
+    color: black;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    background-color: white;
+    font-weight: bold;
+}
 /*** Details ***/
 .details {
     margin-left: 13px;
@@ -495,5 +511,181 @@ hr {
 .confirmed-img2 {
     width: 100%;
 }
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    outline: 0;
+}
+
+
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+}
+
+.modal-body {
+    flex: 1;
+    overflow-y: hidden;
+}
+
+.modal-head {
+    text-align: center;
+    margin-top: 30px;
+    vertical-align: baseline;
+}
+
+.modal-span {
+    font-size: 18px;
+    color: #0D0E0E;
+    font-weight: bold;
+}
+
+.modal-head .btn-close {
+    float: right;
+    box-shadow: none;
+    margin-top: 3px;
+    margin-right: 13px;
+}
+
+.modal-body .form-group .modal-btn {
+    transition:all 0.8s, 
+    color 0.3s 0.3s; 
+    text-align: center;
+    cursor:pointer; 
+    clear:both;  
+    display:inline-block;
+    padding: 16px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none; 
+    color: #FFFFFF;  
+    background-color: #0D0E0E;
+}
+
+.modal-body .form-group .modal-btn:hover {
+    color:#fff;
+    box-shadow: 465px 0 0 0 #006DDE inset, -465px 0 0 0 #006DDE inset;
+}
+
+.modal-body .cta {
+    height: 56px;
+    transition:all 0.8s, 
+    color 0.3s 0.3s; 
+    text-align: center;
+    cursor:pointer; 
+    clear:both;  
+    display:inline-block;
+    margin-bottom: 10px;
+    border: 2px solid #0D0E0E;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    color: #0D0E0E;  
+    background-color: #FFFFFF;
+}
+
+.modal-body .cta:hover {
+    color:#fff;
+    border: 2px solid #0D0E0E;
+    box-shadow: 465px 0 0 0 #0D0E0E inset, -465px 0 0 0 #0D0E0E inset;
+}
+
+.modal-body .form-img {
+    position: absolute;
+    padding-top: 15px;
+    padding-left: 13px;
+}
+
+.modal-body .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-body .profile-custom {
+    box-shadow: none;
+    border: 1px solid #909090;
+    height: 49px;
+    border-radius: 8px;
+    background: none;
+}
+
+.modal-body .profile-custom:focus {
+    border: 1px dashed #006DDE ;
+}
+
+.modal-body .custom {
+    box-shadow: none;
+    border: 1px solid #909090;
+    height: 49px;
+    border-radius: 8px;
+    padding-left: 40px;
+    background: none;
+}
+
+.modal-body .custom:focus {
+    border: 1px dashed black;
+}
+
+.modal-body .custom1 {
+    box-shadow: none;
+    border: 1px solid #909090;
+    border-right: none ;
+    height: 49px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 40px;
+}
+
+.modal-body .custom1:hover {
+    bottom: none;
+}
+
+.modal-body .input-with-buttons {
+    display: flex;
+}
+
+.modal-body .input-buttons {
+    border: 1px solid #909090;
+    border-left: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    height: 49px;
+}
+
+.modal-body .btn-increment {
+    margin-top: 0.5px;
+    height: 23px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 1px;
+    border-top-right-radius: 8px;
+}
+
+.modal-body .btn-increment:hover {
+    color: #FFFFFF;
+    background-color: #006DDE;
+}
+
+.modal-body .btn-decrement {
+    height: 23px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 1px;
+    border-bottom-right-radius: 8px;
+}
+
+.modal-body .btn-decrement:hover {
+    color: #FFFFFF;
+    background-color: #006DDE;
+}
+
   </style>
 </head>

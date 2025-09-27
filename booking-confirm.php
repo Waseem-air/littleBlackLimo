@@ -164,22 +164,21 @@
                                         <span class="modal-span" id="modalRideSelectionLabel">Select your ride</span>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body">
-                                        <div class="booking-card">
-                                            <button class="badge1">Our pick</button>
+                                    <div class="modal-body ">
+                                        <div class="booking-card booking-card-modal">
+                                            <button class="badge2">Our pick</button>
                                             <div class="card-item">
                                                 <div class="card-inner">
                                                     <div class="card-subinner">
-                                                        <p class="card-title">Sedan • $35</p>
+                                                        <p class="card-title text-white">Sedan • $35</p>
                                                         <div class="extras">
-                                                            <img src="./asset/img/group.svg" class="cardimg" alt=""><span>3</span>
-                                                            <img src="./asset/img/wpf_luggage-trolley.svg" class="cardimg" alt=""><span>3</span>
-                                                            <img src="./asset/img/basil_bag-solid.svg" class="cardimg" alt=""><span>3</span>
+                                                            <img src="assets/images/group-white.png" class="cardimg text-white" alt=""><span class="text-white">3</span>
+                                                            <img src="assets/images/basil_bag-solid-white.png" class="cardimg " alt=""><span class="text-white">3</span>
+                                                            <img src="assets/images/wpf_luggage-trolley-white.png" class="cardimg text-white" alt=""><span class="text-white">3</span>
                                                         </div>
-                                                        <p class="card-subtitle">by ABC Transport</p>
                                                     </div>
                                                 </div>
-                                                <img src="./asset/img/sedan.svg" class="card-img" alt="...">
+                                                <img src="assets/images/model-1.png" class="card-img" alt="...">
                                             </div>
                                         </div>
                                         <div class="booking-card">
@@ -188,14 +187,28 @@
                                                     <div class="card-subinner">
                                                         <p class="card-title">SUV • $60</p>
                                                         <div class="extras">
-                                                            <img src="./asset/img/group.svg" class="cardimg" alt=""><span>3</span>
-                                                            <img src="./asset/img/wpf_luggage-trolley.svg" class="cardimg" alt=""><span>3</span>
-                                                            <img src="./asset/img/basil_bag-solid.svg" class="cardimg" alt=""><span>3</span>
+                                                            <img src="assets/images/group.png" class="cardimg" alt=""><span>3</span>
+                                                            <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>3</span>
+                                                            <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>3</span>
                                                         </div>
-                                                        <p class="card-subtitle">by XYZ Transport</p>
                                                     </div>
                                                 </div>
-                                                <img src="./asset/img/suv.svg" class="card-img" alt="...">
+                                                <img src="assets/images/model-2.png" class="card-img" alt="...">
+                                            </div>
+                                        </div>
+                                        <div class="booking-card">
+                                            <div class="card-item">
+                                                <div class="card-inner">
+                                                    <div class="card-subinner">
+                                                        <p class="card-title">SUV • $60</p>
+                                                        <div class="extras">
+                                                            <img src="assets/images/group.png" class="cardimg" alt=""><span>3</span>
+                                                            <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>3</span>
+                                                            <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>3</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <img src="assets/images/model-3.png" class="card-img" alt="...">
                                             </div>
                                         </div>
                                         <div class="booking-card">
@@ -204,14 +217,13 @@
                                                     <div class="card-subinner">
                                                         <p class="card-title">People Mover • $65</p>
                                                         <div class="extras">
-                                                            <img src="./asset/img/group.svg" class="cardimg" alt=""><span>6</span>
-                                                            <img src="./asset/img/wpf_luggage-trolley.svg" class="cardimg" alt=""><span>6</span>
-                                                            <img src="./asset/img/basil_bag-solid.svg" class="cardimg" alt=""><span>6</span>
+                                                            <img src="assets/images/group.png" class="cardimg" alt=""><span>6</span>
+                                                            <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>6</span>
+                                                            <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>6</span>
                                                         </div>
-                                                        <p class="card-subtitle">by QWR Transport </p>
                                                     </div>
                                                 </div>
-                                                <img src="./asset/img/people-mover.svg" class="card-img" alt="...">
+                                                <img src="assets/images/model-3.png" class="card-img" alt="...">
                                             </div>
                                         </div>
                                     </div>

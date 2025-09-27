@@ -192,7 +192,9 @@
         <!-- Button -->
         <div class="col-12 col-md-2">
           <button type="submit" class="btn btn-dark booking-btn w-100">
-            Book now
+            <a href="booking-confirm.php" class="text-white text-decoration-none">
+              Book now
+            </a>
           </button>
         </div>
 
