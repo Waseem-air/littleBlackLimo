@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-color p-0 m-0 ">
   <div class="container mb-0">
     <!-- Logo -->
-    <a class="navbar-brand mb-0 p-0" href="#">
+    <a class="navbar-brand mb-0 p-0" href="index.php">
       <img src="assets/images/logo.png" alt="Logo" class="nav-logo">
     </a>
 
@@ -17,16 +17,16 @@
       <!-- Center Menu -->
      <ul class="navbar-nav mx-auto mb-2 mb-lg-0 jakarta">
   <li class="nav-item px-lg-3">
-    <a class="nav-link text-white" aria-current="page" href="#">Home</a>
+    <a class="nav-link text-white" aria-current="page" href="index.php">Home</a>
   </li>
   <li class="nav-item px-lg-3">
     <a class="nav-link text-white" href="ourwhy.php">Our Why</a>
   </li>
   <li class="nav-item px-lg-3">
-    <a class="nav-link text-white">Wedding & Events</a>
+    <a class="nav-link text-white" href="weeding.php">Wedding & Events</a>
   </li>
   <li class="nav-item px-lg-3">
-    <a class="nav-link text-white">What We Do</a>
+    <a class="nav-link text-white" >What We Do</a>
   </li>
   <li class="nav-item px-lg-3">
     <a class="nav-link text-white">Selfies</a>

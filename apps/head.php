@@ -698,5 +698,18 @@ hr {
   align-items: center;   /* vertical */
   justify-content: center; /* horizontal if needed */
 }
+
+.weeding-testimonial-bg {
+  background: url('assets/images/wedingbg.png') no-repeat center center;
+background-size: cover;
+
+
+}
+.weeding-bg {
+  background: url('assets/images/weeding-bg.png') no-repeat center center;
+background-size: cover;
+height:486px;
+
+}
   </style>
 </head>

@@ -221,3 +221,55 @@ body {
 
 
 
+/* weeding css */
+
+
+.awais {
+  width: 100%;   /* parent col ki full width le */
+  height: auto;  /* ratio maintain ho */
+  object-fit: cover; /* image ka shape barabar rahe */
+}
+@media (max-width: 768px) {
+  .awais {
+    margin-top: 10px; /* mobile screens ke liye */
+  }
+}
+.image-margin{
+  width:531px;
+   height: auto;  /* ratio maintain ho */
+  object-fit: cover;
+}
+.image-margin1{
+  width:531px;
+  margin-left:40px; 
+   height: auto;  /* ratio maintain ho */
+  object-fit: cover;
+}
+@media (max-width: 767.98px) {
+  .image-margin1 {
+    margin-left: 0;   /* small screen pe center */
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (max-width: 575.98px) {
+  .mt-only-sm {
+    margin-top: 1.5rem; /* ya jitna chahiye */
+  }
+}
+
+/* Global Font */
+
+
+/* Headings ko bold */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Paragraphs */
+p {
+  font-weight: 400;
+  font-family: 'Montserrat', sans-serif;
+}
