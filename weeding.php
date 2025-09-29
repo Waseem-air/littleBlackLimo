@@ -61,25 +61,25 @@
         <!-- Section 3: Image Gallery (3 + 3) -->
         <div class="row g-1 mt-5">
         <div class="col-md-4 col-12">
-            <img src="assets/images/marriagepic1.png" class="awais img-fluid" alt="">
+            <img src="assets/images/marriagepic1.png" class="combineimage img-fluid" alt="">
         </div>
         <div class="col-md-4 col-12">
-            <img src="assets/images/marriagepic2.png" class="awais img-fluid" alt="">
+            <img src="assets/images/marriagepic2.png" class="combineimage img-fluid" alt="">
         </div>
         <div class="col-md-4 col-12">
-            <img src="assets/images/marriagepic3.png" class="awais img-fluid" alt="">
+            <img src="assets/images/marriagepic3.png" class="combineimage img-fluid" alt="">
         </div>
         </div>
 
         <div class="row g-1 mb-5 mt-3">
         <div class="col-md-4 col-12">
-            <img src="assets/images/marriagepic4.png" class="awais img-fluid" alt="">
+            <img src="assets/images/marriagepic4.png" class="combineimage img-fluid" alt="">
         </div>
         <div class="col-md-4 col-12">
-            <img src="assets/images/marriagepic5.png" class="awais img-fluid" alt="">
+            <img src="assets/images/marriagepic5.png" class="combineimage img-fluid" alt="">
         </div>
         <div class="col-md-4 col-12">
-            <img src="assets/images/marriagepic6.png" class="awais img-fluid" alt="">
+            <img src="assets/images/marriagepic6.png" class="combineimage img-fluid" alt="">
         </div>
         </div>
 

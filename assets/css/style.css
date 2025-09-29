@@ -224,13 +224,13 @@ body {
 /* weeding css */
 
 
-.awais {
+.combineimage {
   width: 100%;   /* parent col ki full width le */
   height: auto;  /* ratio maintain ho */
   object-fit: cover; /* image ka shape barabar rahe */
 }
 @media (max-width: 768px) {
-  .awais {
+  .combineimage {
     margin-top: 10px; /* mobile screens ke liye */
   }
 }
@@ -273,3 +273,8 @@ p {
   font-weight: 400;
   font-family: 'Montserrat', sans-serif;
 }
+
+
+
+/* winery css */
+

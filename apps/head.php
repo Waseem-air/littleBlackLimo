@@ -711,5 +711,101 @@ background-size: cover;
 height:486px;
 
 }
+
+/* 
+
+winery css */
+
+
+.weding-car {
+  width: 582px;
+  height: auto;   /* ratio maintain karega */
+  object-fit: cover;
+}
+
+/* Small screen (mobile) */
+@media (max-width: 767.98px) {
+  .weding-car {
+    display: block;
+    margin: 0 auto;   /* center horizontally */
+    width: 100%;      /* responsive full width */
+    max-width: 582px; /* but max isi size tak */
+  }
+}
+
+
+.combineimage1 {
+  width: 100%;   /* parent col ki full width le */
+  height: auto;  /* ratio maintain ho */
+  object-fit: cover; /* image ka shape barabar rahe */
+}
+@media (max-width: 768px) {
+  .combineimage1 {
+    margin-top: 10px; /* mobile screens ke liye */
+  }
+}
+
+@media (max-width: 767.98px) {
+  .weding-car {
+    display: block;
+    margin: 0 auto;   /* center horizontally */
+    width: 100%;      /* responsive full width */
+    max-width: 582px; /* but max isi size tak */
+  }
+}
+
+
+.combineimage2 {
+  width: 100%;   /* parent col ki full width le */
+  height: auto;  /* ratio maintain ho */
+  object-fit: cover; /* image ka shape barabar rahe */
+}
+@media (max-width: 768px) {
+  .combineimage2 {
+    margin-top: 10px; /* mobile screens ke liye */
+  }
+}
+
+
+
+
+
+/* corportae css */
+
+
+
+.combineimage3 {
+  width: 100%;   /* parent col ki full width le */
+  height: auto;  /* ratio maintain ho */
+  object-fit: cover; /* image ka shape barabar rahe */
+}
+@media (max-width: 768px) {
+  .combineimage3 {
+    margin-top: 10px; /* mobile screens ke liye */
+  }
+}
+
+
+/* transfer css */
+.combineimage4 {
+  width: 100%;   /* parent col ki full width le */
+  height: auto;  /* ratio maintain ho */
+  object-fit: cover; /* image ka shape barabar rahe */
+}
+@media (max-width: 768px) {
+  .combineimage4 {
+    margin-top: 10px; /* mobile screens ke liye */
+  }
+}
+
+/* selfie css */
+
+.selfie-margin {
+  width: 275px;   /* parent col ki full width le */
+  height: auto;  /* ratio maintain ho */
+  object-fit: cover; /* image ka shape barabar rahe */
+}
+
+
   </style>
 </head>
