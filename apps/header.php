@@ -20,7 +20,7 @@
     <a class="nav-link text-white" aria-current="page" href="index.php">Home</a>
   </li>
   <li class="nav-item px-lg-3">
-    <a class="nav-link text-white" href="ourwhy.php">Our Why</a>
+    <a class="nav-link text-white" href="why.php">Our Why</a>
   </li>
   <li class="nav-item px-lg-3">
     <a class="nav-link text-white" href="weeding.php">Wedding & Events</a>
