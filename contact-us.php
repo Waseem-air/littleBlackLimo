@@ -23,11 +23,11 @@
             <h5 class="fw-bold">Wembley. WA 6014</h5>
 
             <h5 class="fw-bold mt-5">PHONE:</h5>
-            <h5 class="fw-bold text-decoration-underline">0404 359 777</h5>
+            <h5 class="fw-bold "><a href="" class="text-decoration-underline text-dark">0404 359 777</a></h5>
 
 
             <h4 class="fw-bold mt-5">EMAIL:</h4>
-            <h5 class="fw-bold text-decoration-underline">luxury@littleblacklimo.com.au</h5>
+            <h5 class="fw-bold text-decoration-underline"><a href="" class="text-decoration-underline text-dark">luxury@littleblacklimo.com.au</a></h5>
 
             <h4 class="fw-bold mt-5">REFUNDS & CANCELLATION POLICY:</h4>
             <p>
