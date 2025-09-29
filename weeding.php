@@ -6,9 +6,9 @@
   
         <section class="weeding-bg " >
             <div class="container">
-                <div class="row charm">
-                    <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center pt-5 ">Wedding & Events</h1>
+                <div class="row ">
+                    <div class="col-12 pt-5 mt-5 vertical-center text-white text-center">
+                        <h1 class="grid-center charm weding pt-5 mt-5 ">Wedding & Events</h1>
                     </div>
                 </div>
                
@@ -88,16 +88,21 @@
     </div>
 
     <!-- Section 4: Background Image with Testimonial -->
-    <section class="text-white text-center py-5 weeding-testimonial-bg">
-        <div class="container ">
-            <h2 class="fw-bold mb-4 text-white ">What our Clients say</h2>
-            <p class="fs-5 text-white">
-            Our team travelled with Little Black Limo for a company meeting. <br>
-            The service was great and very professional, and the driver was accommodating to all of my requests. <br>
-            Thank you Little Black Limo!
-            </p>
-            <p class="mt-4 fw-bold text-white">- Maddy H</p>
+    <section class="text-white text-center  weeding-testimonial-bg">
+       <div class="container">
+            <div class="row">
+                <div class="col-12 mb-0 mt-4">
+                <h2 class="fw-bold mb-4 mt-5 text-white">What our Clients say</h2>
+                <p class="fs-5 text-white">
+                    Our team travelled with Little Black Limo for a company meeting. <br>
+                    The service was great and very professional, and the driver was accommodating to all of my requests. <br>
+                    Thank you Little Black Limo!
+                </p>
+                <p class="mt-4 fw-bold text-white">- Maddy H</p>
+                </div>
+            </div>
         </div>
+
     </section>
 
   <?php require_once('apps/footer.php'); ?>

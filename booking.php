@@ -17,95 +17,94 @@
     <!-- bookin form start -->  
         <section>
             <div class="container">
-              <section class="booking-section py-5">
-  <div class="container">
-    <div class="row">
-      <!-- Left Column -->
-      <div class="col-sm-6 mt-5">
-        <h1 class="charm">Schedule Your Little Black Limo Experience</h1>
-        <p>Let us take care of the details — you just enjoy the ride.</p>
+                <div class="row mt-5 pt-5 mb-5 pb-5">
+                <!-- Left Column -->
+                <div class="col-sm-6">
+                    <h1 class="charm">Schedule Your Little Black Limo Experience</h1>
+                    <p>Let us take care of the details — you just enjoy the ride.</p>
 
-        <!-- Booking Toggle (desktop only) -->
-        <div class="row d-none d-md-block">
-          <div class="d-flex flex-wrap justify-content-between align-items-center mt-4 px-0">
-            <div class="booking-toggle" style="background-color: #868686 !important;">
-              <button class="toggle-btn active" data-type="oneway" style="width: 176px; height: 40px;">
-                One-way
-              </button>
-              <button class="toggle-btn" id="multipleBtn" data-bs-toggle="modal"
-                      data-bs-target="#multipleTripModal" style="width: 176px; height: 40px;">
-                Multiple
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Booking Form -->
-        <form method="post" action="#" class="mt-4">
-          <div class="row">
-            <!-- Pickup -->
-            <div class="col-lg-6 col-md-6 col-12 mb-3">
-              <div class="form-group position-relative">
-                <img src="assets/img/arrow_up.svg" class="form-img" alt="">
-                <input type="text" name="pick" class="form-control custom placesAPI"
-                       placeholder="Pickup Location" required>
-              </div>
-            </div>
-
-            <!-- Drop-off -->
-            <div class="col-lg-6 col-md-6 col-12 mb-3">
-              <div class="form-group position-relative">
-                <img src="assets/img/arrow_down.svg" class="form-img" alt="">
-                <input type="text" name="drop" class="form-control custom placesAPI"
-                       placeholder="Drop-off Location" required>
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <!-- Date -->
-            <div class="col-lg-6 col-md-6 col-12 mb-3">
-              <div class="form-group position-relative">
-                <img src="assets/img/calendar_month.svg" class="form-img" alt="">
-                <input type="text" name="date" id="date" 
-                       class="form-control custom flatpickr"
-                       placeholder="Select Date & Time" required>
-              </div>
-            </div>
-
-            <!-- Passengers -->
-            <div class="col-lg-6 col-md-6 col-12 mb-3">
-              <div class="form-group position-relative input-with-buttons">
-                <img src="assets/img/emoji_people.svg" class="form-img" alt="">
-                <select name="total_passenger" id="total_passenger" class="form-select custom rounded-2">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                </select>
-              </div>
-            </div>
-          </div>
-
-          <!-- Submit Button -->
-          <div class="row mt-3">
-            <div class="col-12">
-              <button type="submit" class="btn btn-dark w-100">Book Now</button>
-            </div>
-          </div>
-        </form>
-      </div>
-
-      <!-- Right Column -->
-      <div class="col-sm-6 d-flex justify-content-center align-items-center">
-        <!-- Example Image / Illustration -->
-        <img src="assets/img/carimage.png" alt="Limo Car" class="img-fluid d-none d-sm-block">
-      </div>
+                    <!-- Booking Toggle (desktop only) -->
+                   <div class="row d-none d-md-block w-100">
+  <div class="col-12 mt-4 px-0">
+    <div class="booking-toggle w-100" style="background-color: #868686 !important;">
+      <button class="toggle-btn active w-100 mb-2" data-type="oneway" style="height: 40px;">
+        One-way
+      </button>
+      <button class="toggle-btn w-100" id="multipleBtn" data-bs-toggle="modal"
+              data-bs-target="#multipleTripModal" style="height: 40px;">
+        Multiple
+      </button>
     </div>
   </div>
-</section>
+</div>
+
+
+                    <!-- Booking Form -->
+                    <form method="post" action="#" class="mt-4">
+                    <div class="row">
+                        <!-- Pickup -->
+                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="form-group position-relative">
+                            <img src="assets/images/arrow_up.svg" class="form-img" alt="">
+                            <input type="text" name="pick" class="form-control custom placesAPI"
+                                placeholder="Pickup Location" required>
+                        </div>
+                        </div>
+
+                        <!-- Drop-off -->
+                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="form-group position-relative">
+                            <img src="assets/img/arrow_down.svg" class="form-img" alt="">
+                            <input type="text" name="drop" class="form-control custom placesAPI"
+                                placeholder="Drop-off Location" required>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- Date -->
+                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="form-group position-relative">
+                            <img src="assets/img/calendar_month.svg" class="form-img" alt="">
+                            <input type="text" name="date" id="date" 
+                                class="form-control custom flatpickr"
+                                placeholder="Select Date & Time" required>
+                        </div>
+                        </div>
+
+                        <!-- Passengers -->
+                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="form-group position-relative input-with-buttons">
+                            <img src="assets/img/emoji_people.svg" class="form-img" alt="">
+                            <select name="total_passenger" id="total_passenger" class="form-select custom rounded-2">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            </select>
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row mt-3">
+                        <div class="col-12">
+                        <button type="submit" class="btn btn-dark w-100">Book Now</button>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+                <!-- Right Column -->
+                <div class="col-sm-6 d-flex justify-content-center align-items-center">
+                    <!-- Example Image / Illustration -->
+                    <img src="assets/images/booking.png" alt="Limo Car" class="img-fluid d-none d-sm-block">
+                </div>
+                </div>
+            </div>
+        </section>
 
 
         <div class="modal fade mb-5 pb-5" id="multipleTripModal" tabindex="-1" aria-labelledby="multipleTripLabel" aria-hidden="true">

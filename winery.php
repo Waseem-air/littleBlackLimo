@@ -4,14 +4,15 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-        <section class="weeding-bg " >
+        <section class="winery-bg " >
             <div class="container">
-                <div class="row charm">
-                    <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center pt-5 ">Wedding & Events</h1>
+               <div class="row">
+                    <div class="col-12 pt-5 mt-5 text-white d-flex justify-content-center">
+                        <h1 class="charm text-center custom-heading mt-lg-5">
+                        Winery or Coastal Drive
+                        </h1>
                     </div>
                 </div>
-               
             </div>
         </section>
     <div class="container py-5">

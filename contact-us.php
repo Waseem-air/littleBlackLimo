@@ -4,11 +4,11 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-        <section class="weeding-bg " >
+        <section class="contact-section " >
             <div class="container">
-                <div class="row charm">
+                <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center pt-5 ">Wedding & Events</h1>
+                        <h1 class="grid-center charm pt-5 ">Contact Us</h1>
                     </div>
                 </div>
                
@@ -19,16 +19,17 @@
           
           <!-- Left Side -->
           <div class="col-md-6 mb-4">
-            <h4 class="fw-bold">ADDRESS:</h4>
-            <p>Wembley. WA 6014</p>
+            <h5 class="fw-bold">ADDRESS:</h5>
+            <h5 class="fw-bold">Wembley. WA 6014</h5>
 
-            <h4 class="fw-bold mt-3">PHONE:</h4>
-            <p>0404 359 777</p>
+            <h5 class="fw-bold mt-5">PHONE:</h5>
+            <h5 class="fw-bold text-decoration-underline">0404 359 777</h5>
 
-            <h4 class="fw-bold mt-3">EMAIL:</h4>
-            <p>luxury@littleblacklimo.com.au</p>
 
-            <h4 class="fw-bold mt-4">REFUNDS & CANCELLATION POLICY:</h4>
+            <h4 class="fw-bold mt-5">EMAIL:</h4>
+            <h5 class="fw-bold text-decoration-underline">luxury@littleblacklimo.com.au</h5>
+
+            <h4 class="fw-bold mt-5">REFUNDS & CANCELLATION POLICY:</h4>
             <p>
               <strong>Terms and conditions:</strong> On payment of the invoice, it is the understanding that you are
               accepting our T & C's as set out below:
@@ -57,49 +58,47 @@
 
           <!-- Right Side -->
           <div class="col-md-6">
-            <h3 class="fw-bold mb-4">Get In Touch with Us</h3>
+            <h3 class="fs-1 charm mb-4">Get In Touch with Us</h3>
             <form>
-              <!-- Row 1: Name + Email -->
-              <div class="row mb-3">
-                <div class="col-md-6 mb-3 mb-md-0">
-                  <input type="text" class="form-control" placeholder="Name">
-                </div>
-                <div class="col-md-6">
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-              </div>
-
-              <!-- Row 2: Phone -->
-              <div class="row mb-3">
-                <div class="col-12">
-                  <input type="text" class="form-control" placeholder="Phone">
-                </div>
-              </div>
-
-              <!-- Row 3: Message -->
-              <div class="row mb-3">
-              <div class="col-12">
-                  <label for="message" class="form-label fw-bold">Message</label>
-                  <textarea id="message" class="form-control" rows="4" placeholder="Message"></textarea>
-              </div>
-              </div>
-
-
-              <!-- Row 4: Date & Times Required -->
-              <div class="row mb-3">
-                  <div class="col-12">
-                      <label for="datetime" class="form-label fw-bold">Date & Times Required</label>
-                      <input type="datetime-local" id="datetime" class="form-control">
+             <div class="row mb-3">
+                  <div class="col-md-6 mb-3 mb-md-0">
+                    <input type="text" class="form-control rounded-pill form-text " placeholder="Name">
                   </div>
-              </div>
-
-
-              <!-- Submit Button -->
-              <div class="row">
-                <div class="col-12 text-start">
-                  <button type="submit" class="btn btn-dark px-4">Submit</button>
+                  <div class="col-md-6">
+                    <input type="email" class="form-control rounded-pill form-text " placeholder="Email">
+                  </div>
                 </div>
-              </div>
+
+                <!-- Row 2: Phone -->
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <input type="text" class="form-control form-text  rounded-pill" placeholder="Phone">
+                  </div>
+                </div>
+
+                <!-- Row 3: Message -->
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <label for="message" class="form-label form-text fs-6">Message</label>
+                    <textarea id="message" class="form-control form-text  " rows="4" placeholder="Message"></textarea>
+                  </div>
+                </div>
+
+                <!-- Row 4: Date & Times Required -->
+                <div class="row mb-3">
+                  <div class="col-12">
+                    <label for="datetime" class="form-label  form-text fs-6">Date & Times Required</label>
+                    <input type="datetime-local" id="datetime" class="form-control rounded-pill form-text ">
+                  </div>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="row">
+                  <div class="col-12 text-start">
+                    <button type="submit" class="btn btn-dark px-4 rounded-pill">Submit</button>
+                  </div>
+                </div>
+
             </form>
           </div>
 

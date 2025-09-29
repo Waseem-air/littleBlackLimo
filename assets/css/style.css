@@ -18,7 +18,7 @@ body {
   font-weight: 500;
 }
 .bg-color{
-    background-color: black!important;
+    background-color: brown!important;
 }
 .nav-button {
     width: 132px;
@@ -34,6 +34,7 @@ body {
 .navbar-toggler {
   border-color: white; /* optional: white border */
 }
+
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -223,7 +224,11 @@ body {
 
 /* weeding css */
 
-
+.weding{
+  font-size: 76px;
+  font-weight: 500 !important; 
+  height: 60px;
+}
 .combineimage {
   width: 100%;   /* parent col ki full width le */
   height: auto;  /* ratio maintain ho */

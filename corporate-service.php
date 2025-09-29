@@ -4,11 +4,11 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-        <section class="weeding-bg " >
+        <section class="corporates-bg" >
             <div class="container">
-                <div class="row charm">
+                <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center pt-5 ">Wedding & Events</h1>
+                        <h1 class="grid-center charm corporate-heading pt-5 ">Corporate Services</h1>
                     </div>
                 </div>
                

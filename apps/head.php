@@ -716,6 +716,21 @@ height:486px;
 
 winery css */
 
+.winery-bg {
+  background: url('assets/images/winery-main-pic.png') no-repeat center center;
+background-size: cover;
+height:359px;
+
+}
+.custom-heading {
+  
+  height: 60px;
+  line-height: 60px; /* text ko vertically center karne ke liye */
+  margin: 0 auto;
+    font-size: 76px;
+  font-weight: 500 !important; 
+}
+
 
 .weding-car {
   width: 582px;
@@ -771,8 +786,17 @@ winery css */
 
 
 /* corportae css */
+.corporates-bg {
+  background: url('assets/images/corporate-pic.png') no-repeat center center;
+background-size: cover;
+height:359px;
 
-
+}
+.corporate-heading{
+  font-size: 70px;
+  font-weight: 500 !important; 
+  height: 60px;
+}
 
 .combineimage3 {
   width: 100%;   /* parent col ki full width le */
@@ -787,6 +811,16 @@ winery css */
 
 
 /* transfer css */
+.tranfer-section{
+   background: url('assets/images/transfer-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height:486px;
+}
+.tranfer-heading{
+    font-size: 70px;
+  font-weight: 500 !important; 
+  height: 60px;
+}
 .combineimage4 {
   width: 100%;   /* parent col ki full width le */
   height: auto;  /* ratio maintain ho */
@@ -799,13 +833,51 @@ winery css */
 }
 
 /* selfie css */
+.selfie-section{
+    background: url('assets/images/selfie-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height:359px;
+}
+.selfie-heading{
+      font-size: 70px;
+  font-weight: 500 !important; 
+  height: 60px;
 
+}
 .selfie-margin {
   width: 275px;   /* parent col ki full width le */
   height: auto;  /* ratio maintain ho */
   object-fit: cover; /* image ka shape barabar rahe */
 }
 
+/* contact css */
+.contact-section{
+    background: url('assets/images/contact-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height:359px;
+}
+.form-text{
+      font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    color:black;
+    
+}
+.form-img {
+    position: absolute;
+    padding-top: 18px;
+    padding-left: 13px;
+}
+
+.custom{
+      box-shadow: none;
+    height: 56px;
+    padding-left: 40px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(144, 144, 144);
+    border-image: initial;
+    border-radius: 99px !important;
+}
 
   </style>
 </head>
