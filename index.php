@@ -151,8 +151,8 @@
     <!-- Mobile Toggle -->
     <div class="row d-md-none mt-4">
       <div class="booking-toggle col-12" >
-        <button class="toggle-btn active col-6" data-type="oneway">one-way</button>
-        <button class="toggle-btn col-6" id="multipleBtn" data-bs-toggle="modal"
+        <button class="toggle-btn active col-6 text-dark" data-type="oneway">one-way</button>
+        <button class="toggle-btn col-6 text-dark" id="multipleBtn" data-bs-toggle="modal"
                 data-bs-target="#multipleTripModal">
           Multiple
         </button>
@@ -185,7 +185,7 @@
         <div class="col-12 col-md-5 mb-3 mb-md-0">
           <label for="oneway_drop" class="form-label">To</label>
           <input type="text" name="drop" id="oneway_drop"
-                 class="form-control search-bar-input placesAPI"
+                 class="form-control search-bar-input "
                  placeholder="Enter Destination" required>
         </div>
 
