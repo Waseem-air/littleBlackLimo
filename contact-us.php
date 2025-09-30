@@ -4,16 +4,16 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-        <section class="contact-section " >
-            <div class="container">
-                <div class="row ">
-                    <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center charm pt-5 ">Contact Us</h1>
-                    </div>
-                </div>
+      <section class="contact-section " >
+          <div class="container">
+              <div class="row ">
+                  <div class="col-12 pt-5 mt-5 vertical-center text-white">
+                      <h1 class="grid-center charm pt-5 ">Contact Us</h1>
+                  </div>
+              </div>
                
-            </div>
-        </section>
+          </div>
+      </section>
       <div class="container py-5">
         <div class="row">
           

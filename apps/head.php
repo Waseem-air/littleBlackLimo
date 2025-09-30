@@ -785,6 +785,16 @@ height:359px;
 
 
 
+@media (max-width: 576px) {
+  .awais{
+    font-size: 12px;
+    line-height: 1.5;
+    padding: 0 10px;
+  }
+}
+
+
+
 /* corportae css */
 .corporates-bg {
   background: url('assets/images/corporate-pic.png') no-repeat center center;
@@ -796,6 +806,7 @@ height:359px;
   font-size: 70px;
   font-weight: 500 !important; 
   height: 60px;
+  
 }
 
 .combineimage3 {

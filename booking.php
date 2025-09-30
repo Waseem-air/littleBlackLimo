@@ -24,26 +24,26 @@
                     <p>Let us take care of the details — you just enjoy the ride.</p>
 
                     <!-- Booking Toggle (desktop only) -->
-                   <div class="row d-none d-md-block w-100">
-  <div class="col-12 mt-4 px-0">
-    <div class="booking-toggle w-100" style="background-color: #868686 !important;">
-      <button class="toggle-btn active w-100 mb-2" data-type="oneway" style="height: 40px;">
-        One-way
-      </button>
-      <button class="toggle-btn w-100" id="multipleBtn" data-bs-toggle="modal"
-              data-bs-target="#multipleTripModal" style="height: 40px;">
-        Multiple
-      </button>
-    </div>
-  </div>
-</div>
+                   <div class="row w-100" style="width:99%!important;">
+                            <div class="col-12 mt-4 p-0">
+                            <div class="booking-toggle w-100 " id="bookingToggle">
+                                <button class="toggle-btn active text-dark" id="onewayBtn" data-type="oneway">
+                                One-way
+                                </button>
+                                <button class="toggle-btn text-dark" id="multipleBtn" data-bs-toggle="modal" data-bs-target="#multipleTripModal">
+                                Multiple
+                                </button>
+                            </div>
+                            </div>
+                        </div>
+
 
 
                     <!-- Booking Form -->
                     <form method="post" action="#" class="mt-4">
                     <div class="row">
                         <!-- Pickup -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
                         <div class="form-group position-relative">
                             <img src="assets/images/arrow_up.svg" class="form-img" alt="">
                             <input type="text" name="pick" class="form-control custom placesAPI"
@@ -52,9 +52,9 @@
                         </div>
 
                         <!-- Drop-off -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
                         <div class="form-group position-relative">
-                            <img src="assets/img/arrow_down.svg" class="form-img" alt="">
+                            <img src="assets/images/arrow_down.svg" class="form-img" alt="">
                             <input type="text" name="drop" class="form-control custom placesAPI"
                                 placeholder="Drop-off Location" required>
                         </div>
@@ -63,9 +63,9 @@
 
                     <div class="row">
                         <!-- Date -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
                         <div class="form-group position-relative">
-                            <img src="assets/img/calendar_month.svg" class="form-img" alt="">
+                            <img src="assets/images/calendar_month.svg" class="form-img" alt="">
                             <input type="text" name="date" id="date" 
                                 class="form-control custom flatpickr"
                                 placeholder="Select Date & Time" required>
@@ -73,9 +73,9 @@
                         </div>
 
                         <!-- Passengers -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3">
+                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
                         <div class="form-group position-relative input-with-buttons">
-                            <img src="assets/img/emoji_people.svg" class="form-img" alt="">
+                            <img src="assets/images/emoji_people.svg" class="form-img" alt="">
                             <select name="total_passenger" id="total_passenger" class="form-select custom rounded-2">
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -90,9 +90,12 @@
 
                     <!-- Submit Button -->
                     <div class="row mt-3">
-                        <div class="col-12">
-                        <button type="submit" class="btn btn-dark w-100">Book Now</button>
+                        <div class="col-12 ps-0">
+                        <button type="submit" class="btn btn-dark w-100 custom">Search</button>
                         </div>
+                    </div>
+                    <div class="mt-4">
+                        <h5><a href="" class="text-dark text-decoration-underline montserrat">Or call us to book</a></h5>
                     </div>
                     </form>
                 </div>
@@ -179,5 +182,34 @@
 </div>
 <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const oneWayBtn = document.querySelector(".toggle-btn[data-type='oneway']");
+  const multipleBtn = document.getElementById("multipleBtn");
+
+  // Default active
+  oneWayBtn.classList.add("active");
+
+  // Handle click for one-way
+  oneWayBtn.addEventListener("click", function() {
+    oneWayBtn.classList.add("active");
+    multipleBtn.classList.remove("active");
+  });
+
+  // Handle click for multiple
+  multipleBtn.addEventListener("click", function() {
+    multipleBtn.classList.add("active");
+    oneWayBtn.classList.remove("active");
+  });
+
+  // Optional: Reset active when modal closes
+  const modal = document.getElementById("multipleTripModal");
+  modal.addEventListener("hidden.bs.modal", function () {
+    // Agar chahte ho close hone par dobara one-way active ho
+    oneWayBtn.classList.add("active");
+    multipleBtn.classList.remove("active");
+  });
+});
+ </script>
 </body>
 </html>

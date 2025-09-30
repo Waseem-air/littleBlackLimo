@@ -8,7 +8,7 @@
             <div class="container">
                 <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center charm tranfer-heading pt-5 ">Airport Transfers</h1>
+                        <h1 class="grid-center text-center charm tranfer-heading pt-5 ">Airport Transfers</h1>
                     </div>
                 </div>
                

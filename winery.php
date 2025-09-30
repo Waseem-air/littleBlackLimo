@@ -4,17 +4,17 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-        <section class="winery-bg " >
-            <div class="container">
-               <div class="row">
-                    <div class="col-12 pt-5 mt-5 text-white d-flex justify-content-center">
-                        <h1 class="charm text-center custom-heading mt-lg-5">
+    <section class="winery-bg " >
+        <div class="container">
+            <div class="row">
+                <div class="col-12 pt-5 mt-5 text-white d-flex justify-content-center">
+                    <h1 class="charm text-center custom-heading mt-lg-5">
                         Winery or Coastal Drive
-                        </h1>
-                    </div>
+                    </h1>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
     <div class="container py-5">
 
 

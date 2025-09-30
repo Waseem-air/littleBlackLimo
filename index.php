@@ -212,14 +212,14 @@
           <div class="carousel-item active ">
             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                  style="background-image: url('assets/images/slider-2.png'); height:455px; ">
-                <div class="p-5">
-                  <p>Outstanding Service from Little Black Limo!</p>
-                  <p>I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
+                <div>
+                  <p class="awais ">Outstanding Service from Little Black Limo!</p>
+                  <p class="awais ">I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
                 </p>
-                  <p>Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
+                  <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
                   </p>
-                  <p>Thanks again!</p>
-                  <h4>- Jovanka Hawkins </h4>
+                  <p class="awais ">Thanks again!</p>
+                  <h4 class="awais ">- Jovanka Hawkins </h4>
               </div>
             </div>
           </div>
@@ -228,14 +228,14 @@
           <div class="carousel-item">
             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                  style="background-image: url('assets/images/slider-2.png'); height:455px;">
-                 <div class="p-5">
-                  <p>Outstanding Service from Little Black Limo!</p>
-                  <p>I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
+                 <div class="">
+                  <p class="awais ">Outstanding Service from Little Black Limo!</p>
+                  <p class="awais ">I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
                 </p>
-                  <p>Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
+                  <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
                   </p>
-                  <p>Thanks again!</p>
-                  <h4>- Jovanka Hawkins </h4>
+                  <p class="awais ">Thanks again!</p>
+                  <h4 class="awais ">- Jovanka Hawkins </h4>
               </div>
             </div>
           </div>
@@ -244,14 +244,14 @@
           <div class="carousel-item">
             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                  style="background-image: url('assets/images/slider-2.png'); height:455px;">
-               <div class="p-5">
-                  <p>Outstanding Service from Little Black Limo!</p>
-                  <p>I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
+               <div>
+                  <p class="awais ">Outstanding Service from Little Black Limo!</p>
+                  <p class="awais ">I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
                 </p>
-                  <p>Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
+                  <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
                   </p>
-                  <p>Thanks again!</p>
-                  <h4>- Jovanka Hawkins </h4>
+                  <p class="awais ">Thanks again!</p>
+                  <h4 class="awais ">- Jovanka Hawkins </h4>
                 </div>
             </div>
           </div>
@@ -260,14 +260,14 @@
           <div class="carousel-item">
             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                  style="background-image: url('assets/images/slider-2.png'); height:455px;">
-               <div class="p-5">
-                  <p>Outstanding Service from Little Black Limo!</p>
-                  <p>I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
+               <div>
+                  <p class="awais ">Outstanding Service from Little Black Limo!</p>
+                  <p class="awais ">I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
                 </p>
-                  <p>Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
+                  <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
                   </p>
-                  <p>Thanks again!</p>
-                  <h4>- Jovanka Hawkins </h4>
+                  <p class="awais ">Thanks again!</p>
+                  <h4 class="awais ">- Jovanka Hawkins </h4>
                 </div>
             </div>
           </div>
@@ -276,14 +276,14 @@
           <div class="carousel-item">
             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                  style="background-image: url('assets/images/slider-2.png'); height:455px;">
-              <div class="p-5">
-                  <p>Outstanding Service from Little Black Limo!</p>
-                  <p>I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
+              <div >
+                  <p class="awais ">Outstanding Service from Little Black Limo!</p>
+                  <p class="awais ">I've been following Colin's page for a while, and from the moment I reached out with my inquiry, I knew I was in <br> brgood hands. The entire process- from booking to pickup and drop-off-was seamless and professional. Colin is an <br>absolute top bloke-friendly, reliable, and great with communication. His pricing is fair, and the vehicle itself is <br> immaculate, making for a truly luxurious and comfortable ride.
                 </p>
-                  <p>Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
+                  <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic service and will      definitely be recommending you! We <br>look forward to booking with you again in the future!
                   </p>
-                  <p>Thanks again!</p>
-                  <h4>- Jovanka Hawkins </h4>
+                  <p class="awais ">Thanks again!</p>
+                  <h4 class="awais ">- Jovanka Hawkins </h4>
                 </div>
             </div>
           </div>
@@ -445,5 +445,36 @@
 </div>
 <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
+
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const oneWayBtn = document.querySelector(".toggle-btn[data-type='oneway']");
+  const multipleBtn = document.getElementById("multipleBtn");
+
+  // Default active
+  oneWayBtn.classList.add("active");
+
+  // Handle click for one-way
+  oneWayBtn.addEventListener("click", function() {
+    oneWayBtn.classList.add("active");
+    multipleBtn.classList.remove("active");
+  });
+
+  // Handle click for multiple
+  multipleBtn.addEventListener("click", function() {
+    multipleBtn.classList.add("active");
+    oneWayBtn.classList.remove("active");
+  });
+
+  // Optional: Reset active when modal closes
+  const modal = document.getElementById("multipleTripModal");
+  modal.addEventListener("hidden.bs.modal", function () {
+    // Agar chahte ho close hone par dobara one-way active ho
+    oneWayBtn.classList.add("active");
+    multipleBtn.classList.remove("active");
+  });
+});
+</script>
+
 </body>
 </html>
