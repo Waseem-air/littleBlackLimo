@@ -2,7 +2,7 @@
   <div class="container mb-0">
     <!-- Logo -->
     <a class="navbar-brand mb-0 p-0" href="index.php">
-      <img src="assets/images/logo.png" alt="Logo" class="nav-logo">
+      <img src="assets/images/logo.svg" alt="Logo" class="nav-logo">
     </a>
 
     <!-- Toggler for mobile -->

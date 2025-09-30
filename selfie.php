@@ -72,15 +72,32 @@
             </div>
 
             <!-- Full width Image -->
-            <div class="row">
-                <div class="col-12">
-                <img src="assets/images/selfie-last-1.png" alt="Full Pic" class="img-fluid ">
-                </div>
+           <div class="row">
+            <div class="col-12 text-center">
+                <!-- Image ko video trigger banaya -->
+                <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal">
+                <img src="assets/images/selfie-last-1.png" alt="Full Pic" class="img-fluid" style="cursor:pointer;">
+                </a>
             </div>
-
+            </div>
         </div>
 
 
+<!-- Video Modal -->
+<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="modal-body p-0">
+        <div class="ratio ratio-16x9">
+          <iframe id="youtubeVideo" src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1"
+                  title="YouTube video" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   
 

@@ -6,9 +6,9 @@
   
         <section class="ourwhy-bg " >
             <div class="container">
-                <div class="row charm">
+                <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center pt-5 ">Our Why</h1>
+                        <h1 class="grid-center pt-5 charm">Our Why</h1>
                     </div>
                 </div>
                
@@ -24,10 +24,10 @@
                         <p class="mt-5 pt-sm-5">After starting in corporate transport, Colin shortly expanded into weddings, events, and tours, providing every passenger with a custom experience, meeting their highest expectations.</p>
                     </div>
                     <div class="col-sm-6 text-center">
-                        <img src="assets/images/ourwhy2.png" alt="" class="w-100" style="height:474px">
+                        <img src="assets/images/ourwhy2.svg" alt="" class="w-100 y-img" >
                     </div>
                     <div class="row mt-5 mb-5 pt-5 pb-5">
-                        <div class="col-12" style="    padding-right: 0px !important; padding-left: 0px !important;">
+                        <div class="col-12" style="padding-right: 0px !important; padding-left: 0px !important;">
                             <img src="assets/images/ourwhy3.png" alt="" class="w-100" >
                         </div>
                     </div>

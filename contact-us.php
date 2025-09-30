@@ -85,12 +85,18 @@
                 </div>
 
                 <!-- Row 4: Date & Times Required -->
-                <div class="row mb-3">
-                  <div class="col-12">
-                    <label for="datetime" class="form-label  form-text fs-6">Date & Times Required</label>
-                    <input type="datetime-local" id="datetime" class="form-control rounded-pill form-text ">
-                  </div>
+               <div class="row mb-3">
+              <div class="col-12">
+                <label for="datetime" class="form-label form-text fs-6">Date & Time Required</label>
+                <div class="form-group position-relative">
+                  <!-- Icon -->
+                  <img src="assets/images/calendar_month.svg" class="form-img-c" alt="">
+                  
+                  <!-- Input -->
+                  <input type="text" id="datetime" class="form-control input-custom rounded-pill form-text" placeholder="Select Date & Time">
                 </div>
+              </div>
+              </div>
 
                 <!-- Submit Button -->
                 <div class="row">
@@ -111,5 +117,13 @@
 
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
+
+ <script>
+    flatpickr("#datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+
+ </script>
 </body>
 </html>

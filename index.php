@@ -204,7 +204,7 @@
 </div>
 <div class="row montserrat-p">
   <div class="col-12 text-white mt-5 text-center">
-      <h1 class="charm fw-bold">What Our Clients Say</h1>
+      <h1 class="charm fw-bold pb-3">What Our Clients Say</h1>
       <div id="customSlider" class="carousel slide mb-5" data-bs-ride="carousel">
         <div class="carousel-inner">
 

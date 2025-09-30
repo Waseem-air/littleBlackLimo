@@ -54,5 +54,7 @@
 
 <!-- Your Custom Script -->
 <script src="assets/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 
 
