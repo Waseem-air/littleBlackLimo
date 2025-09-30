@@ -701,9 +701,7 @@ hr {
 
 .weeding-testimonial-bg {
   background: url('assets/images/wedingbg.png') no-repeat center center;
-background-size: cover;
-
-
+background-size: cover; 
 }
 .weeding-bg {
   background: url('assets/images/weeding-bg.png') no-repeat center center;
@@ -733,7 +731,7 @@ height:359px;
 
 
 .weding-car {
-  width: 582px;
+  width: 481px;
   height: auto;   /* ratio maintain karega */
   object-fit: cover;
 }

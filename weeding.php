@@ -88,21 +88,20 @@
             </div>
         </div>
         <!-- Section 4: Background Image with Testimonial -->
-        <section class="text-white text-center  weeding-testimonial-bg">
-        <div class="container">
-                <div class="row">
-                    <div class="col-12 mb-0 mt-4">
-                    <h1 class="fs-1  mt-4  weding  charm text-white">What our Clients say</h1>
-                    <p class="fs-5 text-white ">
-                        Our team travelled with Little Black Limo for a company meeting. <br>
-                        The service was great and very professional, and the driver was accommodating to all of my requests. <br>
-                        Thank you Little Black Limo!
-                    </p>
-                    <p class="mt-4   text-white">- Maddy H</p>
+        <section class="text-white text-center  weeding-testimonial-bg pb-0">
+            <div class="container">
+                <div class="row pb-0 mb-0">
+                    <div class="col-12 mb-0 mt-4 pb-0">
+                        <h1 class="fs-1  mt-4  weding  charm text-white">What our Clients say</h1>
+                        <p class="fs-5 text-white ">
+                            Our team travelled with Little Black Limo for a company meeting. <br>
+                            The service was great and very professional, and the driver was accommodating to all of my requests. <br>
+                            Thank you Little Black Limo!
+                        </p>
+                        <p class="mt-4 text-white">- Maddy H</p>
                     </div>
                 </div>
             </div>
-
         </section>
 
   <?php require_once('apps/footer.php'); ?>
