@@ -136,11 +136,11 @@
     <!-- Desktop Toggle -->
     <div class="row d-none d-md-block">
       <div class="d-flex flex-wrap justify-content-between align-items-center mt-4 px-0">
-        <div class="booking-toggle" style="background-color: #868686 !important;">
-          <button class="toggle-btn active" data-type="oneway" style="width: 176px; height: 40px;">
+        <div class="booking-toggle">
+          <button class="toggle-btn active text-dark" data-type="oneway" style="width: 176px; height: 40px;">
             one-way
           </button>
-          <button class="toggle-btn" id="multipleBtn" data-bs-toggle="modal"
+          <button class="toggle-btn text-dark" id="multipleBtn" data-bs-toggle="modal"
                   data-bs-target="#multipleTripModal" style="width: 176px; height: 40px;">
             Multiple
           </button>
@@ -150,7 +150,7 @@
 
     <!-- Mobile Toggle -->
     <div class="row d-md-none mt-4">
-      <div class="booking-toggle col-12" style="background-color: #868686 !important;">
+      <div class="booking-toggle col-12" >
         <button class="toggle-btn active col-6" data-type="oneway">one-way</button>
         <button class="toggle-btn col-6" id="multipleBtn" data-bs-toggle="modal"
                 data-bs-target="#multipleTripModal">
