@@ -57,7 +57,7 @@
           </div>
 
           <!-- Right Side -->
-          <div class="col-md-6">
+          <div class="col-md-6 ps-sm-4">
             <h3 class="fs-1 charm mb-4">Get In Touch with Us</h3>
             <form>
              <div class="row mb-3">

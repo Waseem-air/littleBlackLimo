@@ -176,7 +176,7 @@
 
           <!-- Image visible only on large screens -->
           <div class="d-none d-lg-block">
-            <img src="assets/images/b-arrow.png" alt="" width="55px" height="55px">
+            <img src="assets/images/b-arrow.png" alt="" width="45px" height="58px">
           </div>
         </div>
 
