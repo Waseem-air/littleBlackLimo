@@ -21,6 +21,7 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 // ==============================
 define('MAX_PASSENGERS', 7);
 define('VENDOR_ID', 840);
+define('VENDOR_API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');
 
 // ==============================
 // Contact Info
