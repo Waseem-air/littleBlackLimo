@@ -216,16 +216,12 @@
         <!-- Button -->
         <div class="col-12 col-md-2">
           <button type="submit" class="btn btn-dark booking-btn w-100">
-            <a href="booking-confirm.php" class="text-white text-decoration-none">
               Book now
-            </a>
           </button>
         </div>
 
       </div>
     </form>
-
-    <div id="formMessage" class="mt-3"></div>
 
   </div>
 </div>
@@ -509,10 +505,8 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
 
     let form = e.target;
     let formData = new FormData(form);
-
     // API URL from PHP config
     let apiUrl = "<?php echo $API_URL; ?>booking/vehicles";
-
     fetch(apiUrl, {
         method: "POST",
         body: formData
@@ -521,29 +515,43 @@ document.getElementById("bookingForm").addEventListener("submit", function(e) {
         let data = await response.json();
         if (response.ok) {
             // ✅ Success
-            document.getElementById("formMessage").innerHTML = 
-                `<div class="alert alert-success">Booking successful! 🎉</div>`;
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: 'Booking successful 🎉',
+                confirmButtonColor: '#000'
+            });
             form.reset();
         } else {
             // ❌ Validation / error
             let errors = "";
             if (data.errors) {
                 for (let field in data.errors) {
-                    errors += `<p>${data.errors[field][0]}</p>`;
+                    errors += `${data.errors[field][0]}<br>`;
                 }
             } else if (data.message) {
-                errors = `<p>${data.message}</p>`;
+                errors = data.message;
             }
-            document.getElementById("formMessage").innerHTML = 
-                `<div class="alert alert-danger">${errors}</div>`;
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Validation Error',
+                html: errors,
+                confirmButtonColor: '#000'
+            });
         }
     })
     .catch(err => {
-        document.getElementById("formMessage").innerHTML = 
-            `<div class="alert alert-danger">Something went wrong! ${err}</div>`;
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong! ' + err,
+            confirmButtonColor: '#000'
+        });
     });
 });
 </script>
+
 
 
 </body>

@@ -127,7 +127,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     inputs.forEach(input => {
       new google.maps.places.Autocomplete(input, {
-        types: ['geocode'], // sirf addresses ke liye
         componentRestrictions: { country: "au" } // country code (optional) e.g. "au" = Australia
       });
     });
