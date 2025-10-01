@@ -10,6 +10,7 @@ if (isset($_REQUEST['fetchBooking'])) {
         'total_passenger' => $_REQUEST['total_passenger'] ?? '',
     ];
 
+    print_r($postData,$API_URL);
     $response = curlPost($postData, 'booking/vehicles');
 
     // If curlPost already returns array, don’t decode again
