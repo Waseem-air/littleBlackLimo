@@ -20,7 +20,7 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 // Booking / App Settings
 // ==============================
 define('MAX_PASSENGERS', 7);
-define('VENDOR_ID', 'LBL-001');
+define('VENDOR_ID', 840);
 
 // ==============================
 // Contact Info

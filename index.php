@@ -164,6 +164,7 @@
   <div class="search-bar-container mt-4">
     <form method="post" id="bookingForm" >
       <input type="hidden" name="trip_type" value="one_way">
+      <input type="hidden" name="user_id" value="<?php echo VENDOR_ID; ?>">
       <div class="row oneway">
 
         <!-- From -->
