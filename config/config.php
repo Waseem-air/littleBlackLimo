@@ -1,6 +1,6 @@
 <?php
 // Site Config
-define('ENVIRONMENT', 'local'); // local | live
+define('ENVIRONMENT', 'live'); // local | live
 define('SITE_NAME', 'Little Black Limo');
 define('SITE_URL', 'http://localhost:8000'); // Local URL
 define('LIVE_URL', 'https://develop.a1rides.com.au'); // Live URL
