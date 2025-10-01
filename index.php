@@ -162,9 +162,8 @@
         <!-- Booking Form -->
         <div class="row">
             <div class="search-bar-container mt-4">
-                <form method="post" id="bookingForm">
+                <form method="post" action ="booking-confirm.php">
                     <input type="hidden" name="trip_type" value="oneway">
-                    <input type="hidden" name="user_id" value="<?php echo VENDOR_ID; ?>">
                     <div class="row oneway">
 
                         <!-- From -->
@@ -216,11 +215,10 @@
 
                         <!-- Button -->
                         <div class="col-12 col-md-2">
-                            <button type="submit" id="submitBtn" class="btn btn-dark booking-btn w-100">
-                                Book now
-                            </button>
-                        </div>
+                            Book now
+                            <input type="submit" name="fetchBooking"  class="btn btn-dark booking-btn w-100" value="Book Now"/>
 
+                        </div>
                     </div>
                 </form>
 
@@ -538,80 +536,6 @@
             multipleBtn.classList.remove("active");
         });
     });
-</script>
-
-<script>
-    document.getElementById("bookingForm").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const form = e.target;
-        const submitBtn = document.getElementById("submitBtn");
-        const originalBtnText = submitBtn.innerHTML;
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        const formData = new FormData(form);
-        let apiUrl = "<?php echo $API_URL; ?>booking/vehicles";
-        fetch(apiUrl, {
-            method: "POST",
-            headers: {
-                'Accept': 'application/json',
-                'Authorization': 'Bearer <?php echo VENDOR_API_TOKEN; ?>',
-            },
-            body: formData
-        })
-            .then(async response => {
-                const data = await response.json();
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                if (data.success) {
-                    sessionStorage.setItem("bookingData", JSON.stringify(data));
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        text: data.message || 'Available vehicles loaded successfully',
-                        confirmButtonColor: '#212529',
-                        timer: 1500,
-                        showConfirmButton: false
-                    }).then(() => {
-                        let baseUrl = window.location.href.split("index.php")[0];
-                        window.location.href = baseUrl + "booking-confirm.php";                    });
-                } else {
-                    showValidationErrors(data);
-                }
-            })
-            .catch(err => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = originalBtnText;
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Network Error',
-                    text: 'Failed to connect to server. Please check your internet connection.',
-                    confirmButtonColor: '#212529'
-                });
-                console.error('Fetch error:', err);
-            });
-    });
-
-    function showValidationErrors(data) {
-        let errorMessage = '';
-
-        if (data.errors) {
-            errorMessage = '<div class="text-start">';
-            Object.keys(data.errors).forEach(field => {
-                data.errors[field].forEach(error => {
-                    errorMessage += `<div class="error-item">• ${error}</div>`;
-                });
-            });
-            errorMessage += '</div>';
-        } else {
-            errorMessage = data.message || 'An unexpected error occurred.';
-        }
-        Swal.fire({
-            icon: 'error',
-            title: 'Validation Failed',
-            html: errorMessage,
-            confirmButtonColor: '#212529'
-        });
-    }
 </script>
 
 

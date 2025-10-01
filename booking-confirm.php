@@ -1,8 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<?php require_once('apps/head.php'); ?>
+<?php
+require_once('apps/head.php');
+
+if (isset($_REQUEST['fetchBooking'])) {
+    $postData = [
+        'trip_type'       => $_REQUEST['trip_type'] ?? '',
+        'pick'            => $_REQUEST['pick'] ?? '',
+        'drop'            => $_REQUEST['drop'] ?? '',
+        'datetime'        => $_REQUEST['datetime'] ?? '',
+        'total_passenger' => $_REQUEST['total_passenger'] ?? '',
+    ];
+
+    $response = curlPost($postData, 'booking/vehicles');
+
+    // If curlPost already returns array, don’t decode again
+    if (is_string($response)) {
+        $bookingData = json_decode($response, true);
+    } else {
+        $bookingData = $response; // already array
+    }
+
+    // Store data for use in HTML
+    $vehicles = $bookingData['data']['vehicles'] ?? [];
+    $bulkies  = $bookingData['data']['bulkies'] ?? [];
+    $formData = $bookingData['data']['formData'] ?? [];
+
+} else {
+    exit('No booking request found.');
+}
+?>
+
 <body>
-  <?php require_once('apps/header.php'); ?>
+<?php require_once('apps/header.php'); ?>
+
   <!-- bookin detail section start -->
         <section class="booking-bg" >
             <div class="container">
@@ -25,17 +54,24 @@
                             <img src="assets/images/circle.png" class="step-img" alt="">
                             <p class="title charm fw-bold "><span class="subtitle fw-bold me-1">STEP 1</span>  <span class="montserrat">Confirm Itinerary</span></p>
                         </div>
-                        
+
                         <div class="bor">
                             <!-- Pickup 1 -->
                             <div class="pickup">
                                 <div class="pick-up1 montserrat">
                                     <button class="button ">Trip 1</button>
                                     <span class="title">12:30 PM, 22 Dec 2023</span>
+                                    <?php
+                                    if(isset($formData['time']) && isset($formData['date'])) {
+                                        echo htmlspecialchars($formData['time']) . ', ' . htmlspecialchars($formData['date']);
+                                    } else {
+                                        echo 'Time not specified';
+                                    }
+                                    ?>
                                     <span class="span-btn" data-bs-toggle="modal" data-bs-target="#modalPickup1">
                                         Edit
                                     </span>
-                                    
+
                                     <!-- Modal for Pickup 1 -->
                                     <div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
                                         <div class="modal-dialog modal-dialog-centered">
@@ -69,19 +105,26 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="dist1">
                                         <p class="title">From</p>
-                                        <p class="subtitle">1 Muller Ln, Mascot NSW 2020</p>
+                                        <p class="subtitle"><?php echo htmlspecialchars($formData['pick'] ?? 'Pickup location not specified'); ?></p>
                                     </div>
                                     <div class="dist2">
                                         <p class="title">To</p>
-                                        <p class="subtitle">Sydney Airport - International, Mascot NSW 2020</p>
+                                        <p class="subtitle"><?php echo htmlspecialchars($formData['drop'] ?? 'Dropoff location not specified'); ?></p>
                                     </div>
+
+                                    <div class="dist2">
+                                        <p class="title">Passengers</p>
+                                        <p class="subtitle"><?php echo htmlspecialchars($formData['total_passenger'] ?? '1'); ?></p>
+                                    </div>
+
                                 </div>
                             </div>
-                           
+
                         </div>
+
                         <!-- STEP 2: Select your Extras -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="...">
@@ -89,62 +132,96 @@
                                 <span class="title "><span class="subtitle charm fw-bold me-1">STEP 2</span> <span class="montserrat">Add any extras</span>
                             </div>
                         </div>
-                             <!-- Items Counter -->
+
+
                         <div class="bor">
                             <div class="items">
                                 <div class="row montserrat">
+                                    <!-- Check-In Bags -->
                                     <div class="col-lg-6 col-6">
                                         <p class="heading">Check-In Bags</p>
                                         <div class="counter-container">
-                                            <button class="counter-btn" data-counter="passengers" data-action="decrease">
+                                            <button class="counter-btn" data-counter="bags" data-action="decrease" onclick="changeCounter('bags', -1)">
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
-                                            <input type="text" class="form-control counter" id="counterPassengers" value="0" readonly>
-                                            <button class="counter-btn" data-counter="passengers" data-action="increase">
+                                            <input type="text" class="form-control counter" id="counterBags" value="0" readonly>
+                                            <input type="hidden" name="baggeg" id="hiddenBags" value="0">
+                                            <button class="counter-btn" data-counter="bags" data-action="increase" onclick="changeCounter('bags', 1)">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
+
+                                    <!-- Check-In Hand Carry -->
                                     <div class="col-lg-6 col-6">
                                         <p class="heading">Check-In Hand Carry</p>
                                         <div class="counter-container">
-                                            <button class="counter-btn" data-counter="luggage" data-action="decrease">
+                                            <button class="counter-btn" data-counter="handcarry" data-action="decrease" onclick="changeCounter('handcarry', -1)">
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
-                                            <input type="text" class="form-control counter" id="counterLuggage" value="0" readonly>
-                                            <button class="counter-btn" data-counter="luggage" data-action="increase">
+                                            <input type="text" class="form-control counter" id="counterHandCarry" value="0" readonly>
+                                            <input type="hidden" name="hand_carry" id="hiddenHandCarry" value="0">
+                                            <button class="counter-btn" data-counter="handcarry" data-action="increase" onclick="changeCounter('handcarry', 1)">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
+
+                                    <!-- Baby Seats -->
                                     <div class="col-lg-6 col-6">
                                         <p class="heading">Baby Seats</p>
                                         <div class="counter-container">
-                                            <button class="counter-btn" data-counter="carryon" data-action="decrease">
+                                            <button class="counter-btn" data-counter="babyseats" data-action="decrease" onclick="changeCounter('babyseats', -1)">
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
-                                            <input type="text" class="form-control counter" id="counterCarryon" value="0" readonly>
-                                            <button class="counter-btn" data-counter="carryon" data-action="increase">
+                                            <input type="text" class="form-control counter" id="counterBabySeats" value="0" readonly>
+                                            <input type="hidden" name="noofbaby" id="hiddenBabySeats" value="0">
+                                            <button class="counter-btn" data-counter="babyseats" data-action="increase" onclick="changeCounter('babyseats', 1)">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
+
+                                    <!-- Booster Seats -->
                                     <div class="col-lg-6 col-6">
                                         <p class="heading">Booster Seats</p>
                                         <div class="counter-container">
-                                            <button class="counter-btn" data-counter="surfboards" data-action="decrease">
+                                            <button class="counter-btn" data-counter="boosterseats" data-action="decrease" onclick="changeCounter('boosterseats', -1)">
                                                 <i class="fa-solid fa-minus"></i>
                                             </button>
-                                            <input type="text" class="form-control counter" id="counterSurfboards" value="0" readonly>
-                                            <button class="counter-btn" data-counter="surfboards" data-action="increase">
+                                            <input type="text" class="form-control counter" id="counterBoosterSeats" value="0" readonly>
+                                            <input type="hidden" name="noofbooster" id="hiddenBoosterSeats" value="0">
+                                            <button class="counter-btn" data-counter="boosterseats" data-action="increase" onclick="changeCounter('boosterseats', 1)">
                                                 <i class="fa-solid fa-plus"></i>
                                             </button>
                                         </div>
                                     </div>
+
+
+                                    <?php if(!empty($bulkies)): ?>
+                                        <?php foreach($bulkies as $bulky): ?>
+                                            <div class="col-lg-6 col-6">
+                                                <p class="heading"><?= htmlspecialchars($bulky['name']); ?></p>
+                                                <div class="counter-container">
+                                                    <button class="counter-btn" data-counter="bulky_<?= $bulky['id']; ?>" data-action="decrease">
+                                                        <i class="fa-solid fa-minus"></i>
+                                                    </button>
+                                                    <input type="text" class="form-control counter" id="counterBulky_<?= $bulky['id']; ?>" value="0" readonly>
+                                                    <input type="hidden" name="bulkItems[<?= $bulky['id']; ?>]" id="hiddenBulky_<?= $bulky['id']; ?>" value="0">
+                                                    <button class="counter-btn" data-counter="bulky_<?= $bulky['id']; ?>" data-action="increase">
+                                                        <i class="fa-solid fa-plus"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
+
+
+
                                 </div>
                             </div>
-
                         </div>
+
                         <!-- STEP 3: Select your ride -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="...">
@@ -155,7 +232,7 @@
                                 </span>
                             </div>
                         </div>
-                        
+
                         <!-- Modal for Ride Selection -->
                         <div class="modal fade" id="modalRideSelection" tabindex="-1" aria-labelledby="modalRideSelectionLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -164,98 +241,80 @@
                                         <span class="modal-span" id="modalRideSelectionLabel">Select your ride</span>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <div class="modal-body ">
-                                        <div class="booking-card booking-card-modal">
-                                            <button class="badge2">Our pick</button>
-                                            <div class="card-item">
-                                                <div class="card-inner">
-                                                    <div class="card-subinner">
-                                                        <p class="card-title text-white">Sedan • $35</p>
-                                                        <div class="extras">
-                                                            <img src="assets/images/group-white.png" class="cardimg text-white" alt=""><span class="text-white">3</span>
-                                                            <img src="assets/images/basil_bag-solid-white.png" class="cardimg " alt=""><span class="text-white">3</span>
-                                                            <img src="assets/images/wpf_luggage-trolley-white.png" class="cardimg text-white" alt=""><span class="text-white">3</span>
+                                    <div class="modal-body">
+                                        <?php if(!empty($vehicles)): ?>
+                                            <?php foreach($vehicles as $vehicle): ?>
+                                                <div class="booking-card"
+                                                     data-vehicle-id="<?php echo $vehicle['vehicle_uid']; ?>"
+                                                     data-price="<?php echo $vehicle['fare']; ?>">
+
+                                                    <div class="card-item">
+                                                        <div class="card-inner">
+                                                            <div class="card-subinner">
+                                                                <p class="card-title">
+                                                                    <?php echo htmlspecialchars($vehicle['vehicle_type']); ?> • $<?php echo number_format($vehicle['fare'], 2); ?>
+                                                                </p>
+                                                                <div class="extras">
+                                                                    <img src="assets/images/group.png" class="cardimg" alt="">
+                                                                    <span><?php echo $vehicle['person_allowed']; ?></span>
+
+                                                                    <img src="assets/images/basil_bag-solid.png" class="cardimg" alt="">
+                                                                    <span><?php echo $vehicle['no_of_seats']; ?></span>
+
+                                                                    <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt="">
+                                                                    <span><?php echo $vehicle['no_of_seats']; ?></span>
+                                                                </div>
+                                                            </div>
                                                         </div>
+                                                        <img src="<?php echo $IMG_URL . $vehicle['vehicle_image'] . '.svg'; ?>" class="cardimg" alt="">
                                                     </div>
                                                 </div>
-                                                <img src="assets/images/model-1.png" class="card-img" alt="...">
+                                            <?php endforeach; ?>
+                                        <?php else: ?>
+                                            <div class="text-center p-3">
+                                                <p>No vehicles available</p>
                                             </div>
-                                        </div>
-                                        <div class="booking-card">
-                                            <div class="card-item">
-                                                <div class="card-inner">
-                                                    <div class="card-subinner">
-                                                        <p class="card-title">SUV • $60</p>
-                                                        <div class="extras">
-                                                            <img src="assets/images/group.png" class="cardimg" alt=""><span>3</span>
-                                                            <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>3</span>
-                                                            <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>3</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <img src="assets/images/model-2.png" class="card-img" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="booking-card">
-                                            <div class="card-item">
-                                                <div class="card-inner">
-                                                    <div class="card-subinner">
-                                                        <p class="card-title">SUV • $60</p>
-                                                        <div class="extras">
-                                                            <img src="assets/images/group.png" class="cardimg" alt=""><span>3</span>
-                                                            <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>3</span>
-                                                            <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>3</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <img src="assets/images/model-3.png" class="card-img" alt="...">
-                                            </div>
-                                        </div>
-                                        <div class="booking-card">
-                                            <div class="card-item">
-                                                <div class="card-inner">
-                                                    <div class="card-subinner">
-                                                        <p class="card-title">People Mover • $65</p>
-                                                        <div class="extras">
-                                                            <img src="assets/images/group.png" class="cardimg" alt=""><span>6</span>
-                                                            <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>6</span>
-                                                            <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>6</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <img src="assets/images/model-3.png" class="card-img" alt="...">
-                                            </div>
-                                        </div>
+                                        <?php endif; ?>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
-                        
+
+                        <!-- Selected Vehicle Display -->
                         <div class="bor">
-                            <div class="booking-card1 montserrat">
-                                <button class="badge1">Our pick</button>
-                                <div class="card-item">
-                                    <div class="card-inner">
-                                        <div class="card-subinner">
-                                            <p class="card-title">Limo Sedan • $55</p>
-                                            <div class="extras">
-                                                <img src="assets/images/group.png" class="cardimg" alt=""><span>3</span>
-                                                <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt=""><span>3</span>
-                                                <img src="assets/images/basil_bag-solid.png" class="cardimg" alt=""><span>3</span>
+                            <?php if(!empty($vehicles)): ?>
+                                <?php $firstVehicle = $vehicles[0]; ?>
+                                <div class="booking-card1 montserrat" id="selected-vehicle">
+                                    <button class="badge1">Our pick</button>
+                                    <div class="card-item">
+                                        <div class="card-inner">
+                                            <div class="card-subinner">
+                                                <p class="card-title"><?php echo htmlspecialchars($firstVehicle['vehicle_type']); ?> • $<?php echo number_format($firstVehicle['fare'], 2); ?></p>
+                                                <div class="extras">
+                                                    <img src="assets/images/group.png" class="cardimg text-dark" alt="">
+                                                    <span><?php echo $firstVehicle['person_allowed']; ?></span>
+
+                                                    <img src="assets/images/wpf_luggage-trolley.png" class="cardimg" alt="">
+                                                    <span><?php echo $firstVehicle['no_of_seats']; ?></span>
+
+                                                    <img src="assets/images/basil_bag-solid.png" class="cardimg" alt="">
+                                                    <span><?php echo $firstVehicle['no_of_seats']; ?></span>
+                                                </div>
                                             </div>
                                         </div>
+                                        <img src="<?php echo $IMG_URL . $firstVehicle['vehicle_image'].'.svg'; ?>" class="cardimg" alt="">
                                     </div>
-                                    <img src="assets/images/booking-car-img.png" class="card-img" alt="...">
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
-                        
+
                         <!-- STEP 4: Enter your details -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="">
-                            <span class="title"><span class="subtitle charm fw-bold me-1">STEP 4</span> <span class="montserrat">Enter your Contact<span> 
+                            <span class="title"><span class="subtitle charm fw-bold me-1">STEP 4</span> <span class="montserrat">Enter your Contact<span>
                         </div>
-                        
+
                         <div class="bor">
                             <div class="details">
                                 <form action="">
@@ -283,29 +342,45 @@
                                 </form>
                             </div>
                         </div>
-                        
+
+                        <!-- FINAL STEP: Make your payment -->
+
                         <!-- FINAL STEP: Make your payment -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="">
                             <p class="title "><span class="subtitle charm fw-bold">FINAL STEP</span><span class="montserrat ms-1">Make your payment</span> </p>
-                        </div>                        
+                        </div>
+
                         <div class="total montserrat">
-                            <p class="total-p">$35.00 <sup class="total-span">Total</sup></p>
+                            <?php if(!empty($vehicles)): ?>
+                                <p class="total-p">$<span id="total-price"><?php echo number_format($vehicles[0]['fare'], 2); ?></span> <sup class="total-span">Total</sup></p>
+                            <?php else: ?>
+                                <p class="total-p">$0.00 <sup class="total-span">Total</sup></p>
+                            <?php endif; ?>
                             <div class="d-grid gap-2">
                                 <a href="booking_confirmed.html" class="total-btn">Pay now to book</a>
                             </div>
                         </div>
+
                     </div>
                 </div>
-                
+
                 <!-- Map Section -->
                 <div class="col-lg-6 col-12 embed-responsive d-none d-lg-block">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8385385572983!2d144.95358331584498!3d-37.81725074201705!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4dd5a05d97%3A0x3e64f855a564844d!2s121%20King%20St%2C%20Melbourne%20VIC%203000%2C%20Australia!5e0!3m2!1sen!2sbd!4v1612419490850!5m2!1sen!2sbd"
-                        class="embed-responsive-item" frameborder="0" style="border:0; width: 100%; height: 100%;" allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
+                    <?php if (!empty($formData['pick']) && !empty($formData['drop'])): ?>
+                        <iframe
+                                src="https://www.google.com/maps/embed/v1/directions?origin=<?php echo urlencode($formData['pick']); ?>&destination=<?php echo urlencode($formData['drop']); ?>&key=<?php echo MAP_KEY; ?>"
+                                class="embed-responsive-item"
+                                frameborder="0"
+                                style="border:0; width: 100%; height: 100%;"
+                                allowfullscreen=""
+                                loading="lazy">
+                        </iframe>
+                    <?php else: ?>
+                        <p class="text-muted">Map not available. Missing pickup or drop-off location.</p>
+                    <?php endif; ?>
                 </div>
+
             </div>
         </div>
     </section>
@@ -314,5 +389,113 @@
      <!-- bookin detail End -->
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Vehicle selection
+        const vehicleCards = document.querySelectorAll('.booking-card-modal, .booking-card');
+        const selectedVehicleDisplay = document.getElementById('selected-vehicle');
+        const totalPriceElement = document.getElementById('total-price');
+        vehicleCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const vehicleType = this.querySelector('.card-title').textContent.split('•')[0].trim();
+                const price = this.getAttribute('data-price');
+                const vehicleId = this.getAttribute('data-vehicle-id');
+                selectedVehicleDisplay.querySelector('.card-title').textContent = vehicleType + ' • $' + parseFloat(price).toFixed(2);
+                totalPriceElement.textContent = parseFloat(price).toFixed(2);
+                // Close modal
+                const modal = bootstrap.Modal.getInstance(document.getElementById('modalRideSelection'));
+                modal.hide();
+            });
+        });
+
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Dispatcher: one entry point for all counter changes
+        window.changeCounter = function(counterType, change) {
+            if (counterType.startsWith('bulky_')) {
+                handleDynamicCounter(counterType, change);
+            } else {
+                handleStaticCounter(counterType, change);
+            }
+        };
+
+        // Attach event listeners to all counter buttons
+        const buttons = document.querySelectorAll('.counter-btn');
+        buttons.forEach(btn => {
+            btn.setAttribute('type', 'button'); // prevent accidental form submit
+            btn.removeAttribute('onclick');     // remove inline onclicks if any
+
+            btn.addEventListener('click', (event) => {
+                event.preventDefault();
+                const counterType = btn.dataset.counter;
+                const action = btn.dataset.action;
+                const change = action === 'increase' ? 1 : -1;
+
+                changeCounter(counterType, change);
+            });
+        });
+    });
+
+    // Handle static counters
+    function handleStaticCounter(counterType, change) {
+        let visibleId, hiddenId;
+
+        switch(counterType) {
+            case 'bags':
+                visibleId = 'counterBags';
+                hiddenId = 'hiddenBags';
+                break;
+            case 'handcarry':
+                visibleId = 'counterHandCarry';
+                hiddenId = 'hiddenHandCarry';
+                break;
+            case 'babyseats':
+                visibleId = 'counterBabySeats';
+                hiddenId = 'hiddenBabySeats';
+                break;
+            case 'boosterseats':
+                visibleId = 'counterBoosterSeats';
+                hiddenId = 'hiddenBoosterSeats';
+                break;
+            default:
+                return; // not a static counter
+        }
+
+        updateCounter(visibleId, hiddenId, change);
+    }
+
+    // Handle dynamic bulky counters
+    function handleDynamicCounter(counterType, change) {
+        // counterType looks like "bulky_3"
+        const idNumber = counterType.substring(6); // strip "bulky_"
+        const visibleId = `counterBulky_${idNumber}`;
+        const hiddenId  = `hiddenBulky_${idNumber}`;
+
+        updateCounter(visibleId, hiddenId, change);
+    }
+
+    // Shared update function
+    function updateCounter(visibleId, hiddenId, change) {
+        const visibleInput = document.getElementById(visibleId);
+        const hiddenInput  = document.getElementById(hiddenId);
+
+        if (!visibleInput) return;
+
+        let value = parseInt(visibleInput.value) || 0;
+        value += change;
+
+        if (value < 0) value = 0; // no negatives
+
+        visibleInput.value = value;
+        if (hiddenInput) hiddenInput.value = value;
+    }
+</script>
+
+
+
 </body>
 </html>

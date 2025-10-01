@@ -3,12 +3,14 @@
 define('ENVIRONMENT', 'local'); // local | live
 define('SITE_NAME', 'Little Black Limo');
 define('SITE_URL', 'http://localhost:8000'); // Local URL
-define('LIVE_URL', 'https://develop.a1rides.com.au.com'); // Live URL
+define('LIVE_URL', 'https://develop.a1rides.com.au'); // Live URL
 
 // API Config
 define('LOCAL_API_URL', SITE_URL . '/api/');   // Local API URL
 define('LIVE_API_URL', LIVE_URL . '/api/');    // Live API URL
+define('IMG_PATH', '/frontend/asset/img/');
 
+$IMG_URL = LIVE_URL.IMG_PATH;
 $API_URL = (ENVIRONMENT === 'local') ? LOCAL_API_URL : LIVE_API_URL;
 
 // ==============================
@@ -20,8 +22,7 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 // Booking / App Settings
 // ==============================
 define('MAX_PASSENGERS', 7);
-define('VENDOR_ID', 840);
-define('VENDOR_API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');
+define('API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');
 
 // ==============================
 // Contact Info
