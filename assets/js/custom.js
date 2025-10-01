@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const addStopHerePlaceholder = "Add stop here";
-    const removeStopText = "Remove"; 
+    const removeStopText = "Remove";
 
     let tripCount = 0;
     let autocompleteInstances = [];
@@ -20,7 +20,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function initPlacesAutocomplete(inputElement) {
         if (!inputElement.dataset.autocompleteInitialized) {
-            const autocomplete = new google.maps.places.Autocomplete(inputElement, {});
+            const autocomplete = new google.maps.places.Autocomplete(inputElement, {
+                componentRestrictions: { country: "au" } // ✅ Restrict to AU
+            });
             autocomplete.addListener('place_changed', function () {
                 const place = autocomplete.getPlace();
                 if (!place.geometry) {
@@ -74,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (bookingSection) {
         const datePicker1 = bookingSection.querySelector("#datePicker1");
         const datePicker2 = bookingSection.querySelector("#datePicker2");
-        
+
         if (datePicker1) {
             flatpickr(datePicker1, {
                 enableTime: true,
@@ -96,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const counterType = this.getAttribute("data-counter");
                 const action = this.getAttribute("data-action");
                 const counterInput = document.getElementById(`counter${counterType.charAt(0).toUpperCase() + counterType.slice(1)}`);
-                
+
                 if (counterInput) {
                     let value = parseInt(counterInput.value);
                     if (action === "increase") value++;
@@ -121,19 +123,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
- function initAutocomplete() {
+// ✅ Initialize on page load with AU restriction
+function initAutocomplete() {
     const inputs = document.querySelectorAll(".placesAPI");
 
     inputs.forEach(input => {
-      new google.maps.places.Autocomplete(input, {
-        componentRestrictions: { country: "au" } // country code (optional) e.g. "au" = Australia
-      });
+        new google.maps.places.Autocomplete(input, {
+            componentRestrictions: { country: "au" } // ✅ Only Australia
+        });
     });
-  }
+}
 
-  // Initialize jab page load ho
-  google.maps.event.addDomListener(window, 'load', initAutocomplete);
-
-
-  
+// ✅ Ensure initialization when window loads
+google.maps.event.addDomListener(window, 'load', initAutocomplete);
