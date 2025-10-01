@@ -1,6 +1,8 @@
 <?php
 require_once('apps/head.php');
 
+print_r($_REQUEST,$API_URL);
+
 if (isset($_REQUEST['fetchBooking'])) {
     $postData = [
         'trip_type'       => $_REQUEST['trip_type'] ?? '',
