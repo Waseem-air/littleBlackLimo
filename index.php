@@ -216,7 +216,7 @@
 
         <!-- Button -->
         <div class="col-12 col-md-2">
-          <button type="submit" class="btn btn-dark booking-btn w-100">
+          <button type="submit" id="submitBtn" class="btn btn-dark booking-btn w-100">
               Book now
           </button>
         </div>
@@ -501,57 +501,78 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <script>
-document.getElementById("bookingForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+      document.getElementById("bookingForm").addEventListener("submit", function(e) {
+          e.preventDefault();
+          const form = e.target;
+          const submitBtn = document.getElementById("submitBtn");
+          const originalBtnText = submitBtn.innerHTML;
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Searching Vehicles...';
+          const formData = new FormData(form);
+          let apiUrl = "<?php echo $API_URL; ?>booking/vehicles";
+          fetch(apiUrl, {
+              method: "POST",
+              headers: {
+                  'Accept': 'application/json',
+              },
+              body: formData
+          })
+              .then(async response => {
+                  const data = await response.json();
+                  submitBtn.disabled = false;
+                  submitBtn.innerHTML = originalBtnText;
+                  if (data.success) {
+                      sessionStorage.setItem("bookingData", JSON.stringify(data));
+                      Swal.fire({
+                          icon: 'success',
+                          title: 'Success!',
+                          text: data.message || 'Available vehicles loaded successfully',
+                          confirmButtonColor: '#3085d6',
+                          timer: 1500,
+                          showConfirmButton: false
+                      }).then(() => {
+                          window.location.href = "/booking-confirm.php";
+                      });
+                  } else {
+                      showValidationErrors(data);
+                  }
+              })
+              .catch(err => {
+                  submitBtn.disabled = false;
+                  submitBtn.innerHTML = originalBtnText;
 
-    let form = e.target;
-    let formData = new FormData(form);
-    // API URL from PHP config
-    let apiUrl = "<?php echo $API_URL; ?>booking/vehicles";
-    fetch(apiUrl, {
-        method: "POST",
-        body: formData
-    })
-    .then(async response => {
-        let data = await response.json();
-        if (response.ok) {
-            // ✅ Success
-            Swal.fire({
-                icon: 'success',
-                title: 'Success!',
-                text: 'Booking successful 🎉',
-                confirmButtonColor: '#000'
-            });
-            form.reset();
-        } else {
-            // ❌ Validation / error
-            let errors = "";
-            if (data.errors) {
-                for (let field in data.errors) {
-                    errors += `${data.errors[field][0]}<br>`;
-                }
-            } else if (data.message) {
-                errors = data.message;
-            }
+                  Swal.fire({
+                      icon: 'error',
+                      title: 'Network Error',
+                      text: 'Failed to connect to server. Please check your internet connection.',
+                      confirmButtonColor: '#d33'
+                  });
+                  console.error('Fetch error:', err);
+              });
+      });
 
-            Swal.fire({
-                icon: 'error',
-                title: 'Validation Error',
-                html: errors,
-                confirmButtonColor: '#000'
-            });
-        }
-    })
-    .catch(err => {
-        Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Something went wrong! ' + err,
-            confirmButtonColor: '#000'
-        });
-    });
-});
-</script>
+      function showValidationErrors(data) {
+          let errorMessage = '';
+
+          if (data.errors) {
+              errorMessage = '<div class="text-start">';
+              Object.keys(data.errors).forEach(field => {
+                  data.errors[field].forEach(error => {
+                      errorMessage += `<div class="error-item">• ${error}</div>`;
+                  });
+              });
+              errorMessage += '</div>';
+          } else {
+              errorMessage = data.message || 'An unexpected error occurred.';
+          }
+          Swal.fire({
+              icon: 'error',
+              title: 'Validation Failed',
+              html: errorMessage,
+              confirmButtonColor: '#d33'
+          });
+      }
+  </script>
 
 
 
