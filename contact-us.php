@@ -118,12 +118,6 @@
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
 
- <script>
-    flatpickr("#datetime", {
-    enableTime: true,
-    dateFormat: "Y-m-d H:i",
-  });
 
- </script>
 </body>
 </html>

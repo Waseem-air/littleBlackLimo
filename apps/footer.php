@@ -39,7 +39,8 @@
   
   
   
-  
+ <?php require_once 'config/config.php'; ?>
+ 
 <!-- jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
@@ -48,13 +49,23 @@
 
 <!-- Flatpickr -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-
-<!-- Google Maps Places API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_KEY&libraries=places&callback=initAutocomplete" async defer></script>
-
 <!-- Your Custom Script -->
 <script src="assets/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=en&key=<?php echo MAP_KEY; ?>"
+        async defer></script>
+
+        <script>
+            flatpickr("#datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+  });
+        </script>
+
 
 
 

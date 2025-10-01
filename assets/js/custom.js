@@ -120,3 +120,21 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+ function initAutocomplete() {
+    const inputs = document.querySelectorAll(".placesAPI");
+
+    inputs.forEach(input => {
+      new google.maps.places.Autocomplete(input, {
+        types: ['geocode'], // sirf addresses ke liye
+        componentRestrictions: { country: "au" } // country code (optional) e.g. "au" = Australia
+      });
+    });
+  }
+
+  // Initialize jab page load ho
+  google.maps.event.addDomListener(window, 'load', initAutocomplete);
+
+
+  

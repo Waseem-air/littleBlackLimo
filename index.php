@@ -162,11 +162,12 @@
     <!-- Booking Form -->
     <div class="row">
   <div class="search-bar-container mt-4">
-    <form method="post" action="#">
+    <form method="post" id="bookingForm" >
+      <input type="hidden" name="trip_type" value="one_way">
       <div class="row oneway">
 
         <!-- From -->
-        <div class="col-12 col-md-5 ps-2 d-flex justify-content-between align-items-end">
+        <div class="col-12 col-md-3 mb-3  d-flex justify-content-between align-items-end">
           <div>
             <label for="oneway_pick" class="form-label">From</label>
             <input type="text" name="pick" id="oneway_pick"
@@ -182,12 +183,35 @@
 
 
         <!-- To -->
-        <div class="col-12 col-md-5 mb-3 mb-md-0">
+        <div class="col-12 col-md-3 mb-3 mb-md-0">
           <label for="oneway_drop" class="form-label">To</label>
           <input type="text" name="drop" id="oneway_drop"
-                 class="form-control search-bar-input "
-                 placeholder="Enter Destination" required>
+                class="form-control search-bar-input placesAPI"
+                placeholder="Enter Destination" required>
         </div>
+
+      <!-- Date & Time -->
+       <div class="col-12 col-md-2 mb-3 mb-md-0">
+          <label for="datetime" class="form-label">Date & Time</label>
+          <input type="text" name="datetime" id="datetime"
+                class="form-control search-bar-input flatpickr" placeholder="Select Date & Time" required>
+        </div>
+
+          <!-- Passengers -->
+          <div class="col-12 col-md-2 mb-3 mb-md-0">
+            <div class=" rounded-4 mb-3">
+                <label class="form-label small mb-1">Passengers</label>
+                <select class="form-select p-select text-center w-auto" 
+        name="total_passenger" id="total_passenger">
+                <?php for ($i = 1; $i <= MAX_PASSENGERS; $i++): ?>
+                    <option value="<?= $i ?>"><?= $i ?></option>
+                <?php endfor; ?>
+            </select>
+
+            </div>
+          </div>
+
+
 
         <!-- Button -->
         <div class="col-12 col-md-2">
@@ -200,6 +224,9 @@
 
       </div>
     </form>
+
+    <div id="formMessage" class="mt-3"></div>
+
   </div>
 </div>
 <div class="row montserrat-p">
@@ -475,6 +502,49 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let form = e.target;
+    let formData = new FormData(form);
+
+    // API URL from PHP config
+    let apiUrl = "<?php echo $API_URL; ?>booking/vehicles";
+
+    fetch(apiUrl, {
+        method: "POST",
+        body: formData
+    })
+    .then(async response => {
+        let data = await response.json();
+        if (response.ok) {
+            // ✅ Success
+            document.getElementById("formMessage").innerHTML = 
+                `<div class="alert alert-success">Booking successful! 🎉</div>`;
+            form.reset();
+        } else {
+            // ❌ Validation / error
+            let errors = "";
+            if (data.errors) {
+                for (let field in data.errors) {
+                    errors += `<p>${data.errors[field][0]}</p>`;
+                }
+            } else if (data.message) {
+                errors = `<p>${data.message}</p>`;
+            }
+            document.getElementById("formMessage").innerHTML = 
+                `<div class="alert alert-danger">${errors}</div>`;
+        }
+    })
+    .catch(err => {
+        document.getElementById("formMessage").innerHTML = 
+            `<div class="alert alert-danger">Something went wrong! ${err}</div>`;
+    });
+});
+</script>
+
 
 </body>
 </html>

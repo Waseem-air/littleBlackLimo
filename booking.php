@@ -41,63 +41,63 @@
 
                     <!-- Booking Form -->
                     <form method="post" action="#" class="mt-4">
-                    <div class="row">
-                        <!-- Pickup -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
-                        <div class="form-group position-relative">
-                            <img src="assets/images/arrow_up.svg" class="form-img" alt="">
-                            <input type="text" name="pick" class="form-control custom placesAPI"
-                                placeholder="Pickup Location" required>
-                        </div>
+                        <div class="row">
+                            <!-- Pickup -->
+                            <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
+                            <div class="form-group position-relative">
+                                <img src="assets/images/arrow_up.svg" class="form-img" alt="">
+                                <input type="text" name="pick" class="form-control custom placesAPI"
+                                    placeholder="Pickup Location" required>
+                            </div>
+                            </div>
+
+                            <!-- Drop-off -->
+                            <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
+                            <div class="form-group position-relative">
+                                <img src="assets/images/arrow_down.svg" class="form-img" alt="">
+                                <input type="text" name="drop" class="form-control custom placesAPI"
+                                    placeholder="Drop-off Location" required>
+                            </div>
+                            </div>
                         </div>
 
-                        <!-- Drop-off -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
-                        <div class="form-group position-relative">
-                            <img src="assets/images/arrow_down.svg" class="form-img" alt="">
-                            <input type="text" name="drop" class="form-control custom placesAPI"
-                                placeholder="Drop-off Location" required>
-                        </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <!-- Date -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
-                        <div class="form-group position-relative">
-                            <img src="assets/images/calendar_month.svg" class="form-img" alt="">
-                            <input type="text" name="date" id="date"
-                                class="form-control custom flatpickr"
-                                placeholder="Select Date & Time" required>
-                        </div>
-                        </div>
+                        <div class="row">
+                            <!-- Date -->
+                            <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
+                            <div class="form-group position-relative">
+                                <img src="assets/images/calendar_month.svg" class="form-img" alt="">
+                                <input type="text" name="date" id="date"
+                                    class="form-control custom flatpickr"
+                                    placeholder="Select Date & Time" required>
+                            </div>
+                            </div>
 
 
-                        <!-- Passengers -->
-                        <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
-                        <div class="form-group position-relative input-with-buttons">
-                            <img src="assets/images/emoji_people.svg" class="form-img" alt="">
-                            <select name="total_passenger" id="total_passenger" class="form-select custom rounded-2">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            </select>
+                            <!-- Passengers -->
+                            <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
+                            <div class="form-group position-relative input-with-buttons">
+                                <img src="assets/images/emoji_people.svg" class="form-img" alt="">
+                                <select name="total_passenger" id="total_passenger" class="form-select custom rounded-2">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                </select>
+                            </div>
+                            </div>
                         </div>
-                        </div>
-                    </div>
 
-                    <!-- Submit Button -->
-                    <div class="row mt-3">
-                        <div class="col-12 ps-0">
-                        <button type="submit" class="btn btn-dark w-100 custom">Search</button>
+                        <!-- Submit Button -->
+                        <div class="row mt-3">
+                            <div class="col-12 ps-0">
+                            <button type="submit" class="btn btn-dark w-100 custom">Search</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="mt-4">
-                        <h5><a href="" class="text-dark text-decoration-underline montserrat">Or call us to book</a></h5>
-                    </div>
+                        <div class="mt-4">
+                            <h5><a href="" class="text-dark text-decoration-underline montserrat">Or call us to book</a></h5>
+                        </div>
                     </form>
                 </div>
 
