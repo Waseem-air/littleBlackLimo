@@ -168,7 +168,7 @@
 
                         <!-- From -->
                         <div class="col-12 col-md-3 mb-3  d-flex justify-content-between align-items-end">
-                            <div>
+                            <div class="w-100">
                                 <label for="oneway_pick" class="form-label">From</label>
                                 <input type="text" name="pick" id="oneway_pick"
                                        class="form-control search-bar-input placesAPI"
