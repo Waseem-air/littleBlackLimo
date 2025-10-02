@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const addStopHerePlaceholder = "Add stop here";
-    const removeStopText = "Remove"; 
+    const removeStopText = "Remove";
 
     let tripCount = 0;
     let autocompleteInstances = [];
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (bookingSection) {
         const datePicker1 = bookingSection.querySelector("#datePicker1");
         const datePicker2 = bookingSection.querySelector("#datePicker2");
-        
+
         if (datePicker1) {
             flatpickr(datePicker1, {
                 enableTime: true,
@@ -89,22 +89,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 minDate: "today",
             });
         }
-
-        // Counter functionality
-        bookingSection.querySelectorAll(".counter-btn").forEach((btn) => {
-            btn.addEventListener("click", function () {
-                const counterType = this.getAttribute("data-counter");
-                const action = this.getAttribute("data-action");
-                const counterInput = document.getElementById(`counter${counterType.charAt(0).toUpperCase() + counterType.slice(1)}`);
-                
-                if (counterInput) {
-                    let value = parseInt(counterInput.value);
-                    if (action === "increase") value++;
-                    else if (action === "decrease" && value > 0) value--;
-                    counterInput.value = value;
-                }
-            });
-        });
     }
 
     // Google maps init
@@ -137,4 +121,3 @@ document.addEventListener('DOMContentLoaded', function () {
   //google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
 
-  
