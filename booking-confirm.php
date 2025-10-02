@@ -1,6 +1,5 @@
 <?php
 require_once('apps/head.php');
-
 if (isset($_REQUEST['fetchBooking'])) {
     $postData = [
         'trip_type'       => $_REQUEST['trip_type'] ?? '',
@@ -11,7 +10,6 @@ if (isset($_REQUEST['fetchBooking'])) {
     ];
 
     $response = curlPost($postData, 'booking/vehicles');
-
     // Decode response
     if (is_string($response)) {
         $bookingData = json_decode($response, true);

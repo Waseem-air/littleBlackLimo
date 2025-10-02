@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // Initialize jab page load ho
-  google.maps.event.addDomListener(window, 'load', initAutocomplete);
+  //google.maps.event.addDomListener(window, 'load', initAutocomplete);
 
 
   

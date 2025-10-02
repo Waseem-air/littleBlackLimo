@@ -41,6 +41,7 @@
 
                     <!-- Booking Form -->
                     <form method="post" action="booking-confirm.php" class="mt-4">
+						<input type="hidden" name="trip_type" value="oneway">
                         <div class="row">
                             <!-- Pickup -->
                             <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
@@ -92,7 +93,7 @@
                         <!-- Submit Button -->
                         <div class="row mt-3">
                             <div class="col-12 ps-0">
-                            <button type="submit" class="btn btn-dark w-100 custom">Search</button>
+                            <input type="submit" class="btn btn-dark w-100 custom" name="fetchBooking" value="Search" />
                             </div>
                         </div>
                         <div class="mt-4">
