@@ -298,15 +298,22 @@ if (isset($_REQUEST['fetchBooking']) && !isset($_POST['doneBooking'])) {
                                         <input type="hidden" name="drop" value="<?= htmlspecialchars($formData['drop'] ?? '') ?>">
                                         <input type="hidden" name="trip_type" value="<?= htmlspecialchars($formData['trip_type'] ?? '') ?>">
 
-                                        <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
-                                        <input type="hidden" name="fare" id="vehicle_price" value="">
+                                        <?php if (!empty($vehicles)): ?>
+                                            <?php $firstVehicle = $vehicles[0]; ?>
+                                            <input type="hidden" name="vehicle_id" id="vehicle_id"
+                                                   value="<?php echo htmlspecialchars($firstVehicle['vehicle_uid'] ?? ''); ?>">
+                                            <input type="hidden" name="fare" id="vehicle_price"
+                                                   value="<?php echo htmlspecialchars($firstVehicle['fare'] ?? ''); ?>">
+                                        <?php endif; ?>
+
                                         <!-- Distance -->
-                                        <input type="hidden" name="distance[meter]" value="<?= htmlspecialchars($distance['meter'] ?? '') ?>">
-                                        <input type="hidden" name="distance[km]" value="<?= htmlspecialchars($distance['km'] ?? '') ?>">
-                                        <input type="hidden" name="distance[minute]" value="<?= htmlspecialchars($distance['minute'] ?? '') ?>">
-                                        <input type="hidden" name="distance[text]" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
-                                        <input type="hidden" name="distance[time]" value="<?= htmlspecialchars($distance['time'] ?? '') ?>">
+                                        <input type="hidden" name="distance" value="<?= htmlspecialchars($distance['km'] ?? '') ?>">
+                                        <input type="hidden" name="distance_text" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
+                                        <input type="hidden" name="minutes" value="<?= htmlspecialchars($distance['minute'] ?? '') ?>">
+                                        <input type="hidden" name="distance_text" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
                                         <input type="hidden" name="doneBooking" value="doneBooking">
+                                        <input type="hidden" name="pickcordinate" value="<?= htmlspecialchars($distance['pickcordinate'] ?? '') ?>">
+                                        <input type="hidden" name="dropcordinate" value="<?= htmlspecialchars($distance['dropcordinate'] ?? '') ?>">
 
                                         <div class="col-6" style="    padding-right: 0px !important; padding-left: 0px !important;">
                                             <div class="form-group">
