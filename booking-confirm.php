@@ -217,12 +217,11 @@ if (isset($_REQUEST['fetchBooking'])) {
                                         <?php if(!empty($vehicles)): ?>
                                             <?php foreach($vehicles as $vehicle): ?>
                                                 <div class="booking-card"
-                                                     data-vehicle-id="<?php echo $vehicle['vehicle_uid']; ?>"
-                                                     data-price="<?php echo $vehicle['fare']; ?>"
-                                                     data-driverFare="<?php echo $vehicle['driver_fare']; ?>"
-                                                >
+                                                     data-vehicle-id="<?php echo htmlspecialchars($vehicle['vehicle_uid']); ?>"
+                                                     data-price="<?php echo htmlspecialchars($vehicle['fare']); ?>"
+                                                     data-driver-fare="<?php echo htmlspecialchars($vehicle['fare_details']['driver_fare'] ?? 0); ?>">
 
-                                                    <div class="card-item">
+                                                <div class="card-item">
                                                         <div class="card-inner">
                                                             <div class="card-subinner">
                                                                 <p class="card-title">
@@ -308,9 +307,8 @@ if (isset($_REQUEST['fetchBooking'])) {
                                             <input type="hidden" name="fare" id="vehicle_price"
                                                    value="<?php echo htmlspecialchars($firstVehicle['fare'] ?? ''); ?>">
                                             <input type="hidden" name="driver_fare" id="driver_fare"
-                                               value="<?php echo htmlspecialchars($firstVehicle['driver_fare'] ?? ''); ?>">
+                                                   value="<?php echo htmlspecialchars($firstVehicle['fare_details']['driver_fare'] ?? ''); ?>">
                                         <?php endif; ?>
-
 
 
                                         <!-- Distance -->
