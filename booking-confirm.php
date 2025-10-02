@@ -307,8 +307,8 @@ if (isset($_REQUEST['fetchBooking'])) {
                                                    value="<?php echo htmlspecialchars($firstVehicle['vehicle_uid'] ?? ''); ?>">
                                             <input type="hidden" name="fare" id="vehicle_price"
                                                    value="<?php echo htmlspecialchars($firstVehicle['fare'] ?? ''); ?>">
-                                            <input type="hidden" name="drive_fare" id="drive_fare"
-                                               value="<?php echo htmlspecialchars($firstVehicle['drive_fare'] ?? ''); ?>">
+                                            <input type="hidden" name="driver_fare" id="driver_fare"
+                                               value="<?php echo htmlspecialchars($firstVehicle['driver_fare'] ?? ''); ?>">
                                         <?php endif; ?>
 
 
