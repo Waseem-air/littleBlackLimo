@@ -85,7 +85,7 @@ if (isset($_POST['doneBooking'])) {
                         Your booking is confirmed! <br> Thank you for your trust.
                     </h1>
                     <p class="text-center jakarta">
-                        Booking no. <?php echo $ticketNo; ?>
+                        Ticket No. <?php echo $ticketNo; ?>
                     </p>
                 </div>
             <?php else: ?>

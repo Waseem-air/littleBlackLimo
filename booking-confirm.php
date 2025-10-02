@@ -4,7 +4,8 @@ require_once('apps/head.php');
 // --------------------------------------------------
 // STEP 1: FETCH AVAILABLE VEHICLES (when coming from index form)
 // --------------------------------------------------
-if (isset($_REQUEST['fetchBooking']) && !isset($_POST['doneBooking'])) {
+if (isset($_REQUEST['fetchBooking'])) {
+
     $postData = [
         'trip_type'       => $_REQUEST['trip_type'] ?? '',
         'pick'            => $_REQUEST['pick'] ?? '',
@@ -20,7 +21,6 @@ if (isset($_REQUEST['fetchBooking']) && !isset($_POST['doneBooking'])) {
     } else {
         $bookingData = $response; // already array
     }
-
     // Store data
     $vehicles = $bookingData['data']['vehicles'] ?? [];
     $bulkies  = $bookingData['data']['bulkies'] ?? [];
