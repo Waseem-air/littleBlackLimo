@@ -436,7 +436,7 @@
 
             <!-- Scrollable Body -->
             <div class="modal-body overflow-auto pb-0" style="max-height: calc(100vh - 136px); background:#f5f5f5;">
-                <form class="form" id="createJob" method="post" action="#">
+                <form class="form" id="createJob" method="post" >
 
                     <!-- TRIP 1 -->
                     <div class="trip-segment bg-white rounded-4 p-3 trip-shadow mb-3">

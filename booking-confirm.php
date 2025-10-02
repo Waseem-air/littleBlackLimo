@@ -14,7 +14,6 @@ if (isset($_REQUEST['fetchBooking']) && !isset($_POST['doneBooking'])) {
     ];
 
     $response = curlPost($postData, 'booking/vehicles');
-
     // Decode response
     if (is_string($response)) {
         $bookingData = json_decode($response, true);
@@ -34,100 +33,6 @@ if (isset($_REQUEST['fetchBooking']) && !isset($_POST['doneBooking'])) {
         exit();
     }
 }
-
-// --------------------------------------------------
-// STEP 2: BOOKING CREATION (when user submits passenger form)
-// --------------------------------------------------
-if (isset($_POST['doneBooking'])) {
-    // Base booking data
-    $postData = [
-        'trip_type' => $_POST['trip_type'] ?? '',
-        'pick' => $_POST['pick'] ?? '',
-        'drop' => $_POST['drop'] ?? '',
-        'date' => $_POST['date'] ?? '',
-        'time' => $_POST['time'] ?? '',
-        'total_passenger' => $_POST['total_passenger'] ?? '',
-        'vehicle_id' => $_POST['vehicle_id'] ?? '',
-        'fare' => $_POST['fare'] ?? '',
-        'distance_meter' => $_POST['distance_meter'] ?? '',
-        'distance' => $_POST['distance'] ?? '',
-        'minutes' => $_POST['minutes'] ?? '',
-        'firstname' => $_POST['firstname'] ?? '',
-        'lastname' => $_POST['lastname'] ?? '',
-        'email' => $_POST['email'] ?? '',
-        'phone' => $_POST['phone'] ?? '',
-        'notes' => $_POST['notes'] ?? '',
-    ];
-
-    // Add extra passenger / luggage options
-    $postData['extras'] = [
-        'baggage' => (int)($_POST['baggeg'] ?? 0),
-        'handcarry' => (int)($_POST['hand_carry'] ?? 0),
-        'babyseats' => (int)($_POST['noofbaby'] ?? 0),
-        'boosters' => (int)($_POST['noofbooster'] ?? 0),
-    ];
-
-    // Bulk items (plain array)
-    $bulkItems = $_POST['bulkItems'] ?? [];
-    $postData['bulkies'] = [];
-    foreach ($bulkItems as $qty) {
-        if ((int)$qty > 0) {
-            $postData['bulkies'][] = (int)$qty;
-        }
-    }
-
-    // Call API
-    $response = curlPost($postData, 'booking/create');
-    $result = is_string($response) ? json_decode($response, true) : $response;
-
-    if ($result['success']) {
-        $ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? '');
-        $successHtml = "
-        <div style='text-align: left;'>
-            <p><strong>🚗 Trip Details:</strong></p>
-            <p><strong>Ticket No:</strong> {$ticketNo}</p>
-            <p><strong>From:</strong> " . htmlspecialchars($result['data']['pick'] ?? '') . "</p>
-            <p><strong>To:</strong> " . htmlspecialchars($result['data']['drop'] ?? '') . "</p>
-            <p><strong>Date & Time:</strong> " . htmlspecialchars($result['data']['date'] ?? '') . " " . htmlspecialchars($result['data']['time'] ?? '') . "</p>
-            <p><strong>Phone:</strong> " . htmlspecialchars($result['data']['phone'] ?? '') . "</p>
-            <p><strong>Total Fare:</strong> $" . htmlspecialchars($result['data']['fare'] ?? '') . "</p>
-        </div>";
-
-        echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-        Swal.fire({
-            icon: 'success',
-            title: 'Booking Created Successfully!',
-            html: `{$successHtml}`,
-            confirmButtonText: 'Great!',
-            confirmButtonColor: '#28a745',
-            width: '600px'
-        }).then(() => {
-            window.location.href = 'booking-done.php?ticket_no={$ticketNo}';
-        });
-        </script>";
-    } else {
-        // Handle error case
-        $errorMessage = htmlspecialchars($result['message'] ?? 'Unknown error occurred');
-        echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
-        <script>
-        Swal.fire({
-            icon: 'error',
-            title: 'Booking Failed',
-            text: '{$errorMessage}',
-            confirmButtonText: 'Try Again',
-            confirmButtonColor: '#d33'
-        });
-        </script>";
-    }
-    exit();
-}
-
-// If neither condition is met, redirect to index
-header("Location: index.php");
-exit();
 ?>
 <body>
 <?php require_once('apps/header.php'); ?>
@@ -148,7 +53,8 @@ exit();
         <div class="container-fluid px-0">
             <div class="row g-0 flex-column-reverse flex-lg-row">
                 <div class="col-lg-6 col-12 p-0 mt-5 ps-lg-2">
-                    <div class="px-2 ms-lg-5 me-lg-4">
+                    <form method="post" action ="booking-done.php">
+                        <div class="px-2 ms-lg-5 me-lg-4">
                         <!-- STEP 1: Confirm pick-up schedule -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="">
@@ -171,41 +77,6 @@ exit();
 <!--                                    <span class="span-btn" data-bs-toggle="modal" data-bs-target="#modalPickup1">-->
 <!--                                        Edit-->
 <!--                                    </span>-->
-
-                                    <!-- Modal for Pickup 1 -->
-                                    <div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-head">
-                                                    <span class="modal-span" id="modalPickup1Label">Pick-up 1</span>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="">
-                                                        <div class="form-group">
-                                                            <img src="./asset/img/calendar_month.svg" class="form-img" alt="">
-                                                            <input type="text" name="pickup" id="datePicker1" class="form-control custom" placeholder="Pickup date & time">
-                                                        </div>
-                                                        <div class="form-group mb-0">
-                                                            <img src="./asset/img/arrow_up.svg" class="form-img" alt="">
-                                                            <input type="text" name="pickup" class="form-control custom" placeholder="Pickup address">
-                                                        </div>
-                                                        <div>
-                                                            <button class="swapvert-btn"><img src="./asset/img/swap_vert.svg" alt=""></button>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <img src="./asset/img/arrow_down.svg" class="form-img" style="margin-top: 32px;" alt="">
-                                                            <input type="text" name="dropoff" class="form-control custom" placeholder="Dropoff address">
-                                                        </div>
-                                                        <div class="form-group d-grid gap-2">
-                                                            <a href="javascript:void(0)" class="modal-btn">Done</a>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="dist1">
                                         <p class="title">From</p>
                                         <p class="subtitle"><?php echo htmlspecialchars($formData['pick'] ?? 'Pickup location not specified'); ?></p>
@@ -417,7 +288,6 @@ exit();
 
                         <div class="bor">
                             <div class="details">
-                                <form action="">
                                     <div class="row " >
 
                                         <!-- Form Data -->
@@ -436,28 +306,28 @@ exit();
                                         <input type="hidden" name="distance[minute]" value="<?= htmlspecialchars($distance['minute'] ?? '') ?>">
                                         <input type="hidden" name="distance[text]" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
                                         <input type="hidden" name="distance[time]" value="<?= htmlspecialchars($distance['time'] ?? '') ?>">
+                                        <input type="hidden" name="doneBooking" value="doneBooking">
 
                                         <div class="col-6" style="    padding-right: 0px !important; padding-left: 0px !important;">
                                             <div class="form-group">
-                                                <input type="text" class="form-control detail" placeholder="First name *">
+                                                <input type="text" class="form-control detail" name="firstname" placeholder="First name *">
                                             </div>
                                         </div>
                                         <div class="col-6 ps-2" style="    padding-right: 0px !important; padding-left: 10px !important;">
                                             <div class="form-group">
-                                                <input type="text" class="form-control detail" placeholder="Last name *">
+                                                <input type="text" name="lastname" class="form-control detail" placeholder="Last name *">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control detail" placeholder="Email address*">
+                                        <input type="text" class="form-control detail" name="email" placeholder="Email address*">
                                     </div>
                                     <div class="form-group">
-                                        <input type="tel" class="form-control detail" placeholder="Mobile no.*">
+                                        <input type="tel" class="form-control detail" name="phone" placeholder="Mobile no.*">
                                     </div>
                                     <div class="form-group mb-0">
-                                        <input type="text" class="form-control detail" placeholder="Notes *">
+                                        <input type="text" class="form-control detail" name="notes" placeholder="Notes *">
                                     </div>
-                                </form>
                             </div>
                         </div>
 
@@ -481,8 +351,8 @@ exit();
                         </div>
 
                     </div>
+                    </form>
                 </div>
-
                 <!-- Map Section -->
                 <div class="col-lg-6 col-12 embed-responsive d-none d-lg-block">
                     <?php if (!empty($formData['pick']) && !empty($formData['drop'])): ?>
@@ -502,6 +372,40 @@ exit();
             </div>
         </div>
     </section>
+
+<!-- Modal for Pickup 1 -->
+<div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-head">
+                <span class="modal-span" id="modalPickup1Label">Pick-up 1</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <img src="./asset/img/calendar_month.svg" class="form-img" alt="">
+                        <input type="text" name="pickup" id="datePicker1" class="form-control custom" placeholder="Pickup date & time">
+                    </div>
+                    <div class="form-group mb-0">
+                        <img src="./asset/img/arrow_up.svg" class="form-img" alt="">
+                        <input type="text" name="pickup" class="form-control custom" placeholder="Pickup address">
+                    </div>
+                    <div>
+                        <button class="swapvert-btn"><img src="./asset/img/swap_vert.svg" alt=""></button>
+                    </div>
+                    <div class="form-group">
+                        <img src="./asset/img/arrow_down.svg" class="form-img" style="margin-top: 32px;" alt="">
+                        <input type="text" name="dropoff" class="form-control custom" placeholder="Dropoff address">
+                    </div>
+                    <div class="form-group d-grid gap-2">
+                        <a href="javascript:void(0)" class="modal-btn">Done</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
         <!-- Booking End -->
      <!-- bookin detail End -->
