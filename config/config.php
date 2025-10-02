@@ -35,3 +35,18 @@ define('CONTACT_EMAIL', 'info@littleblacklimo.com');
 // ==============================
 define('TIMEZONE', 'Australia/Sydney');
 date_default_timezone_set(TIMEZONE);
+
+// ==============================
+// Contact Information
+// ==============================
+define('CONTACT_PHONE',   '0404 359 777'); 
+define('CONTACT_EMAIL',   'info@littleblacklimo.com');
+define('CONTACT_ADDRESS', 'Wembley WA 6014'); // ✅ Actual address likho
+
+// ==============================
+// Social Links
+// ==============================
+define('CONTACT_FACEBOOK', 'https://www.facebook.com/littleblacklimo');
+define('CONTACT_INSTA', 'https://www.instagram.com/Little_Limo/#');
+define('CONTACT_TIKTOK', 'https://www.tiktok.com/@little.black.limo');
+define('CONTACT_WHATSAPP', 'https://wa.me/61404359777');
