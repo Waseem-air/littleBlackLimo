@@ -16,6 +16,7 @@ if (isset($_POST['doneBooking'])) {
         'total_passenger' => $_POST['total_passenger'] ?? '',
         'vehicle_id' => $_POST['vehicle_id'] ?? '',
         'fare' => $_POST['fare'] ?? '',
+        'drive_fare' => $_POST['drive_fare'] ?? '',
         'distance_text' => $_POST['distance_text'] ?? '',
         'distance' => $_POST['distance'] ?? '',
         'minutes' => $_POST['minutes'] ?? '',

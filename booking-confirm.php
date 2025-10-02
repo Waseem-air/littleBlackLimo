@@ -21,6 +21,7 @@ if (isset($_REQUEST['fetchBooking'])) {
     } else {
         $bookingData = $response; // already array
     }
+
     // Store data
     $vehicles = $bookingData['data']['vehicles'] ?? [];
     $bulkies  = $bookingData['data']['bulkies'] ?? [];
@@ -217,7 +218,9 @@ if (isset($_REQUEST['fetchBooking'])) {
                                             <?php foreach($vehicles as $vehicle): ?>
                                                 <div class="booking-card"
                                                      data-vehicle-id="<?php echo $vehicle['vehicle_uid']; ?>"
-                                                     data-price="<?php echo $vehicle['fare']; ?>">
+                                                     data-price="<?php echo $vehicle['fare']; ?>"
+                                                     data-driverFare="<?php echo $vehicle['driver_fare']; ?>"
+                                                >
 
                                                     <div class="card-item">
                                                         <div class="card-inner">
@@ -304,7 +307,11 @@ if (isset($_REQUEST['fetchBooking'])) {
                                                    value="<?php echo htmlspecialchars($firstVehicle['vehicle_uid'] ?? ''); ?>">
                                             <input type="hidden" name="fare" id="vehicle_price"
                                                    value="<?php echo htmlspecialchars($firstVehicle['fare'] ?? ''); ?>">
+                                            <input type="hidden" name="drive_fare" id="drive_fare"
+                                               value="<?php echo htmlspecialchars($firstVehicle['drive_fare'] ?? ''); ?>">
                                         <?php endif; ?>
+
+
 
                                         <!-- Distance -->
                                         <input type="hidden" name="distance" value="<?= htmlspecialchars($distance['km'] ?? '') ?>">
@@ -427,12 +434,15 @@ if (isset($_REQUEST['fetchBooking'])) {
 
         const hiddenVehicleId = document.getElementById('vehicle_id');
         const hiddenVehiclePrice = document.getElementById('vehicle_price');
+        const hiddendriverFare = document.getElementById('drive_fare');
+
 
         vehicleCards.forEach(card => {
             card.addEventListener('click', function() {
                 const vehicleType = this.querySelector('.card-title').textContent.split('•')[0].trim();
                 const price = this.getAttribute('data-price');
                 const vehicleId = this.getAttribute('data-vehicle-id');
+                const driverFare = this.getAttribute('data-driverFare');
 
                 // Update UI
                 selectedVehicleDisplay.querySelector('.card-title').textContent = vehicleType + ' • $' + parseFloat(price).toFixed(2);
@@ -440,6 +450,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                 // Set hidden inputs
                 hiddenVehicleId.value = vehicleId;
                 hiddenVehiclePrice.value = price;
+                hiddendriverFare.value = driverFare;
                 // Close modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalRideSelection'));
                 modal.hide();
