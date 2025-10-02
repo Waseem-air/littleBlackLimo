@@ -22,7 +22,6 @@ if (isset($_POST['doneBooking'])) {
         'phone' => $_POST['phone'] ?? '',
         'notes' => $_POST['notes'] ?? '',
     ];
-
     // Add extra passenger / luggage options
     $postData['extras'] = [
         'baggage' => (int)($_POST['baggeg'] ?? 0),

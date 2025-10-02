@@ -33,8 +33,6 @@ function curlPost($postData,$endpoint){
             'message' => 'cURL Error: ' . $curlError
         ];
     }
-    print_r($response);
-    exit();
     $apiResponse = json_decode($response, true);
     if ($httpCode === 200 && isset($apiResponse['success']) && $apiResponse['success']) {
         return [
