@@ -66,7 +66,7 @@
                             <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
                             <div class="form-group position-relative">
                                 <img src="assets/images/calendar_month.svg" class="form-img" alt="">
-                                <input type="text" name="date" id="date"
+                                <input type="text" name="datetime" id="date"
                                     class="form-control custom flatpickr datetime"
                                     placeholder="Select Date & Time" required>
                             </div>

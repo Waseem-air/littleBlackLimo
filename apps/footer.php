@@ -1,3 +1,5 @@
+
+
 <section style="background-color:black;">
   <div class="container ">
       <div class="row text-white montserrat-p">
@@ -27,9 +29,10 @@
               
           </div>
           <div class="col-sm-3 mt-3 text-white justify-content-between">
-              <h5 class="montserrat">LOCATION</h5>
-              <img src="assets/images/map.png" alt="" class="w-100 mb-2">
-          </div>
+            <h5 class="montserrat">LOCATION</h5>
+            <div id="map"  class="w-100 border rounded" class="footer-map-img" style="height:250px;"></div>
+        </div>
+
           <div class="col-12">
               <p class="mt-3">©Copyrights 2024 littleblacklimo | All Rights Reserved. Designed by A1 APPS</p>
           </div>
@@ -53,6 +56,8 @@
 <script src="assets/js/custom.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<script src="https://maps.googleapis.com/maps/api/js?key=<?= MAP_KEY ?>&libraries=places"></script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.3.2.min.js"></script>
 
@@ -65,6 +70,30 @@
     minDate: new Date(Date.now() + 48 * 60 * 60 * 1000) // aaj se 48 ghante baad
   });
 </script>
+
+<script>
+function initMap() {
+    // Default location (New York, USA)
+    const defaultLocation = { lat: 40.7128, lng: -74.0060 };
+
+    // Create map
+    const map = new google.maps.Map(document.getElementById("map"), {
+        center: defaultLocation,
+        zoom: 12,
+    });
+
+    // Add marker
+    const marker = new google.maps.Marker({
+        position: defaultLocation,
+        map: map,
+        title: "Our Location",
+    });
+}
+
+// Run map after page loads
+window.onload = initMap;
+</script>
+
 
 
 
