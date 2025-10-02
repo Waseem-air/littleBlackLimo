@@ -70,7 +70,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                                     <span class="title"></span>
                                     <?php
                                     if(isset($formData['time']) && isset($formData['date'])) {
-                                        echo htmlspecialchars($formData['time']) . ', ' . htmlspecialchars($formData['date']);
+                                        echo htmlspecialchars($formData['time']) . ', ' . date('d M Y',strtotime(htmlspecialchars($formData['date'])));
                                     } else {
                                         echo 'Time not specified';
                                     }
