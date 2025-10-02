@@ -34,6 +34,7 @@ function curlPost($postData,$endpoint){
         ];
     }
     $apiResponse = json_decode($response, true);
+
     if ($httpCode === 200 && isset($apiResponse['success']) && $apiResponse['success']) {
         return [
             'success' => true,
