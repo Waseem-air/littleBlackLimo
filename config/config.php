@@ -24,11 +24,8 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 define('MAX_PASSENGERS', 7);
 define('API_TOKEN', 'nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');
 
-// ==============================
-// Contact Info
-// ==============================
-define('CONTACT_PHONE', '0404 359 777');
-define('CONTACT_EMAIL', 'info@littleblacklimo.com');
+
+
 
 // ==============================
 // Other Settings
@@ -41,7 +38,10 @@ date_default_timezone_set(TIMEZONE);
 // ==============================
 define('CONTACT_PHONE',   '0404 359 777'); 
 define('CONTACT_EMAIL',   'info@littleblacklimo.com');
-define('CONTACT_ADDRESS', 'Wembley WA 6014'); // ✅ Actual address likho
+define('CONTACT_ADDRESS', 'Wembley WA 6014');
+// config/config.php
+define('COMPANY_ODBS', '1010295');
+
 
 // ==============================
 // Social Links

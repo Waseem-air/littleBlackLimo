@@ -21,7 +21,13 @@
               </p>
                             </div>
               <div>
-                <p class="text-nowrap mt-4">ODBS: 1010295</p>
+                
+            <p class="ms-2 mb-0 text-nowrap mt-4">
+              <a href="tel:<?php echo CONTACT_PHONE; ?>" class="text-white text-decoration-none">
+                  ODBS: <?php echo COMPANY_ODBS; ?>
+              </a>
+            </p>
+
               </div>
               <div class="d-flex align-items-center mt-4">
                 <img src="assets/images/message.png" alt="Location" width="17" height="17">

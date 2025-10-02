@@ -40,7 +40,7 @@
 
 
                     <!-- Booking Form -->
-                    <form method="post" action="#" class="mt-4">
+                    <form method="post" action="booking-confirm.php" class="mt-4">
                         <div class="row">
                             <!-- Pickup -->
                             <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
