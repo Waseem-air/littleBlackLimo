@@ -42,10 +42,11 @@ if (isset($_POST['doneBooking'])) {
 
     // Call API
     $response = curlPost($postData, 'booking/create');
+    print_r($response);
+    exit();
     $result = is_string($response) ? json_decode($response, true) : $response;
 
-    print_r($result);
-    exit();
+
     if ($result['success']) {
         $ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? '');
         $successHtml = "
