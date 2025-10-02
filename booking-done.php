@@ -38,11 +38,9 @@ if (isset($_POST['doneBooking'])) {
             $postData['bulkies'][] = (int)$qty;
         }
     }
-
     // Call API
     $response = curlPost($postData, 'booking/create');
-    print_r($response);
-    exit();
+    
     $result = is_string($response) ? json_decode($response, true) : $response;
 
 
