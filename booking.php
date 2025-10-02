@@ -78,13 +78,11 @@
                             <div class="col-lg-6 col-md-6 col-12 mb-3 ps-0">
                             <div class="form-group position-relative input-with-buttons">
                                 <img src="assets/images/emoji_people.svg" class="form-img" alt="">
-                                <select name="total_passenger" id="total_passenger" class="form-select custom rounded-2">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
+                                <select class="form-select custom rounded-2"
+                                        name="total_passenger" id="total_passenger">
+                                    <?php for ($i = 1; $i <= MAX_PASSENGERS; $i++): ?>
+                                        <option value="<?= $i ?>"><?= $i ?></option>
+                                    <?php endfor; ?>
                                 </select>
                             </div>
                             </div>
@@ -97,7 +95,7 @@
                             </div>
                         </div>
                         <div class="mt-4">
-                            <h5><a href="" class="text-dark text-decoration-underline montserrat">Or call us to book</a></h5>
+                            <h5><a  href="tel:<?php echo CONTACT_PHONE; ?>" class="text-dark text-decoration-underline montserrat">Or call us to book</a></h5>
                         </div>
                     </form>
                 </div>
