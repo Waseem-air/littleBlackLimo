@@ -43,7 +43,6 @@ if (isset($_POST['doneBooking'])) {
     
     $result = is_string($response) ? json_decode($response, true) : $response;
 
-
     if ($result['success']) {
         $ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? '');
         $successHtml = "

@@ -24,9 +24,6 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 define('MAX_PASSENGERS', 7);
 define('API_TOKEN', 'nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');
 
-
-
-
 // ==============================
 // Other Settings
 // ==============================

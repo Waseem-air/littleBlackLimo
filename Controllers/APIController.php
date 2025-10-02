@@ -1,5 +1,4 @@
 <?php
-
 function curlPost($postData,$endpoint){
     // Enable error reporting
     error_reporting(E_ALL);
