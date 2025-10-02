@@ -1,6 +1,10 @@
 <?php
 require_once('apps/head.php');
-if (isset($_REQUEST['fetchBooking'])) {
+
+// --------------------------------------------------
+// STEP 1: FETCH AVAILABLE VEHICLES (when coming from index form)
+// --------------------------------------------------
+if (isset($_REQUEST['fetchBooking']) && !isset($_POST['doneBooking'])) {
     $postData = [
         'trip_type'       => $_REQUEST['trip_type'] ?? '',
         'pick'            => $_REQUEST['pick'] ?? '',
@@ -10,6 +14,7 @@ if (isset($_REQUEST['fetchBooking'])) {
     ];
 
     $response = curlPost($postData, 'booking/vehicles');
+
     // Decode response
     if (is_string($response)) {
         $bookingData = json_decode($response, true);
@@ -28,8 +33,9 @@ if (isset($_REQUEST['fetchBooking'])) {
         header("Location: index.php");
         exit();
     }
+}
 
-    // --------------------------------------------------
+// --------------------------------------------------
 // STEP 2: BOOKING CREATION (when user submits passenger form)
 // --------------------------------------------------
 if (isset($_POST['doneBooking'])) {
@@ -73,37 +79,55 @@ if (isset($_POST['doneBooking'])) {
     // Call API
     $response = curlPost($postData, 'booking/create');
     $result = is_string($response) ? json_decode($response, true) : $response;
+
     if ($result['success']) {
         $ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? '');
         $successHtml = "
-                <div style='text-align: left;'>
-                    <p><strong>🚗 Trip Details:</strong></p>
-                    <p><strong>Ticket No:</strong> {$ticketNo}</p>
-                    <p><strong>From:</strong> " . htmlspecialchars($result['data']['pick'] ?? '') . "</p>
-                    <p><strong>To:</strong> " . htmlspecialchars($result['data']['drop'] ?? '') . "</p>
-                    <p><strong>Date & Time:</strong> " . htmlspecialchars($result['data']['date'] ?? '') . " " . htmlspecialchars($result['data']['time'] ?? '') . "</p>
-                    <p><strong>Phone:</strong> " . htmlspecialchars($result['data']['phone'] ?? '') . "</p>
-                    <p><strong>Total Fare:</strong> $" . htmlspecialchars($result['data']['fare'] ?? '') . "</p>
-                </div>";
+        <div style='text-align: left;'>
+            <p><strong>🚗 Trip Details:</strong></p>
+            <p><strong>Ticket No:</strong> {$ticketNo}</p>
+            <p><strong>From:</strong> " . htmlspecialchars($result['data']['pick'] ?? '') . "</p>
+            <p><strong>To:</strong> " . htmlspecialchars($result['data']['drop'] ?? '') . "</p>
+            <p><strong>Date & Time:</strong> " . htmlspecialchars($result['data']['date'] ?? '') . " " . htmlspecialchars($result['data']['time'] ?? '') . "</p>
+            <p><strong>Phone:</strong> " . htmlspecialchars($result['data']['phone'] ?? '') . "</p>
+            <p><strong>Total Fare:</strong> $" . htmlspecialchars($result['data']['fare'] ?? '') . "</p>
+        </div>";
 
         echo "
-                <script>
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Booking Created Successfully!',
-                    html: `{$successHtml}`,
-                    confirmButtonText: 'Great!',
-                    confirmButtonColor: '#28a745',
-                    width: '600px'
-                }).then(() => {
-                    window.location.href = 'booking-done.php?ticket_no={$ticketNo}';
-                });
-    </script>";
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+        Swal.fire({
+            icon: 'success',
+            title: 'Booking Created Successfully!',
+            html: `{$successHtml}`,
+            confirmButtonText: 'Great!',
+            confirmButtonColor: '#28a745',
+            width: '600px'
+        }).then(() => {
+            window.location.href = 'booking-done.php?ticket_no={$ticketNo}';
+        });
+        </script>";
+    } else {
+        // Handle error case
+        $errorMessage = htmlspecialchars($result['message'] ?? 'Unknown error occurred');
+        echo "
+        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
+        <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Booking Failed',
+            text: '{$errorMessage}',
+            confirmButtonText: 'Try Again',
+            confirmButtonColor: '#d33'
+        });
+        </script>";
     }
-} else {
-    header("Location: index.php");
     exit();
 }
+
+// If neither condition is met, redirect to index
+header("Location: index.php");
+exit();
 ?>
 <body>
 <?php require_once('apps/header.php'); ?>
