@@ -452,7 +452,7 @@ if (isset($_POST['doneBooking'])) {
                                 <p class="total-p">$0.00 <sup class="total-span">Total</sup></p>
                             <?php endif; ?>
                             <div class="d-grid gap-2">
-                                <a href="booking_confirmed.html" class="total-btn">Pay now to book</a>
+                                <button type="submit" class="total-btn">Book Now</button>
                             </div>
                         </div>
 
