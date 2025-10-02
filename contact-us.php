@@ -93,7 +93,7 @@
                   <img src="assets/images/calendar_month.svg" class="form-img-c" alt="">
                   
                   <!-- Input -->
-                  <input type="text" id="datetime" class="form-control input-custom rounded-pill form-text" placeholder="Select Date & Time">
+                  <input type="text" id="datetime" class="form-control input-custom rounded-pill form-text datetime" placeholder="Select Date & Time">
                 </div>
               </div>
               </div>
@@ -118,6 +118,12 @@
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
 
-
+<script>
+  flatpickr(".datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: new Date(Date.now() + 48 * 60 * 60 * 1000) // aaj se 48 ghante baad
+  });
+</script>
 </body>
 </html>

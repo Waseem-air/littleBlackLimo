@@ -67,7 +67,7 @@
                             <div class="form-group position-relative">
                                 <img src="assets/images/calendar_month.svg" class="form-img" alt="">
                                 <input type="text" name="date" id="date"
-                                    class="form-control custom flatpickr"
+                                    class="form-control custom flatpickr datetime"
                                     placeholder="Select Date & Time" required>
                             </div>
                             </div>
@@ -183,41 +183,12 @@
 </div>
 <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
- <script>
-    document.addEventListener("DOMContentLoaded", function() {
-  const oneWayBtn = document.querySelector(".toggle-btn[data-type='oneway']");
-  const multipleBtn = document.getElementById("multipleBtn");
 
-  // Default active
-  oneWayBtn.classList.add("active");
-
-  // Handle click for one-way
-  oneWayBtn.addEventListener("click", function() {
-    oneWayBtn.classList.add("active");
-    multipleBtn.classList.remove("active");
-  });
-
-  // Handle click for multiple
-  multipleBtn.addEventListener("click", function() {
-    multipleBtn.classList.add("active");
-    oneWayBtn.classList.remove("active");
-  });
-
-  // Optional: Reset active when modal closes
-  const modal = document.getElementById("multipleTripModal");
-  modal.addEventListener("hidden.bs.modal", function () {
-    // Agar chahte ho close hone par dobara one-way active ho
-    oneWayBtn.classList.add("active");
-    multipleBtn.classList.remove("active");
-  });
-});
- </script>
- <script>
-  flatpickr("#date", {
-    enableTime: true,       // Time picker bhi enable hoga
-    dateFormat: "Y-m-d H:i", // Format: 2025-09-25 14:30
-    altInput: true,          // User-friendly display
-    altFormat: "F j, Y h:i K" // Example: September 25, 2025 02:30 PM
+<script>
+  flatpickr(".datetime", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: new Date(Date.now() + 48 * 60 * 60 * 1000) // aaj se 48 ghante baad
   });
 </script>
 

@@ -174,11 +174,6 @@
                                        class="form-control search-bar-input placesAPI"
                                        placeholder="Per International Airport" required>
                             </div>
-
-                            <!-- Image visible only on large screens -->
-                            <div class="d-none d-lg-block">
-                                <img src="assets/images/b-arrow.png" alt="" width="45px" height="58px">
-                            </div>
                         </div>
 
 
@@ -193,8 +188,8 @@
                         <!-- Date & Time -->
                         <div class="col-12 col-md-2 mb-3 mb-md-0">
                             <label for="datetime" class="form-label">Date & Time</label>
-                            <input type="text" name="datetime" id="datetime"
-                                   class="form-control search-bar-input flatpickr" placeholder="Select Date & Time"
+                            <input type="text" name="datetime"
+                                   class="form-control search-bar-input flatpickr datetime" placeholder="Select Date & Time"
                                    required>
                         </div>
 
@@ -215,9 +210,7 @@
 
                         <!-- Button -->
                         <div class="col-12 col-md-2">
-                            Book now
                             <input type="submit" name="fetchBooking"  class="btn btn-dark booking-btn w-100" value="Book Now"/>
-
                         </div>
                     </div>
                 </form>
@@ -465,7 +458,7 @@
                         <div>
                             <label class="form-label small mb-1">Date & Time</label>
                             <input type="text" class="form-control search-bar-input border-0 p-0 fw-semibold datetime"
-                                   id="pickupDateTime" placeholder="Select date & time" required>
+                                    placeholder="Select date & time" required>
                         </div>
                     </div>
 
@@ -507,37 +500,5 @@
 </div>
 <?php require_once('apps/footer.php'); ?>
 <script src="assets/js/custom.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const oneWayBtn = document.querySelector(".toggle-btn[data-type='oneway']");
-        const multipleBtn = document.getElementById("multipleBtn");
-
-        // Default active
-        oneWayBtn.classList.add("active");
-
-        // Handle click for one-way
-        oneWayBtn.addEventListener("click", function () {
-            oneWayBtn.classList.add("active");
-            multipleBtn.classList.remove("active");
-        });
-
-        // Handle click for multiple
-        multipleBtn.addEventListener("click", function () {
-            multipleBtn.classList.add("active");
-            oneWayBtn.classList.remove("active");
-        });
-
-        // Optional: Reset active when modal closes
-        const modal = document.getElementById("multipleTripModal");
-        modal.addEventListener("hidden.bs.modal", function () {
-            // Agar chahte ho close hone par dobara one-way active ho
-            oneWayBtn.classList.add("active");
-            multipleBtn.classList.remove("active");
-        });
-    });
-</script>
-
-
 </body>
 </html>
