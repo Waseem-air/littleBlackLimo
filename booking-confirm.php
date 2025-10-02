@@ -1,5 +1,6 @@
 <?php
 require_once('apps/head.php');
+
 if (isset($_REQUEST['fetchBooking'])) {
     $postData = [
         'trip_type'       => $_REQUEST['trip_type'] ?? '',
@@ -11,23 +12,30 @@ if (isset($_REQUEST['fetchBooking'])) {
 
     $response = curlPost($postData, 'booking/vehicles');
 
-    // If curlPost already returns array, don’t decode again
+    // Decode response
     if (is_string($response)) {
         $bookingData = json_decode($response, true);
     } else {
         $bookingData = $response; // already array
     }
 
-    // Store data for use in HTML
+    // Store data
     $vehicles = $bookingData['data']['vehicles'] ?? [];
     $bulkies  = $bookingData['data']['bulkies'] ?? [];
     $formData = $bookingData['data']['formData'] ?? [];
+    $distance = $bookingData['data']['distance'] ?? [];
+
+    // Redirect if no valid data
+    if (empty($vehicles) || empty($formData)) {
+        header("Location: index.php");
+        exit();
+    }
 
 } else {
-    exit('No booking request found.');
+    header("Location: index.php");
+    exit();
 }
 ?>
-
 <body>
 <?php require_once('apps/header.php'); ?>
 
@@ -59,7 +67,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                             <div class="pickup">
                                 <div class="pick-up1 montserrat">
                                     <button class="button ">Trip 1</button>
-                                    <span class="title">12:30 PM, 22 Dec 2023</span>
+                                    <span class="title"></span>
                                     <?php
                                     if(isset($formData['time']) && isset($formData['date'])) {
                                         echo htmlspecialchars($formData['time']) . ', ' . htmlspecialchars($formData['date']);
@@ -67,9 +75,9 @@ if (isset($_REQUEST['fetchBooking'])) {
                                         echo 'Time not specified';
                                     }
                                     ?>
-                                    <span class="span-btn" data-bs-toggle="modal" data-bs-target="#modalPickup1">
-                                        Edit
-                                    </span>
+<!--                                    <span class="span-btn" data-bs-toggle="modal" data-bs-target="#modalPickup1">-->
+<!--                                        Edit-->
+<!--                                    </span>-->
 
                                     <!-- Modal for Pickup 1 -->
                                     <div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
@@ -318,6 +326,24 @@ if (isset($_REQUEST['fetchBooking'])) {
                             <div class="details">
                                 <form action="">
                                     <div class="row " >
+
+                                        <!-- Form Data -->
+                                        <input type="hidden" name="date" value="<?= htmlspecialchars($formData['date'] ?? '') ?>">
+                                        <input type="hidden" name="time" value="<?= htmlspecialchars($formData['time'] ?? '') ?>">
+                                        <input type="hidden" name="total_passenger" value="<?= htmlspecialchars($formData['total_passenger'] ?? '') ?>">
+                                        <input type="hidden" name="pick" value="<?= htmlspecialchars($formData['pick'] ?? '') ?>">
+                                        <input type="hidden" name="drop" value="<?= htmlspecialchars($formData['drop'] ?? '') ?>">
+                                        <input type="hidden" name="trip_type" value="<?= htmlspecialchars($formData['trip_type'] ?? '') ?>">
+
+                                        <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
+                                        <input type="hidden" name="fare" id="vehicle_price" value="">
+                                        <!-- Distance -->
+                                        <input type="hidden" name="distance[meter]" value="<?= htmlspecialchars($distance['meter'] ?? '') ?>">
+                                        <input type="hidden" name="distance[km]" value="<?= htmlspecialchars($distance['km'] ?? '') ?>">
+                                        <input type="hidden" name="distance[minute]" value="<?= htmlspecialchars($distance['minute'] ?? '') ?>">
+                                        <input type="hidden" name="distance[text]" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
+                                        <input type="hidden" name="distance[time]" value="<?= htmlspecialchars($distance['time'] ?? '') ?>">
+
                                         <div class="col-6" style="    padding-right: 0px !important; padding-left: 0px !important;">
                                             <div class="form-group">
                                                 <input type="text" class="form-control detail" placeholder="First name *">
@@ -391,26 +417,32 @@ if (isset($_REQUEST['fetchBooking'])) {
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Vehicle selection
         const vehicleCards = document.querySelectorAll('.booking-card-modal, .booking-card');
         const selectedVehicleDisplay = document.getElementById('selected-vehicle');
         const totalPriceElement = document.getElementById('total-price');
+
+        const hiddenVehicleId = document.getElementById('vehicle_id');
+        const hiddenVehiclePrice = document.getElementById('vehicle_price');
+
         vehicleCards.forEach(card => {
             card.addEventListener('click', function() {
                 const vehicleType = this.querySelector('.card-title').textContent.split('•')[0].trim();
                 const price = this.getAttribute('data-price');
                 const vehicleId = this.getAttribute('data-vehicle-id');
+
+                // Update UI
                 selectedVehicleDisplay.querySelector('.card-title').textContent = vehicleType + ' • $' + parseFloat(price).toFixed(2);
                 totalPriceElement.textContent = parseFloat(price).toFixed(2);
+                // Set hidden inputs
+                hiddenVehicleId.value = vehicleId;
+                hiddenVehiclePrice.value = price;
                 // Close modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalRideSelection'));
                 modal.hide();
             });
         });
-
     });
 </script>
-
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Dispatcher: one entry point for all counter changes
