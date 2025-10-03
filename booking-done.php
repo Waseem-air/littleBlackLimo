@@ -235,14 +235,6 @@ if (isset($_POST['doneBooking'])) {
                                     </p>
                                     <p class="text-muted small mb-0"><?php echo htmlspecialchars($bookingData['drop'] ?? ''); ?></p>
                                 </div>
-
-                                <hr>
-
-                                <!-- Fare Breakdown -->
-                                <div class="d-flex justify-content-between mb-2">
-                                    <span>Base fare</span>
-                                    <span>$<?php echo number_format($bookingData['fare'] ?? 0, 2); ?></span>
-                                </div>
                                 <hr>
 
                                 <!-- Total -->
