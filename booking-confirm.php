@@ -205,15 +205,6 @@ if (isset($_REQUEST['fetchBooking'])) {
                                         <p class="title">From</p>
                                         <p class="subtitle"><?php echo htmlspecialchars($formData['pick'] ?? 'Pickup location not specified'); ?></p>
                                     </div>
-                                    <div class="dist2">
-                                        <p class="title">To</p>
-                                        <p class="subtitle"><?php echo htmlspecialchars($formData['drop'] ?? 'Dropoff location not specified'); ?></p>
-                                    </div>
-
-                                    <div class="dist2">
-                                        <p class="title">Passengers</p>
-                                        <p class="subtitle"><?php echo htmlspecialchars($formData['total_passenger'] ?? '1'); ?></p>
-                                    </div>
 
 
                                     <?php if (!empty($formData['stops']) && is_array($formData['stops'])): ?>
@@ -226,6 +217,16 @@ if (isset($_REQUEST['fetchBooking'])) {
                                             </p>
                                         </div>
                                     <?php endif; ?>
+                                    <div class="dist2">
+                                        <p class="title">To</p>
+                                        <p class="subtitle"><?php echo htmlspecialchars($formData['drop'] ?? 'Dropoff location not specified'); ?></p>
+                                    </div>
+
+                                    <div class="dist2">
+                                        <p class="title">Passengers</p>
+                                        <p class="subtitle"><?php echo htmlspecialchars($formData['total_passenger'] ?? '1'); ?></p>
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -557,13 +558,24 @@ if (isset($_REQUEST['fetchBooking'])) {
                 </form>
             </div>
             <!-- Map Section -->
+
+            <?php
+            $origin = urlencode($formData['pick'] ?? '');
+            $destination = urlencode($formData['drop'] ?? '');
+            $waypoints = '';
+            if (!empty($formData['stops']) && is_array($formData['stops'])) {
+                $waypointsArr = array_map('urlencode', $formData['stops']);
+                $waypoints = '&waypoints=' . implode('|', $waypointsArr);
+            }
+            ?>
+
             <div class="col-lg-6 col-12 embed-responsive d-none d-lg-block">
                 <?php if (!empty($formData['pick']) && !empty($formData['drop'])): ?>
                     <iframe
-                            src="https://www.google.com/maps/embed/v1/directions?origin=<?php echo urlencode($formData['pick']); ?>&destination=<?php echo urlencode($formData['drop']); ?>&key=<?php echo MAP_KEY; ?>"
+                            src="https://www.google.com/maps/embed/v1/directions?origin=<?= $origin; ?>&destination=<?= $destination; ?><?= $waypoints; ?>&key=<?= MAP_KEY; ?>"
                             class="embed-responsive-item"
                             frameborder="0"
-                            style="border:0; width: 100%; height: 100%;"
+                            style="border:0; width: 100%; height: 400px;"
                             allowfullscreen=""
                             loading="lazy">
                     </iframe>
