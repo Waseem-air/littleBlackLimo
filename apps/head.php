@@ -30,5 +30,6 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .swal2-popup { font-size: 1.6rem; }
+        .swal2-title { font-size: 2.0rem; }
     </style>
 </head>
