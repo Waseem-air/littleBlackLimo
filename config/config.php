@@ -35,6 +35,9 @@ date_default_timezone_set(TIMEZONE);
 // ==============================
 define('CONTACT_PHONE',   '0404 359 777');
 define('CONTACT_EMAIL',   'info@littleblacklimo.com');
+//define('CONTACT_US_EMAIL',   'luxury@littleblacklimo.com.au');
+define('CONTACT_US_EMAIL',   'zeeshanzaheer574@gmail.com');
+$CONTACT_US_EMAIL = CONTACT_US_EMAIL;
 define('CONTACT_ADDRESS', 'Wembley WA 6014');
 // config/config.php
 define('COMPANY_ODBS', '1010295');
