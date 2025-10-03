@@ -1,6 +1,6 @@
 <?php
 // Site Config
-define('ENVIRONMENT', 'local'); // local | live
+define('ENVIRONMENT', 'live'); // local | live
 define('SITE_NAME', 'Little Black Limo');
 define('SITE_URL', 'http://127.0.0.1:8000'); // Local URL
 define('LIVE_URL', 'https://a1rides.com.au'); // Live URL
@@ -22,7 +22,7 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 // Booking / App Settings
 // ==============================
 define('MAX_PASSENGERS', 7);
-define('API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');
+define('API_TOKEN', 'nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');
 // ==============================
 // Other Settings
 // ==============================
@@ -34,8 +34,7 @@ date_default_timezone_set(TIMEZONE);
 // ==============================
 define('CONTACT_PHONE',   '0404 359 777');
 define('CONTACT_EMAIL',   'info@littleblacklimo.com');
-//define('CONTACT_US_EMAIL',   'luxury@littleblacklimo.com.au');
-define('CONTACT_US_EMAIL',   'zeeshanzaheer574@gmail.com');
+define('CONTACT_US_EMAIL',   'luxury@littleblacklimo.com.au');
 $CONTACT_US_EMAIL = CONTACT_US_EMAIL;
 define('CONTACT_ADDRESS', 'Wembley WA 6014');
 // config/config.php
