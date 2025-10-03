@@ -575,7 +575,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                             src="https://www.google.com/maps/embed/v1/directions?origin=<?= $origin; ?>&destination=<?= $destination; ?><?= $waypoints; ?>&key=<?= MAP_KEY; ?>"
                             class="embed-responsive-item"
                             frameborder="0"
-                            style="border:0; width: 100%; height: 400px;"
+                            style="border:0; width: 100%; height: 100%"
                             allowfullscreen=""
                             loading="lazy">
                     </iframe>
