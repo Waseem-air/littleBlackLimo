@@ -75,7 +75,7 @@
 <!-- Flatpickr -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <!-- Your Custom Script -->
-<script src="assets/js/custom.js"></script>
+<!--<script src="assets/js/custom.js"></script>-->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<?= MAP_KEY ?>&libraries=places"></script>

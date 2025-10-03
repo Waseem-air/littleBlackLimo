@@ -589,40 +589,7 @@ if (isset($_REQUEST['fetchBooking'])) {
 </section>
 
 <!-- Modal for Pickup 1 -->
-<div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-head">
-                <span class="modal-span" id="modalPickup1Label">Pick-up 1</span>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form action="">
-                    <div class="form-group">
-                        <img src="./asset/img/calendar_month.svg" class="form-img" alt="">
-                        <input type="text" name="pickup" id="datePicker1" class="form-control custom"
-                               placeholder="Pickup date & time">
-                    </div>
-                    <div class="form-group mb-0">
-                        <img src="./asset/img/arrow_up.svg" class="form-img" alt="">
-                        <input type="text" name="pickup" class="form-control custom" placeholder="Pickup address">
-                    </div>
-                    <div>
-                        <button class="swapvert-btn"><img src="./asset/img/swap_vert.svg" alt=""></button>
-                    </div>
-                    <div class="form-group">
-                        <img src="./asset/img/arrow_down.svg" class="form-img" style="margin-top: 32px;" alt="">
-                        <input type="text" name="dropoff" class="form-control custom" placeholder="Dropoff address">
-                    </div>
-                    <div class="form-group d-grid gap-2">
-                        <a href="javascript:void(0)" class="modal-btn">Done</a>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
+<?php require_once('apps/multi_stops_popup.php'); ?>
 <!-- Booking End -->
 <!-- bookin detail End -->
 <?php require_once('apps/footer.php'); ?>

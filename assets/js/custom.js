@@ -2,13 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const addStopHerePlaceholder = "Add stop here";
     const removeStopText = "Remove";
 
-    let tripCount = 0;
+    let tripCount = document.querySelectorAll('.trip-segment').length - 1; // start from existing segments
     let autocompleteInstances = [];
 
     function renumberTrips() {
         document.querySelectorAll('.trip-segment').forEach((segment, index) => {
             const tripNum = index + 1;
-            segment.querySelector('.text-uppercase').textContent = `Stop ${tripNum}`;
         });
     }
 
@@ -41,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Add segment
     document.getElementById('addSegment')?.addEventListener('click', function() {
-        tripCount++;
+        tripCount++; // increment only once per click
         const newSegment = document.createElement('div');
         newSegment.className = 'trip-segment bg-white rounded-4 p-3 trip-shadow mb-3';
         newSegment.innerHTML = `
@@ -66,30 +65,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.closest('.remove-trip')) {
             e.target.closest('.trip-segment').remove();
             renumberTrips();
+            tripCount = document.querySelectorAll('.trip-segment').length; // update count
         }
     });
-
-    // Flatpickr date pickers
-    const bookingSection = document.getElementById("booking-section");
-    if (bookingSection) {
-        const datePicker1 = bookingSection.querySelector("#datePicker1");
-        const datePicker2 = bookingSection.querySelector("#datePicker2");
-
-        if (datePicker1) {
-            flatpickr(datePicker1, {
-                enableTime: true,
-                dateFormat: "Y-m-d H:i",
-                minDate: "today",
-            });
-        }
-        if (datePicker2) {
-            flatpickr(datePicker2, {
-                enableTime: true,
-                dateFormat: "Y-m-d H:i",
-                minDate: "today",
-            });
-        }
-    }
 
     // Google maps init
     window.initAutocomplete = function () {
@@ -104,20 +82,3 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
-
-
- function initAutocomplete() {
-    const inputs = document.querySelectorAll(".placesAPI");
-
-    inputs.forEach(input => {
-      new google.maps.places.Autocomplete(input, {
-        types: ['geocode'], // sirf addresses ke liye
-        componentRestrictions: { country: "au" } // country code (optional) e.g. "au" = Australia
-      });
-    });
-  }
-
-  // Initialize jab page load ho
-  //google.maps.event.addDomListener(window, 'load', initAutocomplete);
-
-
