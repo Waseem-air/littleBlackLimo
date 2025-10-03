@@ -1,5 +1,4 @@
 <?php
-
 function curlPost($postData,$endpoint){
     // Enable error reporting
     error_reporting(E_ALL);
@@ -33,8 +32,8 @@ function curlPost($postData,$endpoint){
             'message' => 'cURL Error: ' . $curlError
         ];
     }
+    
     $apiResponse = json_decode($response, true);
-
     if ($httpCode === 200 && isset($apiResponse['success']) && $apiResponse['success']) {
         return [
             'success' => true,

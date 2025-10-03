@@ -24,9 +24,6 @@ define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
 define('MAX_PASSENGERS', 7);
 define('API_TOKEN', 'nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');
 
-
-
-
 // ==============================
 // Other Settings
 // ==============================
@@ -36,7 +33,7 @@ date_default_timezone_set(TIMEZONE);
 // ==============================
 // Contact Information
 // ==============================
-define('CONTACT_PHONE',   '0404 359 777'); 
+define('CONTACT_PHONE',   '0404 359 777');
 define('CONTACT_EMAIL',   'info@littleblacklimo.com');
 define('CONTACT_ADDRESS', 'Wembley WA 6014');
 // config/config.php

@@ -1,7 +1,11 @@
 <?php
 require_once('apps/head.php');
 
+// --------------------------------------------------
+// STEP 1: FETCH AVAILABLE VEHICLES (when coming from index form)
+// --------------------------------------------------
 if (isset($_REQUEST['fetchBooking'])) {
+
     $postData = [
         'trip_type'       => $_REQUEST['trip_type'] ?? '',
         'pick'            => $_REQUEST['pick'] ?? '',
@@ -11,7 +15,6 @@ if (isset($_REQUEST['fetchBooking'])) {
     ];
 
     $response = curlPost($postData, 'booking/vehicles');
-
     // Decode response
     if (is_string($response)) {
         $bookingData = json_decode($response, true);
@@ -30,10 +33,6 @@ if (isset($_REQUEST['fetchBooking'])) {
         header("Location: index.php");
         exit();
     }
-
-} else {
-    header("Location: index.php");
-    exit();
 }
 ?>
 <body>
@@ -55,7 +54,8 @@ if (isset($_REQUEST['fetchBooking'])) {
         <div class="container-fluid px-0">
             <div class="row g-0 flex-column-reverse flex-lg-row">
                 <div class="col-lg-6 col-12 p-0 mt-5 ps-lg-2">
-                    <div class="px-2 ms-lg-5 me-lg-4">
+                    <form method="post" action ="booking-done.php">
+                        <div class="px-2 ms-lg-5 me-lg-4">
                         <!-- STEP 1: Confirm pick-up schedule -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="">
@@ -70,7 +70,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                                     <span class="title"></span>
                                     <?php
                                     if(isset($formData['time']) && isset($formData['date'])) {
-                                        echo htmlspecialchars($formData['time']) . ', ' . htmlspecialchars($formData['date']);
+                                        echo htmlspecialchars($formData['time']) . ', ' . date('d M Y',strtotime(htmlspecialchars($formData['date'])));
                                     } else {
                                         echo 'Time not specified';
                                     }
@@ -78,41 +78,6 @@ if (isset($_REQUEST['fetchBooking'])) {
 <!--                                    <span class="span-btn" data-bs-toggle="modal" data-bs-target="#modalPickup1">-->
 <!--                                        Edit-->
 <!--                                    </span>-->
-
-                                    <!-- Modal for Pickup 1 -->
-                                    <div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered">
-                                            <div class="modal-content">
-                                                <div class="modal-head">
-                                                    <span class="modal-span" id="modalPickup1Label">Pick-up 1</span>
-                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form action="">
-                                                        <div class="form-group">
-                                                            <img src="./asset/img/calendar_month.svg" class="form-img" alt="">
-                                                            <input type="text" name="pickup" id="datePicker1" class="form-control custom" placeholder="Pickup date & time">
-                                                        </div>
-                                                        <div class="form-group mb-0">
-                                                            <img src="./asset/img/arrow_up.svg" class="form-img" alt="">
-                                                            <input type="text" name="pickup" class="form-control custom" placeholder="Pickup address">
-                                                        </div>
-                                                        <div>
-                                                            <button class="swapvert-btn"><img src="./asset/img/swap_vert.svg" alt=""></button>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <img src="./asset/img/arrow_down.svg" class="form-img" style="margin-top: 32px;" alt="">
-                                                            <input type="text" name="dropoff" class="form-control custom" placeholder="Dropoff address">
-                                                        </div>
-                                                        <div class="form-group d-grid gap-2">
-                                                            <a href="javascript:void(0)" class="modal-btn">Done</a>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                     <div class="dist1">
                                         <p class="title">From</p>
                                         <p class="subtitle"><?php echo htmlspecialchars($formData['pick'] ?? 'Pickup location not specified'); ?></p>
@@ -252,10 +217,11 @@ if (isset($_REQUEST['fetchBooking'])) {
                                         <?php if(!empty($vehicles)): ?>
                                             <?php foreach($vehicles as $vehicle): ?>
                                                 <div class="booking-card"
-                                                     data-vehicle-id="<?php echo $vehicle['vehicle_uid']; ?>"
-                                                     data-price="<?php echo $vehicle['fare']; ?>">
+                                                     data-vehicle-id="<?php echo htmlspecialchars($vehicle['vehicle_uid']); ?>"
+                                                     data-price="<?php echo htmlspecialchars($vehicle['fare']); ?>"
+                                                     data-driver-fare="<?php echo htmlspecialchars($vehicle['fare_details']['driver_fare'] ?? 0); ?>">
 
-                                                    <div class="card-item">
+                                                <div class="card-item">
                                                         <div class="card-inner">
                                                             <div class="card-subinner">
                                                                 <p class="card-title">
@@ -324,7 +290,6 @@ if (isset($_REQUEST['fetchBooking'])) {
 
                         <div class="bor">
                             <div class="details">
-                                <form action="">
                                     <div class="row " >
 
                                         <!-- Form Data -->
@@ -335,36 +300,46 @@ if (isset($_REQUEST['fetchBooking'])) {
                                         <input type="hidden" name="drop" value="<?= htmlspecialchars($formData['drop'] ?? '') ?>">
                                         <input type="hidden" name="trip_type" value="<?= htmlspecialchars($formData['trip_type'] ?? '') ?>">
 
-                                        <input type="hidden" name="vehicle_id" id="vehicle_id" value="">
-                                        <input type="hidden" name="fare" id="vehicle_price" value="">
+                                        <?php if (!empty($vehicles)): ?>
+                                            <?php $firstVehicle = $vehicles[0]; ?>
+                                            <input type="hidden" name="vehicle_id" id="vehicle_id"
+                                                   value="<?php echo htmlspecialchars($firstVehicle['vehicle_uid'] ?? ''); ?>">
+                                            <input type="hidden" name="fare" id="vehicle_price"
+                                                   value="<?php echo htmlspecialchars($firstVehicle['fare'] ?? ''); ?>">
+                                            <input type="hidden" name="driver_fare" id="driver_fare"
+                                                   value="<?php echo htmlspecialchars($firstVehicle['fare_details']['driver_fare'] ?? ''); ?>">
+                                        <?php endif; ?>
+
+
                                         <!-- Distance -->
-                                        <input type="hidden" name="distance[meter]" value="<?= htmlspecialchars($distance['meter'] ?? '') ?>">
-                                        <input type="hidden" name="distance[km]" value="<?= htmlspecialchars($distance['km'] ?? '') ?>">
-                                        <input type="hidden" name="distance[minute]" value="<?= htmlspecialchars($distance['minute'] ?? '') ?>">
-                                        <input type="hidden" name="distance[text]" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
-                                        <input type="hidden" name="distance[time]" value="<?= htmlspecialchars($distance['time'] ?? '') ?>">
+                                        <input type="hidden" name="distance" value="<?= htmlspecialchars($distance['km'] ?? '') ?>">
+                                        <input type="hidden" name="distance_text" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
+                                        <input type="hidden" name="minutes" value="<?= htmlspecialchars($distance['minute'] ?? '') ?>">
+                                        <input type="hidden" name="distance_text" value="<?= htmlspecialchars($distance['text'] ?? '') ?>">
+                                        <input type="hidden" name="doneBooking" value="doneBooking">
+                                        <input type="hidden" name="pickcordinate" value="<?= htmlspecialchars($distance['pickcordinate'] ?? '') ?>">
+                                        <input type="hidden" name="dropcordinate" value="<?= htmlspecialchars($distance['dropcordinate'] ?? '') ?>">
 
                                         <div class="col-6" style="    padding-right: 0px !important; padding-left: 0px !important;">
                                             <div class="form-group">
-                                                <input type="text" class="form-control detail" placeholder="First name *">
+                                                <input type="text" class="form-control detail" name="firstname" placeholder="First name *">
                                             </div>
                                         </div>
                                         <div class="col-6 ps-2" style="    padding-right: 0px !important; padding-left: 10px !important;">
                                             <div class="form-group">
-                                                <input type="text" class="form-control detail" placeholder="Last name *">
+                                                <input type="text" name="lastname" class="form-control detail" placeholder="Last name *">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control detail" placeholder="Email address*">
+                                        <input type="text" class="form-control detail" name="email" placeholder="Email address*">
                                     </div>
                                     <div class="form-group">
-                                        <input type="tel" class="form-control detail" placeholder="Mobile no.*">
+                                        <input type="tel" class="form-control detail" name="phone" placeholder="Mobile no.*">
                                     </div>
                                     <div class="form-group mb-0">
-                                        <input type="text" class="form-control detail" placeholder="Notes *">
+                                        <input type="text" class="form-control detail" name="notes" placeholder="Notes *">
                                     </div>
-                                </form>
                             </div>
                         </div>
 
@@ -383,13 +358,13 @@ if (isset($_REQUEST['fetchBooking'])) {
                                 <p class="total-p">$0.00 <sup class="total-span">Total</sup></p>
                             <?php endif; ?>
                             <div class="d-grid gap-2">
-                                <a href="booking_confirmed.html" class="total-btn">Pay now to book</a>
+                                <button type="submit" class="total-btn">Book Now</button>
                             </div>
                         </div>
 
                     </div>
+                    </form>
                 </div>
-
                 <!-- Map Section -->
                 <div class="col-lg-6 col-12 embed-responsive d-none d-lg-block">
                     <?php if (!empty($formData['pick']) && !empty($formData['drop'])): ?>
@@ -410,6 +385,40 @@ if (isset($_REQUEST['fetchBooking'])) {
         </div>
     </section>
 
+<!-- Modal for Pickup 1 -->
+<div class="modal fade" id="modalPickup1" tabindex="-1" aria-labelledby="modalPickup1Label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-head">
+                <span class="modal-span" id="modalPickup1Label">Pick-up 1</span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="form-group">
+                        <img src="./asset/img/calendar_month.svg" class="form-img" alt="">
+                        <input type="text" name="pickup" id="datePicker1" class="form-control custom" placeholder="Pickup date & time">
+                    </div>
+                    <div class="form-group mb-0">
+                        <img src="./asset/img/arrow_up.svg" class="form-img" alt="">
+                        <input type="text" name="pickup" class="form-control custom" placeholder="Pickup address">
+                    </div>
+                    <div>
+                        <button class="swapvert-btn"><img src="./asset/img/swap_vert.svg" alt=""></button>
+                    </div>
+                    <div class="form-group">
+                        <img src="./asset/img/arrow_down.svg" class="form-img" style="margin-top: 32px;" alt="">
+                        <input type="text" name="dropoff" class="form-control custom" placeholder="Dropoff address">
+                    </div>
+                    <div class="form-group d-grid gap-2">
+                        <a href="javascript:void(0)" class="modal-btn">Done</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
         <!-- Booking End -->
      <!-- bookin detail End -->
   <?php require_once('apps/footer.php'); ?>
@@ -423,12 +432,15 @@ if (isset($_REQUEST['fetchBooking'])) {
 
         const hiddenVehicleId = document.getElementById('vehicle_id');
         const hiddenVehiclePrice = document.getElementById('vehicle_price');
+        const hiddendriverFare = document.getElementById('drive_fare');
+
 
         vehicleCards.forEach(card => {
             card.addEventListener('click', function() {
                 const vehicleType = this.querySelector('.card-title').textContent.split('•')[0].trim();
                 const price = this.getAttribute('data-price');
                 const vehicleId = this.getAttribute('data-vehicle-id');
+                const driverFare = this.getAttribute('data-driverFare');
 
                 // Update UI
                 selectedVehicleDisplay.querySelector('.card-title').textContent = vehicleType + ' • $' + parseFloat(price).toFixed(2);
@@ -436,6 +448,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                 // Set hidden inputs
                 hiddenVehicleId.value = vehicleId;
                 hiddenVehiclePrice.value = price;
+                hiddendriverFare.value = driverFare;
                 // Close modal
                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalRideSelection'));
                 modal.hide();

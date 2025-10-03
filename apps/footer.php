@@ -92,6 +92,8 @@
   flatpickr(".datetime", {
     enableTime: true,
     dateFormat: "Y-m-d H:i",
+      mode: 'single',
+      disableMobile: "true",
     minDate: new Date(Date.now() + 48 * 60 * 60 * 1000) // aaj se 48 ghante baad
   });
 </script>
