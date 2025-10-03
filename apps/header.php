@@ -52,9 +52,12 @@
       </ul>
 
       <!-- Right Button -->
-      <form class="d-flex">
-        <button class="btn bg-white nav-button montserrat" type="submit"><a href="booking.php" class="text-decoration-none text-dark">Book now</a></button>
-      </form>
+      <a href="booking.php" 
+        class="text-decoration-none text-dark btn bg-white nav-button montserrat 
+                d-flex align-items-center justify-content-center text-center">
+        Book now
+      </a>
+      
     </div>
   </div>
 </nav>
