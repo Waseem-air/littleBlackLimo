@@ -284,7 +284,7 @@ if (isset($_POST['doneBooking'])) {
 
                             <div class="d-flex justify-content-center gap-3">
                                 <a href="index.php" class="btn btn-primary">Try Again</a>
-                                <a href="contact.php" class="btn btn-outline-secondary">Contact Support</a>
+                                <a href="contact-us.php" class="btn btn-outline-secondary">Contact Support</a>
                             </div>
                         </div>
                     </div>
