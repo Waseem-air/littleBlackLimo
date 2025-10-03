@@ -1,27 +1,68 @@
 <?php
 require_once('apps/head.php');
 
-
-function showSweetAlert($type, $title, $message = '')
+/**
+ * Centered SweetAlert Popup (No Icons)
+ */
+function showSweetAlert($title, $message = '')
 {
-    $icon = $type === 'success' ? 'success' : 'error';
-
     return "
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
-                icon: '$icon',
                 title: '$title',
-                text: '$message',
-                width: '600px',
+                html: '$message',
+                icon: null,
+                showConfirmButton: true,
                 confirmButtonText: 'OK',
+                width: '600px',
                 customClass: {
+                    popup: 'swal-custom-popup',
+                    title: 'swal-custom-title',
+                    htmlContainer: 'swal-custom-text',
                     confirmButton: 'swal-custom-btn'
                 },
                 buttonsStyling: false
             });
         });
         </script>
+
+        <style>
+        .swal-custom-popup {
+            text-align: center;
+            padding: 20px;
+        }
+        .swal-custom-title {
+            font-size: 22px !important;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .swal-custom-text {
+            font-size: 16px;
+            text-align: center;
+        }
+        .swal-custom-text ul {
+            list-style-type: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
+        .swal-custom-text li {
+            margin-bottom: 5px;
+        }
+        .swal-custom-btn {
+            background: #333;
+            color: #fff;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .swal-custom-btn:hover {
+            background: #000;
+        }
+        </style>
     ";
 }
 
@@ -32,33 +73,34 @@ $ticketNo = '';
 if (isset($_POST['doneBooking'])) {
     // Base booking data
     $postData = [
-        'trip_type' => $_POST['trip_type'] ?? '',
-        'pick' => $_POST['pick'] ?? '',
-        'drop' => $_POST['drop'] ?? '',
-        'date' => $_POST['date'] ?? '',
-        'time' => $_POST['time'] ?? '',
+        'trip_type'       => $_POST['trip_type']       ?? '',
+        'pick'            => $_POST['pick']            ?? '',
+        'drop'            => $_POST['drop']            ?? '',
+        'date'            => $_POST['date']            ?? '',
+        'time'            => $_POST['time']            ?? '',
         'total_passenger' => $_POST['total_passenger'] ?? '',
-        'vehicle_id' => $_POST['vehicle_id'] ?? '',
-        'fare' => $_POST['fare'] ?? '',
-        'driver_fare' => $_POST['driver_fare'] ?? '',
-        'distance_text' => $_POST['distance_text'] ?? '',
-        'distance' => $_POST['distance'] ?? '',
-        'minutes' => $_POST['minutes'] ?? '',
-        'pickcordinate' => $_POST['pickcordinate'] ?? '',
-        'dropcordinate' => $_POST['dropcordinate'] ?? '',
-        'stops' => $_POST['stops'] ?? [],
-        'firstname' => $_POST['firstname'] ?? '',
-        'lastname' => $_POST['lastname'] ?? '',
-        'email' => $_POST['email'] ?? '',
-        'phone' => $_POST['phone'] ?? '',
-        'notes' => $_POST['notes'] ?? '',
+        'vehicle_id'      => $_POST['vehicle_id']      ?? '',
+        'fare'           => $_POST['fare']            ?? '',
+        'driver_fare'    => $_POST['driver_fare']     ?? '',
+        'distance_text'  => $_POST['distance_text']   ?? '',
+        'distance'       => $_POST['distance']       ?? '',
+        'minutes'        => $_POST['minutes']        ?? '',
+        'pickcordinate'  => $_POST['pickcordinate']  ?? '',
+        'dropcordinate'  => $_POST['dropcordinate']  ?? '',
+        'stops'          => $_POST['stops']          ?? [],
+        'firstname'      => $_POST['firstname']      ?? '',
+        'lastname'       => $_POST['lastname']       ?? '',
+        'email'          => $_POST['email']          ?? '',
+        'phone'          => $_POST['phone']          ?? '',
+        'notes'          => $_POST['notes']          ?? '',
     ];
+
     // Extras
     $postData['extras'] = [
-        'baggage' => (int)($_POST['baggeg'] ?? 0),
+        'baggage'   => (int)($_POST['baggeg'] ?? 0),
         'handcarry' => (int)($_POST['hand_carry'] ?? 0),
         'babyseats' => (int)($_POST['noofbaby'] ?? 0),
-        'boosters' => (int)($_POST['noofbooster'] ?? 0),
+        'boosters'  => (int)($_POST['noofbooster'] ?? 0),
     ];
 
     // Bulk items
@@ -73,33 +115,36 @@ if (isset($_POST['doneBooking'])) {
     // Call API
     $result = curlPost($postData, 'booking/create');
 
-    // Handle booking creation response
+    // Handle success
     if ($result['success']) {
         $bookingSuccess = true;
         $ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? 'N/A');
 
-        // Success message with booking details
+        // Build success message (centered, no icon)
         $successHtml = "
-        <div style='text-align: left;'>
-            <p><strong>🚗 Booking Confirmed!</strong></p>
-            <p><strong>Ticket Number:</strong> {$ticketNo}</p>
-            <p><strong>From:</strong> " . htmlspecialchars($result['data']['pick'] ?? '') . "</p>
-            <p><strong>To:</strong> " . htmlspecialchars($result['data']['drop'] ?? '') . "</p>
-            <p><strong>Date & Time:</strong> " . htmlspecialchars($result['data']['date'] ?? '') . " " . htmlspecialchars($result['data']['time'] ?? '') . "</p>
-            <p><strong>Passenger:</strong> " . htmlspecialchars($result['data']['firstname'] ?? '') . " " . htmlspecialchars($result['data']['lastname'] ?? '') . "</p>
-            <p><strong>Phone:</strong> " . htmlspecialchars($result['data']['phone'] ?? '') . "</p>
-            <p><strong>Total Fare:</strong> $" . htmlspecialchars($result['data']['fare'] ?? '') . "</p>
-        </div>";
+            <div style='text-align:center;'>
+                <p><strong>Booking Confirmed!</strong></p>
+                <ul>
+                    <li><strong>Ticket No:</strong> {$ticketNo}</li>
+                    <li><strong>From:</strong> " . htmlspecialchars($result['data']['pick'] ?? '') . "</li>
+                    <li><strong>To:</strong> " . htmlspecialchars($result['data']['drop'] ?? '') . "</li>
+                    <li><strong>Date & Time:</strong> " . htmlspecialchars($result['data']['date'] ?? '') . " " . htmlspecialchars($result['data']['time'] ?? '') . "</li>
+                    <li><strong>Passenger:</strong> " . htmlspecialchars($result['data']['firstname'] ?? '') . " " . htmlspecialchars($result['data']['lastname'] ?? '') . "</li>
+                    <li><strong>Phone:</strong> " . htmlspecialchars($result['data']['phone'] ?? '') . "</li>
+                    <li><strong>Total Fare:</strong> $" . htmlspecialchars($result['data']['fare'] ?? '') . "</li>
+                </ul>
+            </div>
+        ";
 
         echo "
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
-                icon: 'success',
                 title: 'Booking Created Successfully!',
                 html: `{$successHtml}`,
+                icon: null,
+                showConfirmButton: true,
                 confirmButtonText: 'View Booking',
-                confirmButtonColor: '#28a745',
                 width: '600px'
             }).then((result) => {
                 if (result.isConfirmed) {
@@ -110,54 +155,42 @@ if (isset($_POST['doneBooking'])) {
         </script>";
 
     } else {
-        $bookingSuccess = false;
-        $errorMessage = htmlspecialchars($result['message'] ?? 'Unknown error occurred during booking');
+        // Handle errors (validation + message)
+        $errorTitle = htmlspecialchars($result['message'] ?? 'Booking Failed');
+        $errorHtml = "<div style='text-align:center;'><ul>";
 
-        // Error message with details
-        $errorDetails = "<div style='text-align: left;'>";
-
-        // Add validation errors if available
-        if (!empty($result['errors'])) {
-            $errorDetails .= "<p><strong>Validation Errors:</strong></p><ul style='margin: 10px 0;'>";
+        if (!empty($result['errors']) && is_array($result['errors'])) {
             foreach ($result['errors'] as $field => $errors) {
                 if (is_array($errors)) {
                     foreach ($errors as $error) {
-                        $errorDetails .= "<li><strong>" . htmlspecialchars($field) . ":</strong> " . htmlspecialchars($error) . "</li>";
+                        $errorHtml .= "<li>" . htmlspecialchars($error) . "</li>";
                     }
                 } else {
-                    $errorDetails .= "<li><strong>" . htmlspecialchars($field) . ":</strong> " . htmlspecialchars($errors) . "</li>";
+                    $errorHtml .= "<li>" . htmlspecialchars($errors) . "</li>";
                 }
             }
-            $errorDetails .= "</ul>";
+        } else {
+            $errorHtml .= "<li>$errorTitle</li>";
         }
 
-        // Add HTTP status code
-        if (!empty($result['http_code'])) {
-            $errorDetails .= "<p><strong>Status Code:</strong> " . htmlspecialchars($result['http_code']) . "</p>";
-        }
-
-        $errorDetails .= "</div>";
+        $errorHtml .= "</ul></div>";
 
         echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({
-                icon: 'error',
-                title: 'Booking Failed',
-                html: `{$errorDetails}`,
+                title: '$errorTitle',
+                html: `$errorHtml`,
+                icon: null,
+                showConfirmButton: true,
                 confirmButtonText: 'Try Again',
-                confirmButtonColor: '#d33',
                 width: '600px'
             });
         });
         </script>";
     }
-}
-
-// If no booking attempt, show error
-if (!isset($_POST['doneBooking'])) {
-    echo showSweetAlert('error', 'Invalid Access', 'Please start from the booking form.');
+} else {
+    echo showSweetAlert('Invalid Access', 'Please start from the booking form.');
 }
 ?>
 <body>

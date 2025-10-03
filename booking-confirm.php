@@ -1,40 +1,83 @@
 <?php
 require_once('apps/head.php');
 
-function showSweetAlert($type, $title, $message = '')
+/**
+ * Show SweetAlert popup without icon (centered content)
+ */
+function showSweetAlert($title, $message = '')
 {
-    $icon = $type === 'success' ? 'success' : 'error';
-
     return "
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
-                icon: '$icon',
                 title: '$title',
-                text: '$message',
-                width: '600px',
+                html: '$message',
+                icon: null,
+                showConfirmButton: true,
                 confirmButtonText: 'OK',
+                width: '600px',
                 customClass: {
+                    popup: 'swal-custom-popup',
+                    title: 'swal-custom-title',
+                    htmlContainer: 'swal-custom-text',
                     confirmButton: 'swal-custom-btn'
                 },
                 buttonsStyling: false
             });
         });
         </script>
+
+        <style>
+        .swal-custom-popup {
+            text-align: center;
+            padding: 20px;
+        }
+        .swal-custom-title {
+            font-size: 22px !important;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .swal-custom-text {
+            font-size: 16px;
+            text-align: center;
+        }
+        .swal-custom-text ul {
+            list-style-type: none;
+            padding: 0;
+            display: inline-block;
+            text-align: left;
+        }
+        .swal-custom-text li {
+            margin-bottom: 5px;
+        }
+        .swal-custom-btn {
+            background: #333;
+            color: #fff;
+            border-radius: 6px;
+            padding: 8px 20px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+        .swal-custom-btn:hover {
+            background: #000;
+        }
+        </style>
     ";
 }
+
 /**
- * Handle Fetch Booking (Step 1)
+ * Handle Fetch Booking Request (Step 1)
  */
 if (isset($_REQUEST['fetchBooking'])) {
 
     // Build request payload
     $postData = [
-        'trip_type'        => $_REQUEST['trip_type']        ?? '',
-        'pick'             => $_REQUEST['pick']             ?? '',
-        'drop'             => $_REQUEST['drop']             ?? '',
-        'datetime'         => $_REQUEST['datetime']         ?? '',
-        'total_passenger'  => $_REQUEST['total_passenger']  ?? '',
+        'trip_type'       => $_REQUEST['trip_type']       ?? '',
+        'pick'            => $_REQUEST['pick']            ?? '',
+        'drop'            => $_REQUEST['drop']            ?? '',
+        'datetime'        => $_REQUEST['datetime']        ?? '',
+        'total_passenger' => $_REQUEST['total_passenger'] ?? '',
     ];
 
     // Optional stops
@@ -46,29 +89,72 @@ if (isset($_REQUEST['fetchBooking'])) {
     $response = curlPost($postData, 'booking/vehicles');
     $bookingData = is_string($response) ? json_decode($response, true) : $response;
 
-    // Validate response
-    if (empty($bookingData) || !$bookingData['success']) {
-        $errorMessage = htmlspecialchars($bookingData['message'] ?? 'Unknown error occurred');
-        echo showSweetAlert('error', 'API Error', $errorMessage);
+    // Handle empty or invalid response
+    if (empty($bookingData) || !isset($bookingData['success'])) {
+        echo showSweetAlert('API Error', 'Invalid or empty response from the server.');
         exit();
     }
 
-    // Extract data
+    // Handle validation or API errors
+    if (!$bookingData['success']) {
+        $errorTitle = htmlspecialchars($bookingData['message'] ?? 'Validation failed');
+        $errorDetails = '';
+
+        // Check if errors exist in the response
+        if (isset($bookingData['errors']) && is_array($bookingData['errors'])) {
+            $errorDetails .= '<ul>';
+            foreach ($bookingData['errors'] as $field => $messages) {
+                if (is_array($messages)) {
+                    foreach ($messages as $msg) {
+                        $errorDetails .= '<li>' . htmlspecialchars($msg) . '</li>';
+                    }
+                } else {
+                    $errorDetails .= '<li>' . htmlspecialchars($messages) . '</li>';
+                }
+            }
+            $errorDetails .= '</ul>';
+        }
+        // Some APIs return errors inside 'data'
+        elseif (isset($bookingData['data']) && is_array($bookingData['data'])) {
+            $errorDetails .= '<ul>';
+            foreach ($bookingData['data'] as $field => $messages) {
+                if (is_array($messages)) {
+                    foreach ($messages as $msg) {
+                        $errorDetails .= '<li>' . htmlspecialchars($msg) . '</li>';
+                    }
+                } else {
+                    $errorDetails .= '<li>' . htmlspecialchars($messages) . '</li>';
+                }
+            }
+            $errorDetails .= '</ul>';
+        }
+        // Fallback if no details found
+        else {
+            $errorDetails = htmlspecialchars($errorTitle);
+        }
+
+        echo showSweetAlert($errorTitle, $errorDetails);
+        exit();
+    }
+
+    // Extract response data
     $vehicles = $bookingData['data']['vehicles'] ?? [];
     $bulkies  = $bookingData['data']['bulkies']  ?? [];
     $formData = $bookingData['data']['formData'] ?? [];
     $distance = $bookingData['data']['distance'] ?? [];
-    // Validate required data
+
+    // Ensure required data is available
     if (empty($vehicles) || empty($formData)) {
-        echo showSweetAlert('error', 'No Vehicles', 'No vehicles available for your criteria. Please try different locations or passenger count.');
+        echo showSweetAlert('No Vehicles', 'No vehicles available for your criteria. Please try again with different details.');
         exit();
     }
 
 } else {
-    echo showSweetAlert('error', 'Invalid Access', 'Please start from the booking form.');
+    echo showSweetAlert('Invalid Access', 'Please start your booking from the main form.');
     exit();
 }
 ?>
+
 <body>
 <?php require_once('apps/header.php'); ?>
 
