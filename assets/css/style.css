@@ -55,6 +55,9 @@ body {
     height:128px ;
     margin-bottom: 0px;
 }
+.collapse{
+  z-index: 999!important;
+}
 .navbar-toggler {
   border-color: white; /* optional: white border */
 }
@@ -68,7 +71,7 @@ body {
     .carousel-indicators.custom-indicators {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
+      /* transform: translateX(-50%); */
       bottom: 12px;
       display: flex;
       padding: 0;

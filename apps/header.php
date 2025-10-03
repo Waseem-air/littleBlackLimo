@@ -13,7 +13,7 @@
     </button>
 
     <!-- Menu + Button -->
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
       <!-- Center Menu -->
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 jakarta">
         <li class="nav-item px-lg-2">
