@@ -208,6 +208,17 @@ if (isset($_REQUEST['fetchBooking'])) {
                                         <p class="subtitle"><?php echo htmlspecialchars($formData['drop'] ?? 'Dropoff location not specified'); ?></p>
                                     </div>
 
+                                    <?php if (!empty($formData['stops']) && is_array($formData['stops'])): ?>
+                                        <div class="dist2">
+                                            <p class="title">Stops</p>
+                                            <p class="subtitle">
+                                                <?php foreach ($formData['stops'] as $stop): ?>
+                                                    <span class="stop"><?= htmlspecialchars($stop) ?></span><br>
+                                                <?php endforeach; ?>
+                                            </p>
+                                        </div>
+                                    <?php endif; ?>
+
                                     <div class="dist2">
                                         <p class="title">Passengers</p>
                                         <p class="subtitle"><?php echo htmlspecialchars($formData['total_passenger'] ?? '1'); ?></p>
