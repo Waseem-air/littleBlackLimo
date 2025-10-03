@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php require_once('apps/head.php'); ?>
+<?php 
+	if(isset($_REQUEST['sendEmail'])){
+		$postData = $_REQUEST;
+		$response = curlPost($postData, 'send/contactusemail');
+		$result = is_string($response) ? json_decode($response, true) : $response;
+
+		if (!empty($result['success']) && $result['success'] === true) {
+			$sendingSuccess = true;
+			//$ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? '');
+		} else {
+			$sendingSuccess = false;
+			//$errorMessage = htmlspecialchars($result['message'] ?? 'Unknown error occurred');
+		}
+	}
+?>
 <body>
   <?php require_once('apps/header.php'); ?>
   
@@ -27,7 +42,7 @@
 
 
             <h4 class="fw-bold mt-5">EMAIL:</h4>
-            <h5 class="fw-bold text-decoration-underline"><a href="" class="text-decoration-underline text-dark">luxury@littleblacklimo.com.au</a></h5>
+            <h5 class="fw-bold text-decoration-underline"><a href="" class="text-decoration-underline text-dark"><?php echo CONTACT_US_EMAIL; ?></a></h5>
 
             <h4 class="fw-bold mt-5">REFUNDS & CANCELLATION POLICY:</h4>
             <p>
@@ -59,20 +74,20 @@
           <!-- Right Side -->
           <div class="col-md-6 ps-sm-4">
             <h3 class="fs-1 charm mb-4">Get In Touch with Us</h3>
-            <form>
+            <form method="post">
              <div class="row mb-3">
                   <div class="col-md-6 mb-3 mb-md-0">
-                    <input type="text" class="form-control rounded-pill form-text " placeholder="Name">
+                    <input type="text" name="email_name" required class="form-control rounded-pill form-text " placeholder="Name">
                   </div>
                   <div class="col-md-6">
-                    <input type="email" class="form-control rounded-pill form-text " placeholder="Email">
+                    <input type="email" name="email_address" required class="form-control rounded-pill form-text " placeholder="Email">
                   </div>
                 </div>
 
                 <!-- Row 2: Phone -->
                 <div class="row mb-3">
                   <div class="col-12">
-                    <input type="text" class="form-control form-text  rounded-pill" placeholder="Phone">
+                    <input type="text" name="email_phone" required class="form-control form-text  rounded-pill" placeholder="Phone">
                   </div>
                 </div>
 
@@ -80,7 +95,7 @@
                 <div class="row mb-3">
                   <div class="col-12">
                     <label for="message" class="form-label form-text fs-6">Message</label>
-                    <textarea id="message" class="form-control form-text  " rows="4" placeholder="Message"></textarea>
+                    <textarea id="message" name="email_description" required class="form-control form-text" rows="4" placeholder="Message"></textarea>
                   </div>
                 </div>
 
@@ -88,20 +103,14 @@
                <div class="row mb-3">
               <div class="col-12">
                 <label for="datetime" class="form-label form-text fs-6">Date & Time Required</label>
-                <div class="form-group position-relative">
-                  <!-- Icon -->
-                  <img src="assets/images/calendar_month.svg" class="form-img-c" alt="">
-                  
-                  <!-- Input -->
-                  <input type="text" id="datetime" class="form-control input-custom rounded-pill form-text datetime" placeholder="Select Date & Time">
-                </div>
+                <textarea id="datetime" name="email_date_time" required class="form-control form-text" rows="4" placeholder="Date & Time Required:"></textarea>
               </div>
               </div>
 
                 <!-- Submit Button -->
                 <div class="row">
                   <div class="col-12 text-start">
-                    <button type="submit" class="btn btn-dark px-4 rounded-pill">Submit</button>
+                    <input type="submit" name = "sendEmail" class="btn btn-dark px-4 rounded-pill" value="Submit" />
                   </div>
                 </div>
 
