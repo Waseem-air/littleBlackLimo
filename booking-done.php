@@ -1,9 +1,10 @@
+<!DOCTYPE html>
+<html lang="en">
 <?php
 require_once('apps/head.php');
 function showSweetAlert($title, $message = '')
 {
     return "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
@@ -67,7 +68,6 @@ $bookingSuccess = false;
 $errorMessage = '';
 $ticketNo = '';
 $bookingData = [];
-
 if (isset($_POST['doneBooking'])) {
     // Base booking data
     $postData = [
@@ -151,18 +151,8 @@ if (isset($_POST['doneBooking'])) {
     }
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $bookingSuccess ? 'Booking Confirmed' : 'Booking Status'; ?> - Little Black Limo</title>
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-</head>
 <body>
 <?php require_once('apps/header.php'); ?>
-
 <?php if ($bookingSuccess): ?>
     <section class="booking-bg">
         <div class="container">
@@ -173,7 +163,6 @@ if (isset($_POST['doneBooking'])) {
             </div>
         </div>
     </section>
-
     <section class="py-5" style="background:#f8f9fa;">
         <div class="container">
             <div class="row justify-content-center">
@@ -276,7 +265,6 @@ if (isset($_POST['doneBooking'])) {
             </div>
         </div>
     </section>
-
 <?php else: ?>
     <!-- Error State -->
     <section class="booking-bg">
@@ -288,7 +276,6 @@ if (isset($_POST['doneBooking'])) {
             </div>
         </div>
     </section>
-
     <section class="py-5" style="background:#f8f9fa;">
         <div class="container">
             <div class="row justify-content-center">
@@ -314,7 +301,6 @@ if (isset($_POST['doneBooking'])) {
         </div>
     </section>
 <?php endif; ?>
-
 <?php require_once('apps/footer.php'); ?>
 <script src="assets/js/custom.js"></script>
 </body>
