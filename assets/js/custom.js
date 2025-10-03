@@ -2,12 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const addStopHerePlaceholder = "Add stop here";
     const removeStopText = "Remove";
 
-    let tripCount = document.querySelectorAll('.trip-segment').length - 1; // start from existing segments
+    let tripCount = document.querySelectorAll('.trip-segment').length - 1; // count existing segments
     let autocompleteInstances = [];
 
     function renumberTrips() {
         document.querySelectorAll('.trip-segment').forEach((segment, index) => {
             const tripNum = index + 1;
+            const titleDiv = segment.querySelector('.text-uppercase');
+            if(titleDiv) titleDiv.textContent = `Stop ${tripNum}`;
         });
     }
 
@@ -19,13 +21,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function initPlacesAutocomplete(inputElement) {
         if (!inputElement.dataset.autocompleteInitialized) {
-            const autocomplete = new google.maps.places.Autocomplete(inputElement, {});
+            const autocomplete = new google.maps.places.Autocomplete(inputElement, {
+                componentRestrictions: { country: "au" }
+            });
             autocomplete.addListener('place_changed', function () {
                 const place = autocomplete.getPlace();
-                if (!place.geometry) {
-                    console.warn("No details for: " + place.name);
-                    return;
-                }
             });
             inputElement.dataset.autocompleteInitialized = 'true';
             autocompleteInstances.push(autocomplete);
@@ -38,15 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Add segment
+    // Add stop
     document.getElementById('addSegment')?.addEventListener('click', function() {
-        tripCount++; // increment only once per click
+        tripCount++;
         const newSegment = document.createElement('div');
         newSegment.className = 'trip-segment bg-white rounded-4 p-3 trip-shadow mb-3';
         newSegment.innerHTML = `
             <div class="d-flex justify-content-between align-items-center mb-2">
                 <div class="fw-semibold text-uppercase small">Stop ${tripCount}</div>
-                <button type="button" class="btn btn-sm btn-link text-danger p-0 remove-trip" data-trip-id="${tripCount}">
+                <button type="button" class="btn btn-sm btn-link text-danger p-0 remove-trip">
                     <i class="bi bi-trash"></i> ${removeStopText}
                 </button>
             </div>
@@ -60,16 +60,16 @@ document.addEventListener('DOMContentLoaded', function () {
         renumberTrips();
     });
 
-    // Remove segment
+    // Remove stop
     document.addEventListener('click', function(e) {
         if (e.target.closest('.remove-trip')) {
             e.target.closest('.trip-segment').remove();
             renumberTrips();
-            tripCount = document.querySelectorAll('.trip-segment').length; // update count
+            tripCount = document.querySelectorAll('.trip-segment').length;
         }
     });
 
-    // Google maps init
+    // Initialize Google autocomplete
     window.initAutocomplete = function () {
         fixAutocompleteZIndex();
         initializeExistingAutocompletes();
