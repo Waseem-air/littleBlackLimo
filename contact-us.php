@@ -114,10 +114,11 @@ if (isset($_POST['sendEmail'])) {
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <label for="datetime" class="form-label fs-6">Date & Time Required</label>
-                        <input type="text" id="datetime" name="email_date_time" required class="form-control datetime" placeholder="Select date & time">
+                        <label for="message" class="form-label fs-6">Date & Time Required</label>
+                        <textarea id="datetime" name="email_date_time" class="form-control datetime" placeholder="Select date & time"  rows="4"></textarea>
                     </div>
                 </div>
+
 
                 <div class="row">
                     <div class="col-12 text-start">
@@ -133,12 +134,5 @@ if (isset($_POST['sendEmail'])) {
 <?php require_once('apps/footer.php'); ?>
 
 <script src="assets/js/custom.js"></script>
-<script>
-    flatpickr(".datetime", {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        minDate: new Date(Date.now() + 48 * 60 * 60 * 1000) // 48 hours from now
-    });
-</script>
 </body>
 </html>

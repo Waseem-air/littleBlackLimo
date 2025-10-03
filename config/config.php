@@ -42,9 +42,11 @@ define('COMPANY_ODBS', '1010295');
 
 
 // ==============================
-// Social Links
+// Social Link
 // ==============================
 define('CONTACT_FACEBOOK', 'https://www.facebook.com/littleblacklimo');
 define('CONTACT_INSTA', 'https://www.instagram.com/Little_Limo/#');
 define('CONTACT_TIKTOK', 'https://www.tiktok.com/@little.black.limo');
 define('CONTACT_WHATSAPP', 'https://wa.me/61404359777');
+
+
