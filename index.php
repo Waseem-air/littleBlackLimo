@@ -436,8 +436,9 @@
 
             <!-- Scrollable Body -->
             <div class="modal-body overflow-auto pb-0" style="max-height: calc(100vh - 136px); background:#f5f5f5;">
-                <form class="form" id="createJob" method="post" >
-
+                <form method="post" action ="booking-confirm.php">
+                    <input type="hidden" name="trip_type" value="multi-stops">
+                    <input type="hidden" name="fetchBooking" value="fetchBooking">
                     <!-- TRIP 1 -->
                     <div class="trip-segment bg-white rounded-4 p-3 trip-shadow mb-3">
                         <div class="fw-semibold text-uppercase small mb-2">Trip</div>
@@ -458,7 +459,7 @@
                         <div>
                             <label class="form-label small mb-1">Date & Time</label>
                             <input type="text" class="form-control search-bar-input border-0 p-0 fw-semibold datetime"
-                                    placeholder="Select date & time" required>
+                                   name="datetime"  placeholder="Select date & time" required>
                         </div>
                     </div>
 
@@ -478,10 +479,9 @@
                     <div class="bg-white rounded-4 p-3 trip-shadow mb-3">
                         <label class="form-label small mb-1">Passengers</label>
                         <select class="form-select p-select text-start" name="total_passenger" id="total_passenger">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                            <?php for ($i = 1; $i <= MAX_PASSENGERS; $i++): ?>
+                                <option value="<?= $i ?>"><?= $i ?></option>
+                            <?php endfor; ?>
                         </select>
                     </div>
 
