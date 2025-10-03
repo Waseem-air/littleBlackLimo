@@ -1,24 +1,28 @@
 <?php
 require_once('apps/head.php');
 
-function showSweetAlert($type, $title, $message, $html = '') {
-    $icon = $type === 'success' ? 'success' : 'error';
-    $confirmButtonColor = $type === 'success' ? '#28a745' : '#d33';
-    $script = "
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        Swal.fire({
-            icon: '$icon',
-            title: '$title',
-            " . ($html ? "html: `$html`," : "text: '$message',") . "
-            confirmButtonText: 'OK',
-            confirmButtonColor: '$confirmButtonColor',
-            width: '600px'
-        });
-    });
-    </script>";
 
-    return $script;
+function showSweetAlert($type, $title, $message = '')
+{
+    $icon = $type === 'success' ? 'success' : 'error';
+
+    return "
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: '$icon',
+                title: '$title',
+                text: '$message',
+                width: '600px',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'swal-custom-btn'
+                },
+                buttonsStyling: false
+            });
+        });
+        </script>
+    ";
 }
 
 $bookingSuccess = false;
@@ -88,7 +92,6 @@ if (isset($_POST['doneBooking'])) {
         </div>";
 
         echo "
-        <script src='https://cdn.jsdelivr.net/npm/sweetalert2@11'></script>
         <script>
         document.addEventListener('DOMContentLoaded', function() {
             Swal.fire({

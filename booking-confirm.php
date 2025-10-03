@@ -1,85 +1,70 @@
 <?php
 require_once('apps/head.php');
-function showSweetAlert($type, $title, $message, $html = '') {
+
+function showSweetAlert($type, $title, $message = '')
+{
     $icon = $type === 'success' ? 'success' : 'error';
-    $confirmButtonColor = $type === 'success' ? '#28a745' : '#d33';
-    $script = "
-    <script>
-    Swal.fire({
-        icon: '$icon',
-        title: '$title',
-        " . ($html ? "html: `$html`," : "text: '$message',") . "
-        confirmButtonText: 'OK',
-        confirmButtonColor: '$confirmButtonColor',
-        width: '600px'
-    });
-    </script>";
 
-    return $script;
+    return "
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Swal.fire({
+                icon: '$icon',
+                title: '$title',
+                text: '$message',
+                width: '600px',
+                confirmButtonText: 'OK',
+                customClass: {
+                    confirmButton: 'swal-custom-btn'
+                },
+                buttonsStyling: false
+            });
+        });
+        </script>
+    ";
 }
-
-// --------------------------------------------------
-// STEP 1: FETCH AVAILABLE VEHICLES (when coming from index form)
-// --------------------------------------------------
+/**
+ * Handle Fetch Booking (Step 1)
+ */
 if (isset($_REQUEST['fetchBooking'])) {
+
+    // Build request payload
     $postData = [
-        'trip_type' => $_REQUEST['trip_type'] ?? '',
-        'pick' => $_REQUEST['pick'] ?? '',
-        'drop' => $_REQUEST['drop'] ?? '',
-        'datetime' => $_REQUEST['datetime'] ?? '',
-        'total_passenger' => $_REQUEST['total_passenger'] ?? '',
+        'trip_type'        => $_REQUEST['trip_type']        ?? '',
+        'pick'             => $_REQUEST['pick']             ?? '',
+        'drop'             => $_REQUEST['drop']             ?? '',
+        'datetime'         => $_REQUEST['datetime']         ?? '',
+        'total_passenger'  => $_REQUEST['total_passenger']  ?? '',
     ];
 
-    // Optional stops (if provided)
+    // Optional stops
     if (!empty($_REQUEST['stops']) && is_array($_REQUEST['stops'])) {
-        $postData['stops'] = $_REQUEST['stops'];
+        $postData['stops'] = array_filter($_REQUEST['stops']);
     }
 
+    // Send CURL request to fetch vehicles
     $response = curlPost($postData, 'booking/vehicles');
-    // Handle response
     $bookingData = is_string($response) ? json_decode($response, true) : $response;
-    // Check if API call was successful
-    if (!$bookingData['success']) {
-        // Build error message with details
+
+    // Validate response
+    if (empty($bookingData) || !$bookingData['success']) {
         $errorMessage = htmlspecialchars($bookingData['message'] ?? 'Unknown error occurred');
-        $errorDetails = '';
-
-        // Add validation errors if available
-        if (!empty($bookingData['errors'])) {
-            $errorDetails = "<div style='text-align: left; margin: 15px 0;'>";
-            $errorDetails .= "<strong>Details:</strong><ul style='margin: 10px 0;'>";
-            foreach ($bookingData['errors'] as $field => $errors) {
-                if (is_array($errors)) {
-                    foreach ($errors as $error) {
-                        $errorDetails .= "<li><strong>" . htmlspecialchars($field) . ":</strong> " . htmlspecialchars($error) . "</li>";
-                    }
-                } else {
-                    $errorDetails .= "<li><strong>" . htmlspecialchars($field) . ":</strong> " . htmlspecialchars($errors) . "</li>";
-                }
-            }
-            $errorDetails .= "</ul></div>";
-        }
-
-        // Add HTTP status code
-        if (!empty($bookingData['http_code'])) {
-            $errorDetails .= "<p><strong>Status Code:</strong> " . htmlspecialchars($bookingData['http_code']) . "</p>";
-        }
-        echo showSweetAlert('error', 'API Error', $errorMessage, $errorDetails);
+        echo showSweetAlert('error', 'API Error', $errorMessage);
         exit();
     }
 
-    // Store data only if successful
+    // Extract data
     $vehicles = $bookingData['data']['vehicles'] ?? [];
-    $bulkies = $bookingData['data']['bulkies'] ?? [];
+    $bulkies  = $bookingData['data']['bulkies']  ?? [];
     $formData = $bookingData['data']['formData'] ?? [];
     $distance = $bookingData['data']['distance'] ?? [];
+    // Validate required data
     if (empty($vehicles) || empty($formData)) {
         echo showSweetAlert('error', 'No Vehicles', 'No vehicles available for your criteria. Please try different locations or passenger count.');
         exit();
     }
-}
-// If neither condition is met, show error
-if (!isset($_REQUEST['fetchBooking'])) {
+
+} else {
     echo showSweetAlert('error', 'Invalid Access', 'Please start from the booking form.');
     exit();
 }

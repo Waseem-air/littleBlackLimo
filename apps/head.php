@@ -29,7 +29,54 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        .swal2-popup { font-size: 1.6rem; }
-        .swal2-title { font-size: 2.0rem; }
+        /* ===============================
+      SweetAlert2 Custom Popup Styles
+      =============================== */
+
+        /* Bigger popup container */
+        .swal2-popup.big-alert-popup {
+            font-size: 16px;
+            max-width: 900px !important;
+            border-radius: 12px;
+            padding: 25px;
+        }
+
+        /* Large title style */
+        .swal2-title.big-alert-title {
+            font-size: 22px !important;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        /* Text inside popup */
+        .alert-text,
+        .swal2-html-container.big-alert-text {
+            font-size: 14px !important;
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        /* Optional: Adjust confirm button */
+        .swal2-confirm {
+            padding: 10px 25px;
+            font-size: 14px;
+        }
+
+        /* Custom SweetAlert2 Button */
+        .swal-custom-btn {
+            background-color: #212529 !important;
+            color: #fff !important;
+            font-size: 14px;
+            padding: 10px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .swal-custom-btn:hover {
+            background-color: #343a40 !important; /* Slightly lighter for hover */
+        }
+
     </style>
 </head>
