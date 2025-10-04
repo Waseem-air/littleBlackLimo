@@ -53,6 +53,7 @@
     .swal2-confirm {
         padding: 10px 24px;
         font-size: 14px;
+        background-color: #212529 !important;
     }
 
     /* Custom button styling */

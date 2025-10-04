@@ -116,17 +116,17 @@
 </style>
 <script>
     const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
-    $('.datetime').datetimepicker({
+    const $input = $('.datetime');
+    $input.datetimepicker({
         format: 'dd mmm yyyy HH:MM',
-        modal: true,
+        modal: true, // 👈 turn off modal to keep inline popup
         footer: true,
         uiLibrary: 'bootstrap5',
-        todayDate:minSelectableDate,
+        todayDate: minSelectableDate,
         minDate: minSelectableDate,
-        icons: {
-            rightIcon: ''
-        },
-        openOnFocus: true
+        icons: { rightIcon: '' },
+        openOnFocus: true,
+        appendTo: '.datetime-wrapper' // attach inside wrapper
     }).on('change', function () {
         const selectedDate = new Date($(this).val());
         if (selectedDate < minSelectableDate) {
@@ -138,6 +138,19 @@
                 confirmButtonText: 'OK'
             });
             $(this).val('');
+        }
+    });
+
+    // 👇 Reposition picker when scrolling
+    $(window).on('scroll', function () {
+        const picker = $('.gj-picker');
+        if (picker.is(':visible')) {
+            const inputOffset = $input.offset();
+            picker.css({
+                top: inputOffset.top + $input.outerHeight(),
+                left: inputOffset.left,
+                position: 'absolute'
+            });
         }
     });
 </script>
