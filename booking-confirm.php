@@ -156,6 +156,33 @@ if (isset($_REQUEST['fetchBooking'])) {
     exit();
 }
 ?>
+<style>
+    .booking-card {
+        border: 2px solid transparent;
+        border-radius: 8px;
+        padding: 12px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .booking-card.selected {
+        border-color: #333333; /* Dark border for selected vehicle */
+        background-color: #f8f8f8; /* Light background */
+    }
+
+    .booking-card:hover {
+        background-color: #f5f5f5;
+        border-color: #555555; /* Slightly darker border on hover */
+    }
+
+    .booking-card1 {
+        border: 2px solid #333333; /* Dark border for first/default vehicle */
+        border-radius: 8px;
+        padding: 12px;
+        background-color: #f8f8f8;
+    }
+</style>
 
 <body>
 <?php require_once('apps/header.php'); ?>
@@ -372,11 +399,15 @@ if (isset($_REQUEST['fetchBooking'])) {
                                     </div>
                                     <div class="modal-body">
                                         <?php if (!empty($vehicles)): ?>
-                                            <?php foreach ($vehicles as $vehicle): ?>
-                                                <div class="booking-card"
+                                            <?php foreach ($vehicles as $index => $vehicle): ?>
+                                                <div class="booking-card <?php echo $index === 0 ? 'selected' : ''; ?>"
                                                      data-vehicle-id="<?php echo htmlspecialchars($vehicle['vehicle_uid']); ?>"
                                                      data-price="<?php echo htmlspecialchars($vehicle['fare']); ?>"
-                                                     data-driver-fare="<?php echo htmlspecialchars($vehicle['fare_details']['driver_fare'] ?? 0); ?>">
+                                                     data-driver-fare="<?php echo htmlspecialchars($vehicle['fare_details']['driver_fare'] ?? 0); ?>"
+                                                     data-vehicle-type="<?php echo htmlspecialchars($vehicle['vehicle_type']); ?>"
+                                                     data-vehicle-image="<?php echo $vehicle['vehicle_image']; ?>"
+                                                     data-person-allowed="<?php echo $vehicle['person_allowed']; ?>"
+                                                     data-no-of-seats="<?php echo $vehicle['no_of_seats']; ?>">
 
                                                     <div class="card-item">
                                                         <div class="card-inner">
@@ -411,11 +442,10 @@ if (isset($_REQUEST['fetchBooking'])) {
                                             </div>
                                         <?php endif; ?>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
-
+                        <!-- Selected Vehicle Display -->
                         <!-- Selected Vehicle Display -->
                         <div class="bor">
                             <?php if (!empty($vehicles)): ?>
@@ -533,8 +563,6 @@ if (isset($_REQUEST['fetchBooking'])) {
                         </div>
 
                         <!-- FINAL STEP: Make your payment -->
-
-                        <!-- FINAL STEP: Make your payment -->
                         <div class="heading">
                             <img src="assets/images/circle.png" class="step-img" alt="">
                             <p class="title "><span class="subtitle charm fw-bold">FINAL STEP</span><span
@@ -597,34 +625,51 @@ if (isset($_REQUEST['fetchBooking'])) {
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const vehicleCards = document.querySelectorAll('.booking-card-modal, .booking-card');
+        const vehicleCards = document.querySelectorAll('.booking-card');
         const selectedVehicleDisplay = document.getElementById('selected-vehicle');
         const totalPriceElement = document.getElementById('total-price');
 
         const hiddenVehicleId = document.getElementById('vehicle_id');
         const hiddenVehiclePrice = document.getElementById('vehicle_price');
-        const hiddendriverFare = document.getElementById('drive_fare');
+        const hiddenDriverFare = document.getElementById('driver_fare');
 
-
+        // Function to update the selected vehicle display
+        function updateSelectedVehicle(card) {
+            const vehicleType = card.getAttribute('data-vehicle-type');
+            const price = card.getAttribute('data-price');
+            const vehicleId = card.getAttribute('data-vehicle-id');
+            const driverFare = card.getAttribute('data-driver-fare');
+            const vehicleImage = card.getAttribute('data-vehicle-image');
+            const personAllowed = card.getAttribute('data-person-allowed');
+            const noOfSeats = card.getAttribute('data-no-of-seats');
+            selectedVehicleDisplay.querySelector('.card-title').textContent = vehicleType + ' • $' + parseFloat(price).toFixed(2);
+            totalPriceElement.textContent = parseFloat(price).toFixed(2);
+            selectedVehicleDisplay.querySelector('.cardimg[src*=".svg"]').src = "<?php echo $IMG_URL; ?>" + vehicleImage + '.svg';
+            const extras = selectedVehicleDisplay.querySelectorAll('.extras span');
+            if (extras.length >= 3) {
+                extras[0].textContent = personAllowed;
+                extras[1].textContent = noOfSeats;
+                extras[2].textContent = noOfSeats;
+            }
+            hiddenVehicleId.value = vehicleId;
+            hiddenVehiclePrice.value = price;
+            hiddenDriverFare.value = driverFare;
+        }
         vehicleCards.forEach(card => {
             card.addEventListener('click', function () {
-                const vehicleType = this.querySelector('.card-title').textContent.split('•')[0].trim();
-                const price = this.getAttribute('data-price');
-                const vehicleId = this.getAttribute('data-vehicle-id');
-                const driverFare = this.getAttribute('data-driverFare');
-
-                // Update UI
-                selectedVehicleDisplay.querySelector('.card-title').textContent = vehicleType + ' • $' + parseFloat(price).toFixed(2);
-                totalPriceElement.textContent = parseFloat(price).toFixed(2);
-                // Set hidden inputs
-                hiddenVehicleId.value = vehicleId;
-                hiddenVehiclePrice.value = price;
-                hiddendriverFare.value = driverFare;
-                // Close modal
-                const modal = bootstrap.Modal.getInstance(document.getElementById('modalRideSelection'));
-                modal.hide();
+                vehicleCards.forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                updateSelectedVehicle(this);
+                // // Close modal
+                // const modal = bootstrap.Modal.getInstance(document.getElementById('modalRideSelection'));
+                // modal.hide();
             });
         });
+
+        // Initialize with the first vehicle selected by default
+        if (vehicleCards.length > 0) {
+            vehicleCards[0].classList.add('selected');
+        }
     });
 </script>
 <script>
