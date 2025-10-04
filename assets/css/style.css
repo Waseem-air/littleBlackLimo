@@ -65,6 +65,8 @@ body {
   .collapse {
    background-color: lightgray; /* ensures z-index works */
    padding-left: 20px;
+   padding-bottom: 20px;
+   border-radius: 0 0 10px 10px;
   }
 }
 .navbar-toggler-icon {
