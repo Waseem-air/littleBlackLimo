@@ -14,19 +14,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&display=swap" rel="stylesheet">
     <!-- Google Fonts - Jakarta -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500&display=swap" rel="stylesheet">
-
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link href="asset/css/main.css" rel="stylesheet"> -->
-
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <!-- Flatpickr CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <style>
     /* ===============================
@@ -60,6 +53,7 @@
     .swal2-confirm {
         padding: 10px 24px;
         font-size: 14px;
+        background-color: #212529 !important;
     }
 
     /* Custom button styling */

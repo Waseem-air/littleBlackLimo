@@ -200,10 +200,10 @@
                         </div>
 
                         <!-- Date & Time -->
-                        <div class="col-12 col-md-2 mb-3 mb-md-0">
+                        <div class="col-12 col-md-2 mb-3 mb-md-0" >
                             <label for="datetime" class="form-label">Date & Time</label>
                             <input type="text" name="datetime"
-                                   class="form-control search-bar-input flatpickr datetime" placeholder="Select Date & Time"
+                                   class="form-control search-bar-input datetime" placeholder="Select Date & Time"
                                    required>
                         </div>
 
