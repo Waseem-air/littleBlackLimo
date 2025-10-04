@@ -87,20 +87,47 @@
         async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/css/bootstrap/zebra_datepicker.min.css">
-<script src="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/zebra_datepicker.min.js"></script>
+<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/css/bootstrap/zebra_datepicker.min.css">-->
+<!--<script src="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/zebra_datepicker.min.js"></script>-->
+<!---->
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!--        const min = new Date(Date.now() + 48 * 60 * 60 * 1000);-->
+<!--        const minFormatted = min.toISOString().slice(0,16).replace('T',' ');-->
+<!--        $('.datetime').Zebra_DatePicker({-->
+<!--            format: 'd M Y, H:i',-->
+<!--            show_icon: false,-->
+<!--            direction: [minFormatted, false]-->
+<!--        });-->
+<!--    });-->
+<!--</script>-->
 
+<script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<style>
+    .gj-icon {
+        display: none !important;   /* ✅ Completely hides icon container */
+    }
+
+    .gj-datepicker-bootstrap [role="right-icon"] {
+        display: none !important;   /* ✅ Handles Bootstrap-specific icon */
+    }
+
+</style>
 <script>
-    $(document).ready(function(){
-        const min = new Date(Date.now() + 48 * 60 * 60 * 1000);
-        const minFormatted = min.toISOString().slice(0,16).replace('T',' ');
-        $('.datetime').Zebra_DatePicker({
-            format: 'd M Y, H:i',
-            show_icon: false,
-            direction: [minFormatted, false]
-        });
+    $('.datetime').datetimepicker({
+        format: 'dd mmm yyyy HH:MM',
+        modal: true,
+        footer: true,
+        uiLibrary: 'bootstrap5',
+        minDate: new Date(Date.now() + 48 * 60 * 60 * 1000),
+        icons: {
+            rightIcon: ''   // ✅ removes the right-side calendar icon
+        },
+        openOnFocus: true   // ✅ picker opens when clicking the input
     });
 </script>
+
 
 <script>
     function initMap() {
