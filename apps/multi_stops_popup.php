@@ -51,7 +51,7 @@
                     <!-- Passengers -->
                     <div class="bg-white rounded-4 p-3 trip-shadow mb-3">
                         <label class="form-label small mb-1">Passengers</label>
-                        <select class="form-select p-select text-start" name="total_passenger" id="total_passenger">
+                        <select class="form-select p-select text-center w-auto" name="total_passenger" id="total_passenger">
                             <?php for ($i = 1; $i <= MAX_PASSENGERS; $i++): ?>
                                 <option value="<?= $i ?>"><?= $i ?></option>
                             <?php endfor; ?>
