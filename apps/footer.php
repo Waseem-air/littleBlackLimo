@@ -87,20 +87,6 @@
         async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/css/bootstrap/zebra_datepicker.min.css">-->
-<!--<script src="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/zebra_datepicker.min.js"></script>-->
-<!---->
-<!--<script>-->
-<!--    $(document).ready(function(){-->
-<!--        const min = new Date(Date.now() + 48 * 60 * 60 * 1000);-->
-<!--        const minFormatted = min.toISOString().slice(0,16).replace('T',' ');-->
-<!--        $('.datetime').Zebra_DatePicker({-->
-<!--            format: 'd M Y, H:i',-->
-<!--            show_icon: false,-->
-<!--            direction: [minFormatted, false]-->
-<!--        });-->
-<!--    });-->
-<!--</script>-->
 
 <script src="https://unpkg.com/gijgo@1.9.14/js/gijgo.min.js" type="text/javascript"></script>
 <link href="https://unpkg.com/gijgo@1.9.14/css/gijgo.min.css" rel="stylesheet" type="text/css" />
@@ -113,47 +99,114 @@
         display: none !important;   /* ✅ Handles Bootstrap-specific icon */
     }
 
+    .gj-picker-bootstrap5 {
+        z-index: 2000 !important;
+    }
+
+    /* Limit height and enable scroll INSIDE the picker */
+    .gj-picker-bootstrap5 {
+        max-height: 330px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border-radius: 8px;
+        position: fixed !important; /* ✅ fix picker in viewport, not modal flow */
+        z-index: 20000 !important;  /* ensure it's above the modal */
+    }
+
+    /* Sticky OK / Cancel buttons */
+    .gj-picker-bootstrap5 .gj-picker-footer {
+        position: sticky;
+        bottom: 0;
+        background: #fff;
+        border-top: 1px solid #ddd;
+        padding-top: 6px;
+        z-index: 1;
+    }
+
 </style>
 <script>
-    const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
-    const $input = $('.datetime');
-    $input.datetimepicker({
-        format: 'dd mmm yyyy HH:MM',
-        modal: true, // 👈 turn off modal to keep inline popup
-        footer: true,
-        uiLibrary: 'bootstrap5',
-        todayDate: minSelectableDate,
-        minDate: minSelectableDate,
-        icons: { rightIcon: '' },
-        openOnFocus: true,
-        appendTo: '.datetime-wrapper' // attach inside wrapper
-    }).on('change', function () {
-        const selectedDate = new Date($(this).val());
-        if (selectedDate < minSelectableDate) {
-            Swal.fire({
-                icon: '',
-                title: 'Invalid Date & Time',
-                text: 'Please select a date and time at least 48 hours from now.',
-                confirmButtonColor: '#212529',
-                confirmButtonText: 'OK'
-            });
-            $(this).val('');
-        }
-    });
+    document.addEventListener('DOMContentLoaded', function () {
+        const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
 
-    // 👇 Reposition picker when scrolling
-    $(window).on('scroll', function () {
-        const picker = $('.gj-picker');
-        if (picker.is(':visible')) {
-            const inputOffset = $input.offset();
-            picker.css({
-                top: inputOffset.top + $input.outerHeight(),
-                left: inputOffset.left,
-                position: 'absolute'
+        $('.datetime').each(function () {
+            const $input = $(this);
+
+            $input.datetimepicker({
+                uiLibrary: 'bootstrap5',
+                format: 'dd mmm yyyy HH:MM',
+                modal: false,
+                footer: true,
+                minDate: minSelectableDate,
+                icons: {
+                    rightIcon: '' // ✅ Hide calendar icon
+                },
+                openOnFocus: true,
+                appendTo: $input.closest('.datetime-wrapper')
             });
-        }
+
+            // 🟡 Reposition picker ABOVE input after it opens
+            $input.on('focus', function () {
+                setTimeout(() => {
+                    const picker = $('.gj-picker[role="calendar"]').filter(':visible');
+                    if (picker.length) {
+                        const offset = $input.offset();
+                        const pickerHeight = picker.outerHeight();
+
+                        picker.css({
+                            top: offset.top - pickerHeight - 5, // show ABOVE input
+                            left: offset.left,
+                            position: 'absolute'
+                        });
+
+                        // 🧭 Scroll smoothly to make sure input is visible
+                        $('html, body').animate({
+                            scrollTop: offset.top - 400
+                        }, 300);
+                    }
+                }, 50);
+            });
+
+            // 🟠 Validate on change
+            $input.on('change', function () {
+                const inputVal = $(this).val();
+                if (!inputVal) return;
+
+                const selectedDate = new Date(inputVal);
+                if (isNaN(selectedDate.getTime()) || selectedDate < minSelectableDate) {
+                    Swal.fire({
+                        title: 'Invalid Date & Time',
+                        text: 'Please select a date and time at least 48 hours from now.',
+                        icon: 'warning',
+                        confirmButtonColor: '#212529',
+                        confirmButtonText: 'OK'
+                    });
+                    $(this).val('');
+                }
+            });
+        });
+
+        // 🧭 Reposition picker when modal scrolls
+        $(document).on('scroll', '.modal', function () {
+            const picker = $('.gj-picker[role="calendar"]').filter(':visible');
+            if (picker.length) {
+                const $activeInput = $('.datetime').filter(function () {
+                    return $(this).data('gijgo') && picker.closest('body').length;
+                });
+                if ($activeInput.length) {
+                    const offset = $activeInput.offset();
+                    const pickerHeight = picker.outerHeight();
+
+                    picker.css({
+                        top: offset.top - pickerHeight - 5,
+                        left: offset.left,
+                        position: 'absolute'
+                    });
+                }
+            }
+        });
     });
 </script>
+
 
 <script>
     function initMap() {
