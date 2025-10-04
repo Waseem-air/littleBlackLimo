@@ -81,9 +81,12 @@ if (isset($_POST['sendEmail'])) {
             <h5 class="fw-bold"><a href="mailto:<?php echo CONTACT_US_EMAIL; ?>" class="text-decoration-underline text-dark"><?php echo CONTACT_US_EMAIL; ?></a></h5>
 
             <h4 class="fw-bold mt-5">REFUNDS & CANCELLATION POLICY:</h4>
-            <p><strong>Terms and conditions:</strong> On payment of the invoice, it is the understanding that you accept our T & C's...</p>
-            <p>Deposits are refundable up to seven days prior to the booking event with a 10% administration fee deducted...</p>
-            <p>Additional policies apply as described above...</p>
+            <p><strong>Terms and conditions:</strong> On payment of the invoice, it is the understanding that you are accepting our T & C's as set out below:</p>
+            <p>Deposits are refundable up to seven days prior to the booking event with a 10% administration fee deducted. Any cancellations made after seven days prior to the booking event the 50% deposit is forfeited. Refunds are net amount and does not include credit card fees.</p>
+            <p>If the balance is paid prior to seven days of the booking event, then the whole booking event is cancelled. There would be a 50% cancellation charge, and 50% would be refunded. If the event is cancelled in whole within 48 hours of the event date, 100% is forfeited and not refundable.
+Cancellations made by Little Black Limo or the client or alterations within 48 hours of booking time that are due to flight delays or customs delays and have an impact on our following bookings are not refundable. We reserve the right to cancel (non-refundable) the booking if you have been delayed in customs (we allow 1 hour from landing) if this were to affect a following booking.</p>
+            <p>If rebooking to another date, charges are to be determined at the discretion of the management.</p>
+            <p>Wedding ceremony T & C's are additional and listed on the invoice.</p>
         </div>
 
         <!-- Right Side: Contact Form -->
@@ -115,7 +118,7 @@ if (isset($_POST['sendEmail'])) {
                 <div class="row mb-3">
                     <div class="col-12">
                         <label for="message" class="form-label fs-6">Date & Time Required</label>
-                        <textarea id="datetime" name="email_date_time" class="form-control datetime" placeholder="Select date & time"  rows="4"></textarea>
+                        <textarea id="datetime" name="email_date_time" class="form-control datetime" placeholder="Date & Times Required"  rows="4"></textarea>
                     </div>
                 </div>
 

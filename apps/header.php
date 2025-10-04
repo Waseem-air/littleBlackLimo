@@ -13,7 +13,7 @@
     </button>
 
     <!-- Menu + Button -->
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03" >
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <!-- Center Menu -->
       <ul class="navbar-nav mx-auto mb-2 mb-lg-0 jakarta">
         <li class="nav-item px-lg-2">
@@ -31,10 +31,9 @@
           <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
              role="button" data-bs-toggle="dropdown" aria-expanded="false">
             What We Do
-            <!-- <span class="submenu-icon-down"></span> -->
           </a>
           <ul class="dropdown-menu p-0" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item " href="winery.php">Winery or Coastal Drive</a></li>
+            <li><a class="dropdown-item" href="winery.php">Winery or Coastal Drive</a></li>
             <li><a class="dropdown-item" href="corporate-service.php">Corporate Services</a></li>
             <li><a class="dropdown-item" href="transfer.php">Airport Transfers</a></li>
           </ul>
@@ -57,7 +56,6 @@
                 d-flex align-items-center justify-content-center text-center">
         Book now
       </a>
-      
     </div>
   </div>
 </nav>

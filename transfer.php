@@ -23,7 +23,7 @@
               <p class="mt-3">
                 The Little Black Limo will ensure you arrive safely with your luggage. 
                 Collections / drop-offs are available 24 hours a day. 
-                Families up to 6 with luggage? We have you covered with our trailer, too.
+                No matter how large your family or luggage is. Whether 1 or 20 people with luggage, Golf Clubs or Surfboards?  We have you covered with small and larger limo vehicles and trailers too. We have you covered with our trailer, too.
               </p>
             </div>
           </div>
@@ -66,7 +66,7 @@
           <!-- Section 3: Bali -->
           <div class="row mb-4">
             <div class="col-12">
-              <h2 class="fw-bold">Heading to Bali?</h2>
+              <h2 class="fw-bold">over 15 years</h2>
               <p class="mt-3">
                 Yes, we have Bali covered too.
               </p>

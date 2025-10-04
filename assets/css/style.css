@@ -35,7 +35,7 @@ body {
   border-bottom: 2px solid white;
   transform: rotate(47deg); /* Down arrow */
   margin-left: 8px;
-  margin-bottom: 2 px;
+  margin-bottom: 2px;
 }
 .dropdown-item:hover {
   background-color: black !important;
@@ -48,11 +48,11 @@ body {
     font-family: 'Montserrat', sans-serif; /* ensures button also uses Montserrat */
 }
 .navbar{
-  height: 150px!important;
+  height: 183px!important;
 }
 .nav-logo{
-    width:166px ;
-    height:128px ;
+    width:183px ;
+    height:183px ;
     margin-bottom: 0px;
 }
 .collapse{
@@ -65,13 +65,28 @@ body {
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+  /* Optional: slight zoom on hover */
+  .nav-logo:hover {
+    transform: scale(1.05);
+  }
 
+  /* Mobile optimization */
+  @media (max-width: 768px) {
+    .nav-logo {
+      width: 225px;
+      height: 183px;
+    }
+  }
 
+  /* Example for bg-color if not defined */
+  .bg-color {
+    background-color: #000; /* customize to your theme */
+  }
 /* center the indicators and use our own layout to avoid Bootstrap overrides */
     .carousel-indicators.custom-indicators {
       position: absolute;
       left: 50%;
-      /* transform: translateX(-50%); */
+      transform: translateX(-50%);
       bottom: 12px;
       display: flex;
       padding: 0;

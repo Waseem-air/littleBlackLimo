@@ -59,7 +59,7 @@
 
                 <p>
                     Little Black Limo provides luxury transportation for weddings, wine tours,
-                    airport transfers, events, and corporate functions. With two luxury vehicles
+                    airport transfers, events, and corporate functions. With multiple luxury vehicles
                     servicing the CBD and surrounding suburbs, Little Black Limo is the one-stop-shop
                     for your <br> transportation needs.
                 </p>
@@ -71,47 +71,61 @@
 
             <div class="row mt-4 montserrat">
                 <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
-                    <div>
-                        <img src="assets/images/travel-1.png" alt="">
+                   <a href="weeding.php" class="text-decoration-none text-dark">
+                    <div class="text-center clickable-card">
+                        <img src="assets/images/travel-1.png" alt="Wedding & Events" class="img-fluid">
                         <h5 class="mt-2">Wedding & Events</h5>
                     </div>
-                </div>
-
+                    </a>
+                 </div>
                 <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
-                    <div>
-                        <img src="assets/images/travel-2.png" alt="">
+                    <a href="winery.php" class="text-decoration-none text-dark">
+                        <div class="clickable-box">
+                        <img src="assets/images/travel-2.png" alt="Winery & Coastal" class="img-fluid">
                         <h5 class="mt-2">Winery & Coastal</h5>
-                    </div>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="col-12 col-sm-4 d-flex justify-content-center text-center">
-                    <div>
-                        <img src="assets/images/travel-3.png" alt="">
+                   <a href="corporate-service.php" class="text-decoration-none text-dark">
+                        <div class="clickable-box">
+                        <img src="assets/images/travel-3.png" alt="Corporate Services" class="img-fluid">
                         <h5 class="mt-2">Corporate Services</h5>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
             <div class="row mt-4">
                 <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
-                    <div>
-                        <img src="assets/images/travel-4.png" alt="" class="img-fluid">
-                        <h5 class="mt-2 ">Airport Transfers</h5>
-                    </div>
+                    <!-- Airport Transfers -->
+                    <a href="transfer.php" class="text-decoration-none text-dark">
+                        <div class="clickable-box">
+                        <img src="assets/images/travel-4.png" alt="Airport Transfers" class="img-fluid">
+                        <h5 class="mt-2">Airport Transfers</h5>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="col-12 col-sm-4 d-flex justify-content-center text-center mb-4 mb-sm-0">
-                    <div>
-                        <img src="assets/images/travel-5.png" alt="" class="img-fluid">
+                    <!-- Extras -->
+                    <a href="extras.php" class="text-decoration-none text-dark">
+                        <div class="clickable-box">
+                        <img src="assets/images/travel-5.png" alt="Extras" class="img-fluid">
                         <h5 class="mt-2">Extras</h5>
-                    </div>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="col-12 col-sm-4 d-flex justify-content-center text-center">
-                    <div>
-                        <img src="assets/images/travel-6.png" alt="" class="img-fluid">
+                   <!-- Our Why -->
+                    <a href="why.php" class="text-decoration-none text-dark">
+                        <div class="clickable-box">
+                        <img src="assets/images/travel-6.png" alt="Our Why" class="img-fluid">
                         <h5 class="mt-2">Our Why</h5>
-                    </div>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -380,7 +394,7 @@
         <!-- Blog 1 -->
         <div class="col-12 col-md-6 mt-4 text-center">
             <img src="assets/images/blog-1.png" alt="" class="img-fluid">
-            <h6 class="mt-4">WAWA Accredited Business</h6>
+            <h6 class="mt-4">Business</h6>
             <p>
                 Little Black Limo is a Western Australian Wedding <br>
                 Association accredited business.
