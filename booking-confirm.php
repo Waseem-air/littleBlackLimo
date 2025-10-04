@@ -90,7 +90,6 @@ if (isset($_REQUEST['fetchBooking'])) {
     // Send CURL request to fetch vehicles
     $response = curlPost($postData, 'booking/vehicles');
     $bookingData = is_string($response) ? json_decode($response, true) : $response;
-
     // Handle empty or invalid response
     if (empty($bookingData) || !isset($bookingData['success'])) {
         echo showSweetAlert('API Error', 'Invalid or empty response from the server.');

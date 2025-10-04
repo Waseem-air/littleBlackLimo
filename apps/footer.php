@@ -115,19 +115,32 @@
 
 </style>
 <script>
+    const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
     $('.datetime').datetimepicker({
         format: 'dd mmm yyyy HH:MM',
         modal: true,
         footer: true,
         uiLibrary: 'bootstrap5',
-        minDate: new Date(Date.now() + 48 * 60 * 60 * 1000),
+        todayDate:minSelectableDate,
+        minDate: minSelectableDate,
         icons: {
-            rightIcon: ''   // ✅ removes the right-side calendar icon
+            rightIcon: ''
         },
-        openOnFocus: true   // ✅ picker opens when clicking the input
+        openOnFocus: true
+    }).on('change', function () {
+        const selectedDate = new Date($(this).val());
+        if (selectedDate < minSelectableDate) {
+            Swal.fire({
+                icon: '',
+                title: 'Invalid Date & Time',
+                text: 'Please select a date and time at least 48 hours from now.',
+                confirmButtonColor: '#212529',
+                confirmButtonText: 'OK'
+            });
+            $(this).val('');
+        }
     });
 </script>
-
 
 <script>
     function initMap() {
