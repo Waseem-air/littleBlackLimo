@@ -39,7 +39,7 @@
             <div class="col-md-6">
               <h2 class="fw-bold mt-only-sm">Trailer</h2>
               <p>
-                If required, our trailer is included free of charge for those who carry many bags. We do not penalize you for how large your family is or how you travel.
+                Taking lots of luggage?, we have have you covered too. Our trailers are also available for those large groups with luggage, golf bags and surfboards.
               </p>
             </div>
           </div>

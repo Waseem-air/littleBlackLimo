@@ -30,7 +30,7 @@
             <h2 class="fw-bold mt-only-sm">Your wedding with <br> Little Black Limo</h2>
 
                 <p class="mt-4">
-                Arrive in style with our intimate and spacious vehicles! With two luxury vehicles, Little Black Limo has the perfect car for your wedding day.We strive to provide meticulous service, helping you to create special moments on your wedding day.From the beginning of your journey to the end, our driver works to ensure that your ride is comfortable and enjoyable as well as perfectly catered for you and your bridal party.   
+                Arrive in style with our intimate and spacious vehicles! With two multiple luxury vehicles, Little Black Limo has the perfect car for your wedding day. We strive to provide meticulous service, helping you to create special moments on your wedding day. From the beginning of your journey to the end, our Cheauffers strive to ensure that your ride is comfortable and enjoyable as well as perfectly catered for you and your bridal party.   
                 </p>
                 <p class="mt-4">
                 We are licenced for service and BYO and supply a complimentary bottle of champagne for the Bride and Groom.
@@ -88,7 +88,7 @@
             </div>
         </div>
         <!-- Section 4: Background Image with Testimonial -->
-        <section class="text-white text-center  weeding-testimonial-bg pb-0">
+        <!-- <section class="text-white text-center  weeding-testimonial-bg pb-0">
             <div class="container">
                 <div class="row pb-0 mb-0">
                     <div class="col-12 mb-0 mt-4 pb-0">
@@ -102,7 +102,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>

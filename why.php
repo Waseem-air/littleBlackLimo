@@ -20,8 +20,11 @@
              <div class="row mt-5 montserrat-p">
                     <div class="col-sm-6 ourwhy-img">
                         <p class="pe-5 ">With the drive and passion to provide luxury service to all clients, Colin and Karri Little founded Little Black Limo in 2019 with the soul purpose of making every person feel welcome, cared for, and at home. </p>
-                        <p class="mt-5 pt-sm-5">Colin's background extended to owning and operating a transport business in the UK, where he transported refrigerated cargo around Europe for 17 years. He then moved back to Perth, where the entrepreneur in him created Little Black Limo.</p>
-                        <p class="mt-5 pt-sm-5">After starting in corporate transport, Colin shortly expanded into weddings, events, and tours, providing every passenger with a custom experience, meeting their highest expectations.</p>
+                        <p class="mt-4 ">Colin's background extended to owning and operating a transport business in the UK, where he transported refrigerated cargo around Europe for 17 years. He then moved back to Perth, where the entrepreneur in him created Little Black Limo.</p>
+                        <p class="mt-4 ">“Karri has also had a lifetime of passion for serving clientele.
+                            She began her career in hospitality for 10 years and then excelled in the real estate industry for a further 20 years. Karri has also a passion of helping people through her coaching techniques.
+                        </p>
+                        <p class="mt-4 ">After starting in corporate transport, Colin shortly expanded into weddings, events, and tours, providing every passenger with a custom experience, meeting their highest expectations.</p>
                     </div>
                     <div class="col-sm-6 text-center">
                         <img src="assets/images/ourwhy2.svg" alt="" class="w-100 y-img" >
