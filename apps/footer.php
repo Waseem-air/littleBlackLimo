@@ -86,14 +86,19 @@
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=en&key=<?php echo MAP_KEY; ?>"
         async defer></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/css/bootstrap/zebra_datepicker.min.css">
+<script src="https://cdn.jsdelivr.net/npm/zebra_datepicker/dist/zebra_datepicker.min.js"></script>
+
 <script>
-    flatpickr(".datetime", {
-        enableTime: true,
-        allowInput: true,
-        dateFormat: "d M Y, H:i",
-        mode: 'single',
-        disableMobile: "true",
-        minDate: new Date(Date.now() + 48 * 60 * 60 * 1000) // aaj se 48 ghante baad
+    $(document).ready(function(){
+        const min = new Date(Date.now() + 48 * 60 * 60 * 1000);
+        const minFormatted = min.toISOString().slice(0,16).replace('T',' ');
+        $('.datetime').Zebra_DatePicker({
+            format: 'd M Y, H:i',
+            show_icon: false,
+            direction: [minFormatted, false]
+        });
     });
 </script>
 
