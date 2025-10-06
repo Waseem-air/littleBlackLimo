@@ -10,16 +10,16 @@
             <img src="assets/images/slider.png" class="d-block w-100" alt="1">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/slider.png" class="d-block w-100" alt="2">
+            <img src="assets/images/selfie-last.png" class="d-block w-100" alt="2">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/slider.png" class="d-block w-100" alt="3">
+            <img src="assets/images/winery-main-pic.png" class="d-block w-100" alt="3">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/slider.png" class="d-block w-100" alt="4">
+            <img src="assets/images/slider-2.png" class="d-block w-100" alt="4">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/slider.png" class="d-block w-100" alt="5">
+            <img src="assets/images/ourwhy3.png" class="d-block w-100" alt="5">
         </div>
     </div>
 
@@ -242,20 +242,10 @@
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                                  style="background-image: url('assets/images/slider-2.png'); height:455px; ">
                                 <div>
-                                    <p class="awais ">Outstanding Service from Little Black Limo!</p>
-                                    <p class="awais ">I've been following Colin's page for a while, and from the moment
-                                        I reached out with my inquiry, I knew I was in <br> brgood hands. The entire
-                                        process- from booking to pickup and drop-off-was seamless and professional.
-                                        Colin is an <br>absolute top bloke-friendly, reliable, and great with
-                                        communication. His pricing is fair, and the vehicle itself is <br> immaculate,
-                                        making for a truly luxurious and comfortable ride.
-                                    </p>
-                                    <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic
-                                        service and will definitely be recommending you! We <br>look forward to booking
-                                        with you again in the future!
-                                    </p>
-                                    <p class="awais ">Thanks again!</p>
-                                    <h4 class="awais ">- Jovanka Hawkins </h4>
+                                    <p class="slider-img p-5">Our team travelled with Little Black Limo for a company meeting.
+                                    The service was great and very professional, and the driver was accommodating to all of my requests.</p>
+                                    <p class="slider-img ">Thank you Little Black Limo!</p>
+                                    <h4 class="slider-img ">- Maddy H</h4>
                                 </div>
                             </div>
                         </div>
@@ -263,22 +253,13 @@
                         <!-- Slide 2 -->
                         <div class="carousel-item">
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
-                                 style="background-image: url('assets/images/slider-2.png'); height:455px;">
+                                 style="background-image: url('assets/images/selfie-last.png'); height:455px;">
                                 <div class="">
-                                    <p class="awais ">Outstanding Service from Little Black Limo!</p>
-                                    <p class="awais ">I've been following Colin's page for a while, and from the moment
-                                        I reached out with my inquiry, I knew I was in <br> brgood hands. The entire
-                                        process- from booking to pickup and drop-off-was seamless and professional.
-                                        Colin is an <br>absolute top bloke-friendly, reliable, and great with
-                                        communication. His pricing is fair, and the vehicle itself is <br> immaculate,
-                                        making for a truly luxurious and comfortable ride.
+                                    <p class="slider-img p-5">Thankyou once again for being part of our special day and as they say "getting us to the church on time"...
+                                    You will definately be our first choice for any of our future Limo/Cheauffer Driver requirements..
+                                    Thankyou again - you are EXCEPTIONAL!
                                     </p>
-                                    <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic
-                                        service and will definitely be recommending you! We <br>look forward to booking
-                                        with you again in the future!
-                                    </p>
-                                    <p class="awais ">Thanks again!</p>
-                                    <h4 class="awais ">- Jovanka Hawkins </h4>
+                                    <h4 class="slider-img ">- Craig & Mattie. </h4>
                                 </div>
                             </div>
                         </div>
@@ -286,22 +267,11 @@
                         <!-- Slide 3 -->
                         <div class="carousel-item">
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
-                                 style="background-image: url('assets/images/slider-2.png'); height:455px;">
+                                 style="background-image: url('assets/images/winery-main-pic.png'); height:455px;">
                                 <div>
-                                    <p class="awais ">Outstanding Service from Little Black Limo!</p>
-                                    <p class="awais ">I've been following Colin's page for a while, and from the moment
-                                        I reached out with my inquiry, I knew I was in <br> brgood hands. The entire
-                                        process- from booking to pickup and drop-off-was seamless and professional.
-                                        Colin is an <br>absolute top bloke-friendly, reliable, and great with
-                                        communication. His pricing is fair, and the vehicle itself is <br> immaculate,
-                                        making for a truly luxurious and comfortable ride.
-                                    </p>
-                                    <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic
-                                        service and will definitely be recommending you! We <br>look forward to booking
-                                        with you again in the future!
-                                    </p>
-                                    <p class="awais ">Thanks again!</p>
-                                    <h4 class="awais ">- Jovanka Hawkins </h4>
+                                    <p class="slider-img p-5">Colin was a great help on a recent return trip with 3 kids and lots of bags. Flight cancelled last minute and still manage to accomodate flight changes at short notice. Lovely, clean, spacious car and trailer for all our gear. 
+                                    Will definitely use again.</p>
+                                    <h4 class="slider-img ">- Kate. </h4>
                                 </div>
                             </div>
                         </div>
@@ -311,20 +281,20 @@
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
                                  style="background-image: url('assets/images/slider-2.png'); height:455px;">
                                 <div>
-                                    <p class="awais ">Outstanding Service from Little Black Limo!</p>
-                                    <p class="awais ">I've been following Colin's page for a while, and from the moment
+                                    <p class="slider-img ">Outstanding Service from Little Black Limo!</p>
+                                    <p class="slider-img ">I've been following Colin's page for a while, and from the moment
                                         I reached out with my inquiry, I knew I was in <br> brgood hands. The entire
                                         process- from booking to pickup and drop-off-was seamless and professional.
                                         Colin is an <br>absolute top bloke-friendly, reliable, and great with
                                         communication. His pricing is fair, and the vehicle itself is <br> immaculate,
                                         making for a truly luxurious and comfortable ride.
                                     </p>
-                                    <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic
+                                    <p class="slider-img ">Colin, it was an absolute pleasure! We appreciate your fantastic
                                         service and will definitely be recommending you! We <br>look forward to booking
                                         with you again in the future!
                                     </p>
-                                    <p class="awais ">Thanks again!</p>
-                                    <h4 class="awais ">- Jovanka Hawkins </h4>
+                                    <p class="slider-img ">Thanks again!</p>
+                                    <h4 class="slider-img ">- Jovanka Hawkins </h4>
                                 </div>
                             </div>
                         </div>
@@ -332,22 +302,11 @@
                         <!-- Slide 5 -->
                         <div class="carousel-item">
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
-                                 style="background-image: url('assets/images/slider-2.png'); height:455px;">
+                                 style="background-image: url('assets/images/ourwhy3.png'); height:455px;">
                                 <div>
-                                    <p class="awais ">Outstanding Service from Little Black Limo!</p>
-                                    <p class="awais ">I've been following Colin's page for a while, and from the moment
-                                        I reached out with my inquiry, I knew I was in <br> brgood hands. The entire
-                                        process- from booking to pickup and drop-off-was seamless and professional.
-                                        Colin is an <br>absolute top bloke-friendly, reliable, and great with
-                                        communication. His pricing is fair, and the vehicle itself is <br> immaculate,
-                                        making for a truly luxurious and comfortable ride.
-                                    </p>
-                                    <p class="awais ">Colin, it was an absolute pleasure! We appreciate your fantastic
-                                        service and will definitely be recommending you! We <br>look forward to booking
-                                        with you again in the future!
-                                    </p>
-                                    <p class="awais ">Thanks again!</p>
-                                    <h4 class="awais ">- Jovanka Hawkins </h4>
+                                    <p class="slider-img p-5">Colin's commitment to providing a 5 star customer experience is second to none.Professional, reliable, punctual, personable -just a few qualities that make each ride enjoyable -not to mention the conversation and banter!</p>
+                                    <p class="slider-img ">Service at its best!</p>
+                                    <h4 class="slider-img ">- Melissa H. </h4>
                                 </div>
                             </div>
                         </div>
