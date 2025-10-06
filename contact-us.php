@@ -117,7 +117,7 @@ Cancellations made by Little Black Limo or the client or alterations within 48 h
 
                 <div class="row mb-3">
                     <div class="col-12">
-                        <label for="message" class="form-label fs-6">Date & Time Required</label>
+                        <label for="message" class="form-label fs-6">Date & Times Required</label>
                         <textarea id="datetime" name="email_date_time" class="form-control datetime" placeholder="Date & Times Required"  rows="4"></textarea>
                     </div>
                 </div>

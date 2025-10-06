@@ -89,9 +89,11 @@
     <div class="modal-content bg-transparent border-0">
       <div class="modal-body p-0">
         <div class="ratio ratio-16x9">
-          <iframe id="youtubeVideo" src="https://www.youtube.com/embed/VIDEO_ID?enablejsapi=1"
-                  title="YouTube video" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          <iframe id="youtubeVideo" 
+                  src="" 
+                  title="YouTube video" 
+                  frameborder="0"
+                  allow="autoplay; encrypted-media" 
                   allowfullscreen></iframe>
         </div>
       </div>
@@ -99,9 +101,30 @@
   </div>
 </div>
 
+
+
+
   
 
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
+
+<script>
+  const videoModal = document.getElementById('videoModal');
+  const youtubeVideo = document.getElementById('youtubeVideo');
+  const videoURL = "https://www.youtube.com/embed/owMBwXcNxLE?autoplay=1";
+
+  // When modal opens → play video
+  videoModal.addEventListener('show.bs.modal', function () {
+    youtubeVideo.src = videoURL;
+  });
+
+  // When modal closes → stop video
+  videoModal.addEventListener('hidden.bs.modal', function () {
+    youtubeVideo.src = "";
+  });
+</script>
+
+
 </body>
 </html>
