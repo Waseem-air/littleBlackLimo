@@ -533,7 +533,7 @@ body {
 }
 .combineimage {
   width: 100%;   /* parent col ki full width le */
-  height: auto;  /* ratio maintain ho */
+  height: 260.55px!important;  /* ratio maintain ho */
   object-fit: cover; /* image ka shape barabar rahe */
 }
 @media (max-width: 768px) {
@@ -1430,7 +1430,7 @@ height:359px;
 
 .combineimage3 {
   width: 100%;   /* parent col ki full width le */
-  height: auto;  /* ratio maintain ho */
+  height: 400.5px!important;  /* ratio maintain ho */
   object-fit: cover; /* image ka shape barabar rahe */
 }
 @media (max-width: 768px) {

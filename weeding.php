@@ -83,8 +83,17 @@
                 </div>
                 </div>
 
-
-
+                <div class="row g-1 mb-5 mt-3">
+                    <div class="col-md-4 col-12">
+                        <img src="assets/images/mariageeppic7.jpg" class="combineimage img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <img src="assets/images/mariageeppic7.jpg" class="combineimage img-fluid" alt="">
+                    </div>
+                    <div class="col-md-4 col-12">
+                        <img src="assets/images/marriageepic8.jpg" class="combineimage img-fluid" alt="">
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Section 4: Background Image with Testimonial -->
