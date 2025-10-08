@@ -167,13 +167,6 @@
                 if (!inputVal) return;
                 const selectedDate = new Date(inputVal);
                 if (isNaN(selectedDate.getTime()) || selectedDate < minSelectableDate) {
-                    Swal.fire({
-                        title: 'Invalid Date & Time',
-                        text: 'Please select a future date and time from now.',
-                        icon: '',
-                        confirmButtonColor: '#212529',
-                        confirmButtonText: 'OK'
-                    });
                     $(this).val('');
                 }
             });
