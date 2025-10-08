@@ -170,18 +170,6 @@
             $input.on('change', function () {
                 const inputVal = $(this).val();
                 if (!inputVal) return;
-
-                const selectedDate = new Date(inputVal);
-                if (isNaN(selectedDate.getTime()) || selectedDate < minSelectableDate) {
-                    Swal.fire({
-                        title: 'Invalid Date & Time',
-                        text: 'Please select a date and time at least 48 hours from now.',
-                        icon: 'warning',
-                        confirmButtonColor: '#212529',
-                        confirmButtonText: 'OK'
-                    });
-                    $(this).val('');
-                }
             });
         });
 
