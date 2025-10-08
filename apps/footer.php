@@ -127,10 +127,8 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
-
         $('.datetime').each(function () {
             const $input = $(this);
-
             $input.datetimepicker({
                 uiLibrary: 'bootstrap5',
                 format: 'dd mmm yyyy HH:MM',
@@ -144,21 +142,18 @@
                 appendTo: $input.closest('.datetime-wrapper')
             });
 
-            // 🟡 Reposition picker ABOVE input after it opens
             $input.on('focus', function () {
                 setTimeout(() => {
                     const picker = $('.gj-picker[role="calendar"]').filter(':visible');
                     if (picker.length) {
                         const offset = $input.offset();
                         const pickerHeight = picker.outerHeight();
-
                         picker.css({
                             top: offset.top - pickerHeight - 5, // show ABOVE input
                             left: offset.left,
                             position: 'absolute'
                         });
 
-                        // 🧭 Scroll smoothly to make sure input is visible
                         $('html, body').animate({
                             scrollTop: offset.top - 400
                         }, 300);
@@ -170,6 +165,17 @@
             $input.on('change', function () {
                 const inputVal = $(this).val();
                 if (!inputVal) return;
+                const selectedDate = new Date(inputVal);
+                if (isNaN(selectedDate.getTime()) || selectedDate < minSelectableDate) {
+                    Swal.fire({
+                        title: 'Invalid Date & Time',
+                        text: 'Please select a future date and time from now.',
+                        icon: 'warning',
+                        confirmButtonColor: '#212529',
+                        confirmButtonText: 'OK'
+                    });
+                    $(this).val('');
+                }
             });
         });
 
