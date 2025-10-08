@@ -126,7 +126,7 @@
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
+        const minSelectableDate = new Date(Date.now()); // 48 hours ahead
         $('.datetime').each(function () {
             const $input = $(this);
             $input.datetimepicker({
