@@ -170,7 +170,7 @@
                     Swal.fire({
                         title: 'Invalid Date & Time',
                         text: 'Please select a future date and time from now.',
-                        icon: 'warning',
+                        icon: '',
                         confirmButtonColor: '#212529',
                         confirmButtonText: 'OK'
                     });
