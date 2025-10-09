@@ -39,7 +39,7 @@
             <div class="col-md-6">
               <h2 class="fw-bold mt-only-sm">Trailer</h2>
               <p>
-                Taking lots of luggage?, we have have you covered too. Our trailers are also available for those large groups with luggage, golf bags and surfboards.
+                Taking lots of luggage? We have you covered too. Our trailers are also available for those large groups with luggage, golf bags, and surfboards.
               </p>
             </div>
           </div>

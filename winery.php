@@ -28,7 +28,7 @@
                 <h2 class="fw-bold mt-only-sm">You choose the destination, and we take you on the ride!</h2>
 
                     <p class="mt-4">
-                    We do them a little differently. You choose, we follow.  Book 4 hours and 2 bottles of bubbles included. Cheers! Experience the serenity of the beautiful Swan Valley with our intimate and luxury vehicles in our wine tour package. Fully licenced for service and BYO, you can take your party on the road
+                    We do them a little differently. You choose, we follow. Book 4 hours and 2 bottles of bubbles included. Cheers! Experience the serenity of the beautiful Swan Valley with our intimate and luxury vehicles in our wine tour package. Fully licensed for service and BYO, you can take your party on the road.
                     </p>
                     <p class="mt-4">
                     

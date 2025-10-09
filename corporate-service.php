@@ -28,8 +28,7 @@
                     ports available for those Zoom calls or presentations.
                 </p>
                 <p class="mt-4">
-                    Important meetings and want to discuss legal matters? No problem; 
-                    we have NDA's to protect you and your clients.
+                    Important meetings and want to discuss legal matters? No problem; we have NDAs to protect you and your clients.
                 </p>
                 </div>
             </div>

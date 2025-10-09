@@ -7,19 +7,19 @@
 <div id="simpleCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="assets/images/slider.png" class="d-block w-100" alt="1">
+            <img src="assets/images/slider-1.jpg" class="d-block w-100" alt="1">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/selfie-last.png" class="d-block w-100" alt="2">
+            <img src="assets/images/slider-2.jpg" class="d-block w-100" alt="2">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/winery-main-pic.png" class="d-block w-100" alt="3">
+            <img src="assets/images/drop-image-2.png" class="d-block w-100" alt="3">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/slider-2.png" class="d-block w-100" alt="4">
+            <img src="assets/images/slider-4.jpg" class="d-block w-100" alt="4">
         </div>
         <div class="carousel-item">
-            <img src="assets/images/ourwhy3.png" class="d-block w-100" alt="5">
+            <img src="assets/images/slider-6.jpg" class="d-block w-100" alt="5">
         </div>
     </div>
 
@@ -53,19 +53,15 @@
                 <h1 class="charm fw-bold mb-4">Where travel and luxury meet</h1>
 
                 <p class="mb-3">
-                    Our commitment to making every person feel welcome, cared for, and at home,
-                    forms the very fabric of Little Black Limo.
+                    Our commitment to making every person feel welcome, cared for, and at home forms the very fabric of Little Black Limo.
                 </p>
 
                 <p>
-                    Little Black Limo provides luxury transportation for weddings, wine tours,
-                    airport transfers, events, and corporate functions. With multiple luxury vehicles
-                    servicing the CBD and surrounding suburbs, Little Black Limo is the one-stop-shop
-                    for your <br> transportation needs.
+                    Little Black Limo provides luxury transportation for weddings, wine tours, airport transfers, events, and corporate functions. With multiple luxury vehicles servicing the CBD and surrounding suburbs, Little Black Limo is your one-stop shop for all your <br>transportation needs.
                 </p>
 
                 <p>
-                    We can also supply BYO alcohol services for any of your travel requirements.
+                    We can also provide BYO alcohol services for any of your travel needs.
                 </p>
             </div>
 
@@ -240,7 +236,7 @@
                         <!-- Slide 1 -->
                         <div class="carousel-item active ">
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
-                                 style="background-image: url('assets/images/slider-2.png'); height:455px; ">
+                                 style="background-image: url('assets/images/slider-6.jpg'); height:455px; ">
                                 <div>
                                     <p class="slider-img p-5">Our team travelled with Little Black Limo for a company meeting.
                                     The service was great and very professional, and the driver was accommodating to all of my requests.</p>
@@ -253,11 +249,11 @@
                         <!-- Slide 2 -->
                         <div class="carousel-item">
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
-                                 style="background-image: url('assets/images/selfie-last.png'); height:455px;">
+                                 style="background-image: url('assets/images/slider-7.jpg'); height:455px;">
                                 <div class="">
-                                    <p class="slider-img p-5">Thankyou once again for being part of our special day and as they say "getting us to the church on time"...
-                                    You will definately be our first choice for any of our future Limo/Cheauffer Driver requirements..
-                                    Thankyou again - you are EXCEPTIONAL!
+                                    <p class="slider-img p-5">Thank you once again for being part of our special day and, as they say, “getting us to the church on time.”
+                                        You will definitely be our first choice for any of our future limo/chauffeur driver requirements.
+                                        Thank you again — you are EXCEPTIONAL!
                                     </p>
                                     <h4 class="slider-img ">- Craig & Mattie. </h4>
                                 </div>
@@ -267,7 +263,7 @@
                         <!-- Slide 3 -->
                         <div class="carousel-item">
                             <div class="slide-bg d-flex align-items-center justify-content-center text-center text-white"
-                                 style="background-image: url('assets/images/winery-main-pic.png'); height:455px;">
+                                 style="background-image: url('assets/images/selfie-pic-24.jpg'); height:455px;">
                                 <div>
                                     <p class="slider-img p-5">Colin was a great help on a recent return trip with 3 kids and lots of bags. Flight cancelled last minute and still manage to accomodate flight changes at short notice. Lovely, clean, spacious car and trailer for all our gear. 
                                     Will definitely use again.</p>
@@ -368,7 +364,7 @@
                 Little Black Limo is licenced for BYO and the supply of <br> alcohol.
             </p>
             <p>
-                Drivers have RSA and we are fully insured with all DOT <br> licences.
+                Drivers have RSA and we are fully insured with all DOT <br> licenses.
             </p>
         </div>
     </div>
