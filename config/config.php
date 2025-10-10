@@ -17,7 +17,6 @@ $API_URL = (ENVIRONMENT === 'local') ? LOCAL_API_URL : LIVE_API_URL;
 // API Key / Tokens
 // ==============================
 define('API_TOKEN', 'nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');
-
 // ==============================
 // Helper Function for API Request
 // ==============================
@@ -51,37 +50,49 @@ $vendorProfile = curlGet('vendor/profile/details');
 
 if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vendorProfile['data'])) {
     $data = $vendorProfile['data'];
+    $vendor = $data['vendor'] ?? [];
+    $userMeta = $data['user_meta'] ?? [];
+    // ✅ Contact Info (prefer vendor meta values if available)
+    define('CONTACT_PHONE', $userMeta['_contact_phone'] ?? $vendor['contact_phone'] ?? $vendor['phone'] ?? '0404 359 777');
+    define('CONTACT_EMAIL', $userMeta['_contact_email'] ?? $vendor['contact_email'] ?? $vendor['email'] ?? 'luxury@littleblacklimo.com.au');
+    define('CONTACT_US_EMAIL', $vendor['contact_us_email'] ?? CONTACT_EMAIL);
+    define('CONTACT_ADDRESS', $vendor['address'] ?? 'Wembley WA 6014');
 
-    // Contact Info
-    define('CONTACT_PHONE', $data['contact_phone'] ?? '0404 359 777');
-    define('CONTACT_EMAIL', $data['contact_email'] ?? 'luxury@littleblacklimo.com.au');
-    define('CONTACT_US_EMAIL', $data['contact_us_email'] ?? CONTACT_EMAIL);
-    define('CONTACT_ADDRESS', $data['address'] ?? 'Wembley WA 6014');
+    // ✅ Social Links (from meta)
+    define('CONTACT_FACEBOOK', $userMeta['_facebook_link'] ?? 'https://www.facebook.com/littleblacklimo');
+    define('CONTACT_INSTA', $userMeta['_instagram_link'] ?? 'https://www.instagram.com/Little_Limo/#');
+    define('CONTACT_TIKTOK', $userMeta['_tiktok_link'] ?? 'https://www.tiktok.com/@little.black.limo');
 
-    // Social Links
-    define('CONTACT_FACEBOOK', $data['facebook_link'] ?? 'https://www.facebook.com/littleblacklimo');
-    define('CONTACT_INSTA', $data['instagram_link'] ?? 'https://www.instagram.com/Little_Limo/#');
-    define('CONTACT_TIKTOK', $data['tiktok_link'] ?? 'https://www.tiktok.com/@little.black.limo');
-    define('CONTACT_WHATSAPP', $data['whatsapp_link'] ?? 'https://wa.me/61404359777');
+    define(
+        'CONTACT_WHATSAPP',
+        isset($userMeta['_whatsapp_phone']) && !empty($userMeta['_whatsapp_phone'])
+            ? 'https://wa.me/' . preg_replace('/\D/', '', $userMeta['_whatsapp_phone']) // removes spaces, +, etc.
+            : 'https://wa.me/61404359777'
+    );
 
-    // Custom Keys
-    define('BOOKING_DAYS_BEFORE', $data['booking_days_before'] ?? 0);
+    // ✅ Booking Settings
+    define('BOOKING_DAYS_BEFORE', (int)($vendor['booking_days_before'] ?? 2));
+
+    // ✅ Define all user_meta as constants (optional)
+    foreach ($userMeta as $key => $value) {
+        $constName = strtoupper(ltrim($key, '_'));
+        if (!defined($constName)) {
+            define($constName, $value);
+        }
+    }
 
 } else {
-    // Fallback Defaults (if API fails)
+    // ❌ Fallback defaults
     define('CONTACT_PHONE', '0404 359 777');
     define('CONTACT_EMAIL', 'luxury@littleblacklimo.com.au');
     define('CONTACT_US_EMAIL', CONTACT_EMAIL);
     define('CONTACT_ADDRESS', 'Wembley WA 6014');
-
     define('CONTACT_FACEBOOK', 'https://www.facebook.com/littleblacklimo');
     define('CONTACT_INSTA', 'https://www.instagram.com/Little_Limo/#');
     define('CONTACT_TIKTOK', 'https://www.tiktok.com/@little.black.limo');
     define('CONTACT_WHATSAPP', 'https://wa.me/61404359777');
-
-    define('BOOKING_DAYS_BEFORE', 0);
+    define('BOOKING_DAYS_BEFORE', 2);
 }
-
 // ==============================
 // Other Settings
 // ==============================
