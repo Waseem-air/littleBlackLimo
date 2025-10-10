@@ -177,7 +177,7 @@
                     <div class="row oneway">
 
                         <!-- From -->
-                        <div class="col-12 col-md-3 mb-3  d-flex justify-content-between align-items-end">
+                        <div class="col-12 col-md-6 col-lg-3 mb-3  d-flex justify-content-between align-items-end">
                             <div class="w-100">
                                 <label for="oneway_pick" class="form-label">From</label>
                                 <input type="text" name="pick" id="oneway_pick"
@@ -188,7 +188,7 @@
 
 
                         <!-- To -->
-                        <div class="col-12 col-md-3 mb-3 mb-md-0">
+                        <div class="col-12 col-md-6 col-lg-3 mb-3 mb-md-0">
                             <label for="oneway_drop" class="form-label">To</label>
                             <input type="text" name="drop" id="oneway_drop"
                                    class="form-control search-bar-input placesAPI"
@@ -196,7 +196,7 @@
                         </div>
 
                         <!-- Date & Time -->
-                        <div class="col-12 col-md-2 mb-3 mb-md-0" >
+                        <div class="col-12 col-md-5 col-lg-2 mb-3 mb-md-0" >
                             <label for="datetime" class="form-label">Date & Time</label>
                             <input type="text" name="datetime"
                                    class="form-control search-bar-input datetime" placeholder="Select Date & Time"
@@ -204,7 +204,7 @@
                         </div>
 
                         <!-- Passengers -->
-                        <div class="col-12 col-md-2 mb-3 mb-md-0">
+                        <div class=" col-12 col-md-4 col-lg-2 mb-3 mb-md-0">
                             <div class=" rounded-4 mb-3">
                                 <label class="form-label small mb-1">Passengers</label>
                                 <select class="form-select p-select text-center w-auto"
@@ -219,7 +219,7 @@
 
 
                         <!-- Button -->
-                        <div class="col-12 col-md-2">
+                        <div class="col-12 col-md-3 col-lg-2">
                             <input type="submit" name="fetchBooking"  class="btn btn-dark booking-btn w-100" value="Book Now"/>
                         </div>
                     </div>
