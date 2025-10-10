@@ -91,6 +91,7 @@ if (isset($_POST['doneBooking'])) {
         'email'           => $_POST['email']           ?? '',
         'phone'           => $_POST['phone']           ?? '',
         'notes'           => $_POST['notes']           ?? '',
+        'payment_type'    =>$_POST['payment_type']     ?? '',
     ];
 
     // Extras
@@ -107,12 +108,17 @@ if (isset($_POST['doneBooking'])) {
     // Call API
     $result = curlPost($postData, 'booking/create');
     // Handle success
-    if ($result['success']) {
+    if (isset($result['success']) && $result['success'] === true) {
+        // ✅ If payment is required (Stripe)
+        if (!empty($result['data']['payment_required']) && !empty($result['payment_url'])) {
+            $paymentUrl = $result['payment_url'];
+            header("Location: $paymentUrl");
+            exit;
+        }
+        // ✅ If it's a cash booking
         $bookingSuccess = true;
         $ticketNo = htmlspecialchars($result['data']['ticket_no'] ?? 'N/A');
-        $bookingData = $result['data']; // Store all booking data
-
-        // NO SweetAlert for success - just set variables for HTML
+        $bookingData = $result['data'];
 
     } else {
         // Handle errors (validation + message)
