@@ -90,7 +90,7 @@
                         <img src="assets/images/marriageepic8.jpg" class="combineimage img-fluid" alt="">
                     </div>
                     <div class="col-md-4 col-12">
-                        <!-- <img src="assets/images/marriageepic8.jpg" class="combineimage img-fluid" alt=""> -->
+                        <img src="assets/images/marriageepic9.jpg" class="combineimage img-fluid" alt="">
                     </div>
                 </div>
             </div>

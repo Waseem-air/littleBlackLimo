@@ -119,8 +119,8 @@
     
 
 
-          <section class="container text-center my-5">
-  <video class="w-100 rounded shadow" style="height: 1428px; object-fit: cover;" controls autoplay muted loop>
+         <section class="container text-center my-5">
+  <video class="rounded shadow" style="width: 80%; height: auto; object-fit: contain;" controls autoplay muted loop>
     <source src="assets/images/selfies-video.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
