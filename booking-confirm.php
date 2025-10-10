@@ -587,6 +587,40 @@ if (isset($_REQUEST['fetchBooking'])) {
                                 <div class="form-group mb-0">
                                     <input type="text" class="form-control detail" name="notes" placeholder="Notes *">
                                 </div>
+
+                                <div class="form-group mt-3">
+                                    <?php if (CASH_PAYMENT == 1 || STRIPE_PAYMENT == 1): ?>
+                                        <label class="fw-bold d-block mb-3">Make your payment :</label>
+
+                                        <div class="row">
+                                            <?php if (STRIPE_PAYMENT == 1): ?>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+                                                    <div class="form-check p-3 border rounded shadow-sm h-100">
+                                                        <input class="form-check-input me-2" type="radio" name="payment_type"
+                                                               id="payment_stripe" value="Card" checked>
+                                                        <label class="form-check-label fw-semibold" for="payment_stripe">
+                                                            Pay Now (Card)
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if (CASH_PAYMENT == 1): ?>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+                                                    <div class="form-check p-3 border rounded shadow-sm h-100">
+                                                        <input class="form-check-input me-2" type="radio" name="payment_type"
+                                                               id="payment_cash" value="Cash">
+                                                        <label class="form-check-label fw-semibold" for="payment_cash">
+                                                            Pay Cash at Pickup
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+
                             </div>
                         </div>
 

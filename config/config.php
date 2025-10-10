@@ -59,9 +59,14 @@ if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vend
     define('CONTACT_ADDRESS', $vendor['address'] ?? 'Wembley WA 6014');
 
     // ✅ Social Links (from meta)
+// Existing social links
     define('CONTACT_FACEBOOK', $userMeta['_facebook_link'] ?? 'https://www.facebook.com/littleblacklimo');
     define('CONTACT_INSTA', $userMeta['_instagram_link'] ?? 'https://www.instagram.com/Little_Limo/#');
     define('CONTACT_TIKTOK', $userMeta['_tiktok_link'] ?? 'https://www.tiktok.com/@little.black.limo');
+
+// Payment method toggles
+    define('CASH_PAYMENT', isset($userMeta['_cash_payment']) && $userMeta['_cash_payment'] == 1 ? 1 : 0);
+    define('STRIPE_PAYMENT', isset($userMeta['_stripe_payment']) && $userMeta['_stripe_payment'] == 1 ? 1 : 0);
 
     define(
         'CONTACT_WHATSAPP',
