@@ -63,6 +63,51 @@
                 <img src="assets/images/selfie-pic-12.png" alt="Pic 12" class="img-fluid selfie-margin">
                 </div>
             </div>
+             <!-- Row 4 -->
+            <div class="row mb-5">
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-13.jpg" alt="Pic 9" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-14.jpg" alt="Pic 10" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-15.jpg" alt="Pic 11" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-16.jpg" alt="Pic 12" class="img-fluid selfie-margin">
+                </div>
+            </div>
+             <!-- Row 5 -->
+            <div class="row mb-5">
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-17.jpg" alt="Pic 9" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-18.jpg" alt="Pic 10" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-19.jpg" alt="Pic 11" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-20.jpg" alt="Pic 12" class="img-fluid selfie-margin">
+                </div>
+            </div>
+             <!-- Row 6 -->
+            <div class="row mb-5">
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-21.jpg" alt="Pic 9" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-22.jpg" alt="Pic 10" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-23.jpg" alt="Pic 11" class="img-fluid selfie-margin">
+                </div>
+                <div class="col-md-3 col-6 mb-3">
+                <img src="assets/images/selfie-pic-24.jpg" alt="Pic 12" class="img-fluid selfie-margin">
+                </div>
+            </div>
 
             <!-- Heading -->
             <div class="row mb-4">
@@ -71,60 +116,23 @@
                 </div>
             </div>
 
-            <!-- Full width Image -->
-           <div class="row">
-            <div class="col-12 text-center">
-                <!-- Image ko video trigger banaya -->
-                <a href="#" data-bs-toggle="modal" data-bs-target="#videoModal">
-                <img src="assets/images/selfie-last-1.png" alt="Full Pic" class="img-fluid" style="cursor:pointer;">
-                </a>
-            </div>
-            </div>
-        </div>
+    
 
 
-<!-- Video Modal -->
-<div class="modal fade" id="videoModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-lg">
-    <div class="modal-content bg-transparent border-0">
-      <div class="modal-body p-0">
-        <div class="ratio ratio-16x9">
-          <iframe id="youtubeVideo" 
-                  src="" 
-                  title="YouTube video" 
-                  frameborder="0"
-                  allow="autoplay; encrypted-media" 
-                  allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
+         <section class="container text-center my-5">
+  <video class="rounded shadow" style="width: 80%; height: auto; object-fit: contain;" controls autoplay muted loop>
+    <source src="assets/images/selfies-video.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</section>
+
+
+
 </div>
-
-
-
 
   
 
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
-
-<script>
-  const videoModal = document.getElementById('videoModal');
-  const youtubeVideo = document.getElementById('youtubeVideo');
-  const videoURL = "https://www.youtube.com/embed/owMBwXcNxLE?autoplay=1";
-
-  // When modal opens → play video
-  videoModal.addEventListener('show.bs.modal', function () {
-    youtubeVideo.src = videoURL;
-  });
-
-  // When modal closes → stop video
-  videoModal.addEventListener('hidden.bs.modal', function () {
-    youtubeVideo.src = "";
-  });
-</script>
-
-
 </body>
 </html>

@@ -28,19 +28,21 @@
                     ports available for those Zoom calls or presentations.
                 </p>
                 <p class="mt-4">
-                    Important meetings and want to discuss legal matters? No problem; 
-                    we have NDA's to protect you and your clients.
+                    Important meetings and want to discuss legal matters? No problem; we have NDAs to protect you and your clients.
                 </p>
                 </div>
             </div>
 
             <!-- Images row -->
             <div class="row mt-5">
-                <div class="col-md-6 col-12 mb-3 mb-md-0">
+                <div class="col-md-4 col-12 mb-3 mb-md-0">
                 <img src="assets/images/drop-image-1.png" alt="Corporate Car 1" class="img-fluid combineimage3">
                 </div>
-                <div class="col-md-6 col-12">
+                <div class="col-md-4 col-12">
                 <img src="assets/images/drop-image-2.png" alt="Corporate Car 2" class="img-fluid combineimage3">
+                </div>
+                <div class="col-md-4 col-12">
+                <img src="assets/images/drop-image-3.jpg" alt="Corporate Car 2" class="img-fluid combineimage3">
                 </div>
             </div>
         </div>

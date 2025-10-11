@@ -66,14 +66,12 @@
           <!-- Section 3: Bali -->
           <div class="row mb-4">
             <div class="col-12">
-              <h2 class="fw-bold">over 15 years</h2>
-              <p class="mt-3">
+              <h2>Yes, we have Bali covered too.</h2>
+              <!-- <p class="mt-3">
                 Yes, we have Bali covered too.
-              </p>
+              </p> -->
               <p class="mt-2">
-                Nano has been associated with us for 15 years and brings the genuine Balinese culture, 
-                friendliness, and reliability you deserve with Airport Transfers and Tours. 
-                Collections and drop-offs are available 24 hours a day.
+                Nano has been associated with us for over 16 years and brings the genuine Balinese culture, friendliness, and reliability you deserve with Airport Transfers and Tours. Collections and drop-offs are available 24 hours a day.
               </p>
             </div>
           </div>

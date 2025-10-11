@@ -2,19 +2,17 @@
 <html lang="en">
 <?php
 require_once('apps/head.php');
-
-/**
- * Show SweetAlert popup without icon (centered content)
- */
 function showSweetAlert($title, $message = '')
 {
+    $safeTitle = json_encode($title, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
+    $safeMessage = json_encode($message, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP);
     return "
         <script>
         document.addEventListener('DOMContentLoaded', function () {
             Swal.fire({
-                title: '$title',
-                html: '$message',
-                icon: null,
+                title: $safeTitle,
+                html: $safeMessage,
+                icon: '',
                 showConfirmButton: true,
                 confirmButtonText: 'OK',
                 width: '600px',
@@ -25,7 +23,14 @@ function showSweetAlert($title, $message = '')
                     confirmButton: 'swal-custom-btn'
                 },
                 buttonsStyling: false
+        }).then(() => {
+                document.body.style.transition = 'opacity 0.4s ease';
+                document.body.style.opacity = '0';
+                setTimeout(() => {
+                    history.back();
+                }, 400);
             });
+
         });
         </script>
 
@@ -75,10 +80,10 @@ if (isset($_REQUEST['fetchBooking'])) {
 
     // Build request payload
     $postData = [
-        'trip_type'       => $_REQUEST['trip_type']       ?? '',
-        'pick'            => $_REQUEST['pick']            ?? '',
-        'drop'            => $_REQUEST['drop']            ?? '',
-        'datetime'        => $_REQUEST['datetime']        ?? '',
+        'trip_type' => $_REQUEST['trip_type'] ?? '',
+        'pick' => $_REQUEST['pick'] ?? '',
+        'drop' => $_REQUEST['drop'] ?? '',
+        'datetime' => $_REQUEST['datetime'] ?? '',
         'total_passenger' => $_REQUEST['total_passenger'] ?? '',
     ];
 
@@ -90,15 +95,43 @@ if (isset($_REQUEST['fetchBooking'])) {
     // Send CURL request to fetch vehicles
     $response = curlPost($postData, 'booking/vehicles');
     $bookingData = is_string($response) ? json_decode($response, true) : $response;
+
     // Handle empty or invalid response
     if (empty($bookingData) || !isset($bookingData['success'])) {
         echo showSweetAlert('API Error', 'Invalid or empty response from the server.');
         exit();
     }
 
-    // Handle validation or API errors
+    /**
+     * Handle HTTP 422 Validation Errors (e.g., booking days, invalid fields)
+     */
+    if (isset($bookingData['http_code']) && $bookingData['http_code'] == 422) {
+        $errorTitle = $bookingData['message'] ?? 'Validation Error';
+        $errorDetails = '';
+
+        if (isset($bookingData['errors']) && is_array($bookingData['errors'])) {
+            $errorDetails .= '<ul>';
+            foreach ($bookingData['errors'] as $field => $messages) {
+                if (is_array($messages)) {
+                    foreach ($messages as $msg) {
+                        $errorDetails .= '<li>' . htmlspecialchars($msg) . '</li>';
+                    }
+                } else {
+                    $errorDetails .= '<li>' . htmlspecialchars($messages) . '</li>';
+                }
+            }
+            $errorDetails .= '</ul>';
+        }
+
+        echo showSweetAlert($errorTitle, $errorDetails);
+        exit();
+    }
+
+    /**
+     * Handle General API Validation Failures
+     */
     if (!$bookingData['success']) {
-        $errorTitle = htmlspecialchars($bookingData['message'] ?? 'Validation failed');
+        $errorTitle = $bookingData['message'] ?? 'Validation failed';
         $errorDetails = '';
 
         // Check if errors exist in the response
@@ -114,8 +147,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                 }
             }
             $errorDetails .= '</ul>';
-        }
-        // Some APIs return errors inside 'data'
+        } // Some APIs return errors inside 'data'
         elseif (isset($bookingData['data']) && is_array($bookingData['data'])) {
             $errorDetails .= '<ul>';
             foreach ($bookingData['data'] as $field => $messages) {
@@ -128,9 +160,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                 }
             }
             $errorDetails .= '</ul>';
-        }
-        // Fallback if no details found
-        else {
+        } else {
             $errorDetails = htmlspecialchars($errorTitle);
         }
 
@@ -138,13 +168,12 @@ if (isset($_REQUEST['fetchBooking'])) {
         exit();
     }
 
-    // Extract response data
+    // ✅ Success: Extract data
     $vehicles = $bookingData['data']['vehicles'] ?? [];
-    $bulkies  = $bookingData['data']['bulkies']  ?? [];
+    $bulkies = $bookingData['data']['bulkies'] ?? [];
     $formData = $bookingData['data']['formData'] ?? [];
     $distance = $bookingData['data']['distance'] ?? [];
 
-    // Ensure required data is available
     if (empty($vehicles) || empty($formData)) {
         echo showSweetAlert('No Vehicles', 'No vehicles available for your criteria. Please try again with different details.');
         exit();
@@ -155,6 +184,7 @@ if (isset($_REQUEST['fetchBooking'])) {
     exit();
 }
 ?>
+
 <style>
     .booking-card {
         border: 2px solid transparent;
@@ -166,17 +196,17 @@ if (isset($_REQUEST['fetchBooking'])) {
     }
 
     .booking-card.selected {
-        border-color: #333333; /* Dark border for selected vehicle */
-        background-color: #f8f8f8; /* Light background */
+        border-color: #333333;
+        background-color: #f8f8f8;
     }
 
     .booking-card:hover {
         background-color: #f5f5f5;
-        border-color: #555555; /* Slightly darker border on hover */
+        border-color: #555555;
     }
 
     .booking-card1 {
-        border: 2px solid #333333; /* Dark border for first/default vehicle */
+        border: 2px solid #333333;
         border-radius: 8px;
         padding: 12px;
         background-color: #f8f8f8;
@@ -185,7 +215,6 @@ if (isset($_REQUEST['fetchBooking'])) {
 
 <body>
 <?php require_once('apps/header.php'); ?>
-
 <!-- bookin detail section start -->
 <section class="booking-bg">
     <div class="container">
@@ -558,6 +587,40 @@ if (isset($_REQUEST['fetchBooking'])) {
                                 <div class="form-group mb-0">
                                     <input type="text" class="form-control detail" name="notes" placeholder="Notes *">
                                 </div>
+
+                                <div class="form-group mt-3">
+                                    <?php if (CASH_PAYMENT == 1 || STRIPE_PAYMENT == 1): ?>
+                                        <label class="fw-bold d-block mb-3">Make your payment :</label>
+
+                                        <div class="row">
+                                            <?php if (STRIPE_PAYMENT == 1): ?>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+                                                    <div class="form-check p-3 border rounded shadow-sm h-100">
+                                                        <input class="form-check-input me-2" type="radio" name="payment_type"
+                                                               id="payment_stripe" value="Card" checked>
+                                                        <label class="form-check-label fw-semibold" for="payment_stripe">
+                                                            Pay Now (Card)
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <?php if (CASH_PAYMENT == 1): ?>
+                                                <div class="col-lg-6 col-md-6 col-sm-12 mb-2">
+                                                    <div class="form-check p-3 border rounded shadow-sm h-100">
+                                                        <input class="form-check-input me-2" type="radio" name="payment_type"
+                                                               id="payment_cash" value="Cash">
+                                                        <label class="form-check-label fw-semibold" for="payment_cash">
+                                                            Pay Cash at Pickup
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+                                        </div>
+                                    <?php endif; ?>
+                                </div>
+
+
                             </div>
                         </div>
 
@@ -654,6 +717,7 @@ if (isset($_REQUEST['fetchBooking'])) {
             hiddenVehiclePrice.value = price;
             hiddenDriverFare.value = driverFare;
         }
+
         vehicleCards.forEach(card => {
             card.addEventListener('click', function () {
                 vehicleCards.forEach(c => c.classList.remove('selected'));

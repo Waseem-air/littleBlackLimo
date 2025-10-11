@@ -1400,7 +1400,7 @@ height:359px;
 
 
 @media (max-width: 576px) {
-  .awais{
+  .slider-img{
     font-size: 12px;
     line-height: 1.5;
     padding: 0 10px;
@@ -1408,7 +1408,9 @@ height:359px;
 }
 
 
-
+.video{
+  height: 1000px!important;
+}
 /* corportae css */
 .corporates-bg {
   background: url('../images/corporate-pic.png') no-repeat center center;
@@ -1470,7 +1472,8 @@ height:359px;
 
 }
 .selfie-margin {
-  width: 275px;   /* parent col ki full width le */
+  width: 275px; 
+  height: 173.59px!important;  /* parent col ki full width le */
   height: auto;  /* ratio maintain ho */
   object-fit: cover; /* image ka shape barabar rahe */
 }

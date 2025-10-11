@@ -124,9 +124,14 @@
     }
 
 </style>
+
+
 <script>
+    const BOOKING_DAYS_BEFORE = <?php echo BOOKING_DAYS_BEFORE ?? 7; ?>;
+
     document.addEventListener('DOMContentLoaded', function () {
-        const minSelectableDate = new Date(Date.now() + 48 * 60 * 60 * 1000); // 48 hours ahead
+        const minSelectableDate = new Date();
+        minSelectableDate.setDate(minSelectableDate.getDate() + BOOKING_DAYS_BEFORE);
 
         $('.datetime').each(function () {
             const $input = $(this);
@@ -136,29 +141,32 @@
                 format: 'dd mmm yyyy HH:MM',
                 modal: false,
                 footer: true,
-                minDate: minSelectableDate,
+                // ✅ Disable all dates *before* the allowed date
+                disableDates: function (date) {
+                    const onlyDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+                    const minDateOnly = new Date(minSelectableDate.getFullYear(), minSelectableDate.getMonth(), minSelectableDate.getDate());
+                    return onlyDate < minDateOnly; // disable past
+                },
                 icons: {
-                    rightIcon: '' // ✅ Hide calendar icon
+                    rightIcon: '' // Hide calendar icon
                 },
                 openOnFocus: true,
                 appendTo: $input.closest('.datetime-wrapper')
             });
 
-            // 🟡 Reposition picker ABOVE input after it opens
+            // 🟢 Position picker above input
             $input.on('focus', function () {
                 setTimeout(() => {
                     const picker = $('.gj-picker[role="calendar"]').filter(':visible');
                     if (picker.length) {
                         const offset = $input.offset();
                         const pickerHeight = picker.outerHeight();
-
                         picker.css({
-                            top: offset.top - pickerHeight - 5, // show ABOVE input
+                            top: offset.top - pickerHeight - 5,
                             left: offset.left,
                             position: 'absolute'
                         });
 
-                        // 🧭 Scroll smoothly to make sure input is visible
                         $('html, body').animate({
                             scrollTop: offset.top - 400
                         }, 300);
@@ -168,45 +176,36 @@
 
             // 🟠 Validate on change
             $input.on('change', function () {
-                const inputVal = $(this).val();
-                if (!inputVal) return;
-
-                const selectedDate = new Date(inputVal);
+                const val = $(this).val();
+                if (!val) return;
+                const selectedDate = new Date(val);
                 if (isNaN(selectedDate.getTime()) || selectedDate < minSelectableDate) {
-                    Swal.fire({
-                        title: 'Invalid Date & Time',
-                        text: 'Please select a date and time at least 48 hours from now.',
-                        icon: 'warning',
-                        confirmButtonColor: '#212529',
-                        confirmButtonText: 'OK'
-                    });
                     $(this).val('');
                 }
             });
         });
 
-        // 🧭 Reposition picker when modal scrolls
+        // 🧭 Reposition picker on modal scroll
         $(document).on('scroll', '.modal', function () {
             const picker = $('.gj-picker[role="calendar"]').filter(':visible');
-            if (picker.length) {
-                const $activeInput = $('.datetime').filter(function () {
-                    return $(this).data('gijgo') && picker.closest('body').length;
-                });
-                if ($activeInput.length) {
-                    const offset = $activeInput.offset();
-                    const pickerHeight = picker.outerHeight();
+            if (!picker.length) return;
 
-                    picker.css({
-                        top: offset.top - pickerHeight - 5,
-                        left: offset.left,
-                        position: 'absolute'
-                    });
-                }
+            const $activeInput = $('.datetime').filter(function () {
+                return $(this).data('gijgo');
+            });
+
+            if ($activeInput.length) {
+                const offset = $activeInput.offset();
+                const pickerHeight = picker.outerHeight();
+                picker.css({
+                    top: offset.top - pickerHeight - 5,
+                    left: offset.left,
+                    position: 'absolute'
+                });
             }
         });
     });
 </script>
-
 
 <script>
     function initMap() {

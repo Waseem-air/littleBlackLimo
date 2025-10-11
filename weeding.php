@@ -30,10 +30,10 @@
             <h2 class="fw-bold mt-only-sm">Your wedding with <br> Little Black Limo</h2>
 
                 <p class="mt-4">
-                Arrive in style with our intimate and spacious vehicles! With two multiple luxury vehicles, Little Black Limo has the perfect car for your wedding day. We strive to provide meticulous service, helping you to create special moments on your wedding day. From the beginning of your journey to the end, our Cheauffers strive to ensure that your ride is comfortable and enjoyable as well as perfectly catered for you and your bridal party.   
+                Arrive in style with our intimate and spacious vehicles! With two multiple luxury vehicles, Little Black Limo has the perfect car for your wedding day. We strive to provide meticulous service, helping you to create special moments on your wedding day. From the beginning of your journey to the end, our chauffeurs strive to ensure that your ride is comfortable and enjoyable as well as perfectly catered for you and your bridal party.  
                 </p>
                 <p class="mt-4">
-                We are licenced for service and BYO and supply a complimentary bottle of champagne for the Bride and Groom.
+                We are licensed for service and BYO and supply a complimentary bottle of champagne for the Bride and Groom.
                 </p>
                 </div>
             </div>
@@ -44,11 +44,10 @@
                     <div class="col-md-6 order-2 order-md-1 pe-md-5 mt-4 mt-md-0">
                         <h2 class="fw-bold">No matter the event, <br> We've got you covered!</h2>
                         <p class="mt-3">
-                        Whether your celebrating a birthday, school ball, footy trip, or wine tour, Little Black Limo has you covered.  
-                        With an intimate selection of vehicles, Little Black Limo provides luxury transport for you and your party.  
+                        Whether you’re celebrating a birthday, school ball, footy trip, or wine tour, Little Black Limo has you covered.With an intimate selection of vehicles, Little Black Limo provides luxury transport for you and your party.  
                         </p>
                         <p>
-                        We are licenced for BYO and supply of alcohol should you wish to take your party on the road.
+                        We are licensed for BYO and supply of alcohol should you wish to take your party on the road.
                         </p>
                     </div>
 
@@ -91,7 +90,7 @@
                         <img src="assets/images/marriageepic8.jpg" class="combineimage img-fluid" alt="">
                     </div>
                     <div class="col-md-4 col-12">
-                        <!-- <img src="assets/images/marriageepic8.jpg" class="combineimage img-fluid" alt=""> -->
+                        <img src="assets/images/marriageepic9.jpg" class="combineimage img-fluid" alt="">
                     </div>
                 </div>
             </div>
