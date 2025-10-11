@@ -422,11 +422,11 @@ if (isset($_REQUEST['fetchBooking'])) {
 
                                                                     <img src="assets/images/basil_bag-solid.png"
                                                                          class="cardimg" alt="">
-                                                                    <span><?php echo $vehicle['no_of_seats']; ?></span>
+                                                                    <span><?php echo $vehicle['hand_carry']; ?></span>
 
                                                                     <img src="assets/images/wpf_luggage-trolley.png"
                                                                          class="cardimg" alt="">
-                                                                    <span><?php echo $vehicle['no_of_seats']; ?></span>
+                                                                    <span><?php echo $vehicle['luggage_allowed']; ?></span>
                                                                 </div>
                                                             </div>
                                                         </div>
