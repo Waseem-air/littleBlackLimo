@@ -57,7 +57,7 @@
                 </p>
 
                 <p>
-                    Little Black Limo provides luxury transportation for weddings, wine tours, airport transfers, events, and corporate functions. With multiple luxury vehicles servicing the CBD and surrounding suburbs, Little Black Limo is your one-stop shop for all your <br>transportation needs.
+                    Little Black Limo provides luxury transportation for weddings, wine tours, airport transfers, events, and corporate functions. With multiple luxury vehicles servicing the CBD and surrounding suburbs, Little Black Limo is your one-stop shop for all your <br class="d-none d-lg-block">transportation needs.
                 </p>
 
                 <p>
