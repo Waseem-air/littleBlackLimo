@@ -49,8 +49,10 @@ body {
     border-radius: 100px;
     font-family: 'Montserrat', sans-serif; 
 }
-.navbar{
-  height: 150px!important;
+@media (min-width: 992px) {
+  .navbar {
+    height: 150px !important;
+  }
 }
 .nav-logo{
     width:183px ;
@@ -631,6 +633,7 @@ p {
   background-color: #F6F6F6;
   color: black;
 }
+
 
 .booking-toggle .toggle-btn {
   flex: 1;                   /* equal width buttons */

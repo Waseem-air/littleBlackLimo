@@ -1,9 +1,8 @@
   <nav class="navbar navbar-expand-lg bg-color p-0 m-0">
-        <div class="container d-flex align-items-center justify-content-between p-2">
-
+        <div class="container d-flex ">
             <!-- ✅ Left side (mobile): Toggle + Logo -->
             <div class="d-flex align-items-center order-0">
-                <button class="navbar-toggler d-lg-none me-2" type="button" data-bs-toggle="collapse"
+                <button class="navbar-toggler d-lg-none " type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -23,10 +22,9 @@
                 class="btn bg-white text-dark montserrat d-flex align-items-center justify-content-center text-center d-lg-none order-2 nav-mb-button fs-6">
                 Book now
             </a>
-
             <!-- ✅ Collapsible Menu -->
             <div class="collapse navbar-collapse order-3 order-lg-1" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mb-2 mb-lg-0 jakarta">
+                <ul class="navbar-nav  mb-lg-0 jakarta">
                     <li class="nav-item px-lg-2"><a class="nav-link text-lg-white" href="index.php">Home</a></li>
                     <li class="nav-item px-lg-2"><a class="nav-link text-lg-white" href="why.php">Our Why</a></li>
                     <li class="nav-item px-lg-2"><a class="nav-link text-lg-white" href="weeding.php">Wedding & Events</a></li>
@@ -50,9 +48,9 @@
 
                 <!-- ✅ Desktop Book Now Button -->
               <a href="booking.php"
-   class="btn bg-white text-dark nav-button montserrat d-flex align-items-center justify-content-center text-center text-decoration-none mobile-booknow">
-  Book now
-</a>
+                    class="btn bg-white text-dark nav-button montserrat d-flex align-items-center justify-content-center text-center text-decoration-none mobile-booknow">
+                    Book now
+                </a>
 
 
             </div>
