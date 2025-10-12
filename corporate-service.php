@@ -8,7 +8,8 @@
             <div class="container">
                 <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center text-center charm corporate-heading pt-5 ">Corporate Services</h1>
+                        <h1 class="grid-center text-center charm corporate-heading pt-5 d-none d-lg-block">Corporate Services</h1>
+                        <h1 class="grid-center text-center charm corporate-heading pt-sm-5 fs-1 d-block d-lg-none">Corporate Services</h1>
                     </div>
                 </div>
                

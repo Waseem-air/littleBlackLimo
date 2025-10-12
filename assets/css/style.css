@@ -510,6 +510,7 @@ body {
   .booking-toggle .toggle-btn {
     flex: initial;
   }
+  
 }
 
 @media (max-width: 480px) {
@@ -517,6 +518,7 @@ body {
     font-size: 12px;
     padding: 7px 8px;
   }
+  .carousel-item img { height: 205px; object-fit: cover; width: 100%; }
 }
 
 /* weeding css */
@@ -1321,9 +1323,17 @@ background-size: cover;
 }
 .weeding-bg {
   background: url('../images/weeding-bg.png') no-repeat center center;
-background-size: cover;
-height:486px;
+  background-size: cover;
+  height: 486px;
+}
 
+/* ✅ For mobile screens (max width 767px) */
+@media (max-width: 767px) {
+  .weeding-bg {
+    background: url('../images/weeding-bg.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
 }
 
 /* 
@@ -1335,6 +1345,13 @@ winery css */
 background-size: cover;
 height:359px;
 
+}
+@media (max-width: 767px) {
+  .winery-bg {
+  background: url('../images/winery-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
 }
 .custom-heading {
   
@@ -1418,6 +1435,13 @@ background-size: cover;
 height:359px;
 
 }
+@media (max-width: 767px) {
+  .corporates-bg {
+  background: url('../images/corporate-pic.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
+}
 .corporate-heading{
   font-size: 70px;
   font-weight: 500 !important; 
@@ -1443,6 +1467,16 @@ height:359px;
     background-size: cover;
     height:486px;
 }
+@media (max-width: 767px) {
+  .tranfer-section{
+   background: url('../images/transfer-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
+  .h-size{
+    font-size: larger;
+  }
+}
 .tranfer-heading{
     font-size: 70px;
   font-weight: 500 !important; 
@@ -1457,6 +1491,17 @@ height:359px;
   .combineimage4 {
     margin-top: 10px; /* mobile screens ke liye */
   }
+  .selfie-margin {
+  width: 126px; 
+  height: 136px!important;
+  height: auto;  
+  object-fit: cover; 
+}
+.contact-section{
+    background: url('../images/contact-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height:205px!important;
+}
 }
 
 /* selfie css */
@@ -1473,9 +1518,9 @@ height:359px;
 }
 .selfie-margin {
   width: 275px; 
-  height: 173.59px!important;  /* parent col ki full width le */
-  height: auto;  /* ratio maintain ho */
-  object-fit: cover; /* image ka shape barabar rahe */
+  height: 173.59px!important;
+  height: auto;  
+  object-fit: cover; 
 }
 
 /* contact css */

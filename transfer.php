@@ -8,7 +8,8 @@
             <div class="container">
                 <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center text-center charm tranfer-heading pt-5 ">Airport Transfers</h1>
+                        <h1 class="grid-center text-center charm tranfer-heading pt-5 d-none d-lg-block">Airport Transfers</h1>
+                        <h1 class="grid-center text-center charm tranfer-heading pt-sm-5 fs-1 d-block d-lg-none">Airport Transfers</h1>
                     </div>
                 </div>
                
@@ -39,7 +40,7 @@
           <!-- Section 2: Corporate -->
           <div class="row mb-4">
             <div class="col-12">
-              <h2 class="fw-bold">Corporate collections/drop off?</h2>
+              <h2 class="fw-bold h-size">Corporate collections/drop off?</h2>
               <p class="mt-3">
                 Whether heading to the airport yourself or requiring an important client to be collected, 
                 We have you covered with collections and drop-offs available 24 hours a day.
@@ -85,11 +86,6 @@
           </div>
 
         </div>
-
-
-
-  
-
   <?php require_once('apps/footer.php'); ?>
  <script src="assets/js/custom.js"></script>
 </body>
