@@ -21,8 +21,14 @@ body {
     background-color: black!important;
 }
 .dropdown-item{
-  background-color: black;
+  background-color: lightgrey;
   color: white;
+}
+.nav-mb-button{
+  width: 100px;
+  height: 41px;
+  font-size: 14px !important;
+  border-radius: 100px;
 }
 .footer-map-img{
   height: 250px;
@@ -37,18 +43,16 @@ body {
   margin-left: 8px;
   margin-bottom: 2px;
 }
-.dropdown-item:hover {
-  background-color: black !important;
-  color: white;  /* apna desired color */
-}
 .nav-button {
     width: 132px;
     height: 61px;
     border-radius: 100px;
-    font-family: 'Montserrat', sans-serif; /* ensures button also uses Montserrat */
+    font-family: 'Montserrat', sans-serif; 
 }
-.navbar{
-  height: 150px!important;
+@media (min-width: 992px) {
+  .navbar {
+    height: 150px !important;
+  }
 }
 .nav-logo{
     width:183px ;
@@ -63,12 +67,24 @@ body {
 }
 @media (max-width: 991px) {
   .collapse {
-   background-color: lightgray; /* ensures z-index works */
+   background-color: white; /* ensures z-index works */
    padding-left: 20px;
    padding-bottom: 20px;
    border-radius: 0 0 10px 10px;
   }
 }
+@media (min-width: 992px) {
+  .text-lg-white {
+    color: #fff !important;
+  }
+}
+@media (max-width: 991.98px) {
+  .mobile-booknow {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+}
+
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -510,6 +526,7 @@ body {
   .booking-toggle .toggle-btn {
     flex: initial;
   }
+  
 }
 
 @media (max-width: 480px) {
@@ -517,6 +534,7 @@ body {
     font-size: 12px;
     padding: 7px 8px;
   }
+  .carousel-item img { height: 205px; object-fit: cover; width: 100%; }
 }
 
 /* weeding css */
@@ -615,6 +633,7 @@ p {
   background-color: #F6F6F6;
   color: black;
 }
+
 
 .booking-toggle .toggle-btn {
   flex: 1;                   /* equal width buttons */
@@ -1321,9 +1340,17 @@ background-size: cover;
 }
 .weeding-bg {
   background: url('../images/weeding-bg.png') no-repeat center center;
-background-size: cover;
-height:486px;
+  background-size: cover;
+  height: 486px;
+}
 
+/* ✅ For mobile screens (max width 767px) */
+@media (max-width: 767px) {
+  .weeding-bg {
+    background: url('../images/weeding-bg.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
 }
 
 /* 
@@ -1335,6 +1362,13 @@ winery css */
 background-size: cover;
 height:359px;
 
+}
+@media (max-width: 767px) {
+  .winery-bg {
+  background: url('../images/winery-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
 }
 .custom-heading {
   
@@ -1418,6 +1452,13 @@ background-size: cover;
 height:359px;
 
 }
+@media (max-width: 767px) {
+  .corporates-bg {
+  background: url('../images/corporate-pic.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
+}
 .corporate-heading{
   font-size: 70px;
   font-weight: 500 !important; 
@@ -1443,6 +1484,16 @@ height:359px;
     background-size: cover;
     height:486px;
 }
+@media (max-width: 767px) {
+  .tranfer-section{
+   background: url('../images/transfer-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
+  .h-size{
+    font-size: larger;
+  }
+}
 .tranfer-heading{
     font-size: 70px;
   font-weight: 500 !important; 
@@ -1457,6 +1508,17 @@ height:359px;
   .combineimage4 {
     margin-top: 10px; /* mobile screens ke liye */
   }
+  .selfie-margin {
+  width: 126px; 
+  height: 136px!important;
+  height: auto;  
+  object-fit: cover; 
+}
+.contact-section{
+    background: url('../images/contact-main-pic.png') no-repeat center center;
+    background-size: cover;
+    height:205px!important;
+}
 }
 
 /* selfie css */
@@ -1473,9 +1535,9 @@ height:359px;
 }
 .selfie-margin {
   width: 275px; 
-  height: 173.59px!important;  /* parent col ki full width le */
-  height: auto;  /* ratio maintain ho */
-  object-fit: cover; /* image ka shape barabar rahe */
+  height: 173.59px!important;
+  height: auto;  
+  object-fit: cover; 
 }
 
 /* contact css */

@@ -4,11 +4,11 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-      <section class="contact-section " >
+      <section class="contact-section" >
           <div class="container">
               <div class="row ">
                   <div class="col-12 pt-5 mt-5 vertical-center text-white">
-                        <h1 class="grid-center charm pt-5 ">Extras</h1>
+                        <h1 class="grid-center charm pt-sm-5 ">Extras</h1>
                   </div>
               </div>
                

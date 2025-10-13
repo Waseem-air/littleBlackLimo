@@ -8,7 +8,9 @@
             <div class="container">
                 <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white text-center">
-                        <h1 class="grid-center charm weding pt-5 mt-sm-5  ">Wedding & Events</h1>
+                        <h1 class="grid-center charm weding pt-sm-5 mt-sm-5 d-none d-lg-block">Wedding & Events</h1>
+                        <h3 class="grid-center charm weding pt-sm-5 mt-sm-5 fs-1 d-block d-lg-none">Wedding & Events</h3>
+
                     </div>
                 </div>
                
@@ -27,7 +29,7 @@
 
             <!-- Right Text -->
                 <div class="col-md-6  ps-md-5">
-            <h2 class="fw-bold mt-only-sm">Your wedding with <br> Little Black Limo</h2>
+            <h2 class="fw-bold mt-only-sm">Your wedding with <br class="d-none d-lg-block"> Little Black Limo</h2>
 
                 <p class="mt-4">
                 Arrive in style with our intimate and spacious vehicles! With two multiple luxury vehicles, Little Black Limo has the perfect car for your wedding day. We strive to provide meticulous service, helping you to create special moments on your wedding day. From the beginning of your journey to the end, our chauffeurs strive to ensure that your ride is comfortable and enjoyable as well as perfectly catered for you and your bridal party.  

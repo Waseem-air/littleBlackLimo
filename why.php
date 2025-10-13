@@ -29,7 +29,7 @@
                     <div class="col-sm-6 text-center">
                         <img src="assets/images/ourwhy2.svg" alt="" class="w-100 y-img" >
                     </div>
-                    <div class="row mt-5 mb-5 pt-5 pb-5">
+                    <div class="row mt-5 mb-sm-5 pt-sm-5 pb-5">
                         <div class="col-12" style="padding-right: 0px !important; padding-left: 0px !important;">
                             <img src="assets/images/ourwhy3.png" alt="" class="w-100" >
                         </div>

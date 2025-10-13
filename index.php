@@ -57,7 +57,7 @@
                 </p>
 
                 <p>
-                    Little Black Limo provides luxury transportation for weddings, wine tours, airport transfers, events, and corporate functions. With multiple luxury vehicles servicing the CBD and surrounding suburbs, Little Black Limo is your one-stop shop for all your <br>transportation needs.
+                    Little Black Limo provides luxury transportation for weddings, wine tours, airport transfers, events, and corporate functions. With multiple luxury vehicles servicing the CBD and surrounding suburbs, Little Black Limo is your one-stop shop for all your <br class="d-none d-lg-block">transportation needs.
                 </p>
 
                 <p>
@@ -279,14 +279,14 @@
                                 <div>
                                     <p class="slider-img ">Outstanding Service from Little Black Limo!</p>
                                     <p class="slider-img ">I've been following Colin's page for a while, and from the moment
-                                        I reached out with my inquiry, I knew I was in <br> brgood hands. The entire
+                                        I reached out with my inquiry, I knew I was in <br class="d-none d-lg-block"> brgood hands. The entire
                                         process- from booking to pickup and drop-off-was seamless and professional.
-                                        Colin is an <br>absolute top bloke-friendly, reliable, and great with
-                                        communication. His pricing is fair, and the vehicle itself is <br> immaculate,
+                                        Colin is an <br class="d-none d-lg-block">absolute top bloke-friendly, reliable, and great with
+                                        communication. His pricing is fair, and the vehicle itself is <br class="d-none d-lg-block"> immaculate,
                                         making for a truly luxurious and comfortable ride.
                                     </p>
                                     <p class="slider-img ">Colin, it was an absolute pleasure! We appreciate your fantastic
-                                        service and will definitely be recommending you! We <br>look forward to booking
+                                        service and will definitely be recommending you! We <br class="d-none d-lg-block">look forward to booking
                                         with you again in the future!
                                     </p>
                                     <p class="slider-img ">Thanks again!</p>
@@ -351,7 +351,7 @@
             <img src="assets/images/blog-1.png" alt="" class="img-fluid">
             <h6 class="mt-4">Business</h6>
             <p>
-                Little Black Limo is a Western Australian Wedding <br>
+                Little Black Limo is a Western Australian Wedding <br class="d-none d-lg-block">
                 Association accredited business.
             </p>
         </div>
@@ -361,10 +361,10 @@
             <img src="assets/images/blog-2.png" alt="" class="img-fluid">
             <h6 class="mt-3">Supplied or BYO</h6>
             <p class="mt-2 mb-0">
-                Little Black Limo is licenced for BYO and the supply of <br> alcohol.
+                Little Black Limo is licenced for BYO and the supply of <br class="d-none d-lg-block"> alcohol.
             </p>
             <p>
-                Drivers have RSA and we are fully insured with all DOT <br> licenses.
+                Drivers have RSA and we are fully insured with all DOT <br class="d-none d-lg-block"> licenses.
             </p>
         </div>
     </div>
@@ -375,7 +375,7 @@
             <img src="assets/images/blog-3.png" alt="" class="w-100">
         </div>
         <div class="col-12 col-md-6 text-center text-md-start p-5">
-            <h1 class="fw-bold montserrat">Little Black Limo is <br> proud to be part of <br> WCLA.</h1>
+            <h1 class="fw-bold montserrat">Little Black Limo is <br class="d-none d-lg-block"> proud to be part of <br class="d-none d-lg-block"> WCLA.</h1>
             <p>
                 The Wedding Car and Limousine Association W.A. is a body formed
                 to promote professionalism in the wedding car and limousine industry.

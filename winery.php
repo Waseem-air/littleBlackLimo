@@ -7,8 +7,11 @@
     <section class="winery-bg " >
         <div class="container">
             <div class="row">
-                <div class="col-12 pt-5 mt-5 text-white d-flex justify-content-center">
-                    <h1 class="charm text-center custom-heading mt-lg-5">
+                <div class="col-12 pt-5 mt-sm-5 text-white d-flex justify-content-center">
+                    <h1 class="charm text-center custom-heading mt-lg-5 d-none d-lg-block">
+                        Winery or Coastal Drive
+                    </h1>
+                    <h1 class="charm text-center custom-heading mt-lg-5 fs-1 d-block d-lg-none">
                         Winery or Coastal Drive
                     </h1>
                 </div>
