@@ -103,6 +103,7 @@ if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vend
 // ==============================
 define('TIMEZONE', 'Australia/Sydney');
 date_default_timezone_set(TIMEZONE);
-define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
+//define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
+define('MAP_KEY', 'AIzaSyDFYT_HcUnPlqrh1BgkyOf03nmgT7diJe0');
 define('COMPANY_ODBS', '1010295');
 define('MAX_PASSENGERS', 7);
