@@ -390,6 +390,8 @@
 
 <?php require_once('apps/multi_stops_popup.php'); ?>
 <?php require_once('apps/footer.php'); ?>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=en&key=<?php echo MAP_KEY; ?>"
+        async defer></script>
 <script src="assets/js/custom.js"></script>
 </body>
 </html>
