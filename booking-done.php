@@ -105,7 +105,7 @@ if (isset($_POST['doneBooking'])) {
     // Bulk items
     $bulkItems = $_POST['bulkItems'] ?? [];
     $postData['bulkies'] = $bulkItems;
-    // Call API
+    // Call APIwh
     $result = curlPost($postData, 'booking/create');
     // Handle success
     if (isset($result['success']) && $result['success'] === true) {
