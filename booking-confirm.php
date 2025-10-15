@@ -588,6 +588,7 @@ if (isset($_REQUEST['fetchBooking'])) {
                                     <input type="text" class="form-control detail" name="notes" placeholder="Notes *">
                                 </div>
 
+
                                 <div class="form-group mt-3">
                                     <?php if (CASH_PAYMENT == 1 || STRIPE_PAYMENT == 1): ?>
                                         <label class="fw-bold d-block mb-3">Make your payment :</label>

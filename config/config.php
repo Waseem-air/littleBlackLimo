@@ -16,7 +16,8 @@ $API_URL = (ENVIRONMENT === 'local') ? LOCAL_API_URL : LIVE_API_URL;
 // ==============================
 // API Key / Tokens
 // ==============================
-define('API_TOKEN','nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');
+define('API_TOKEN','nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');   //live
+//define('API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');   //local
 // ==============================
 // Helper Function for API Request
 // ==============================
