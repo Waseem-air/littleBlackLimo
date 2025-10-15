@@ -97,10 +97,10 @@ if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vend
     define('CONTACT_TIKTOK', 'https://www.tiktok.com/@little.black.limo');
     define('CONTACT_WHATSAPP', 'https://wa.me/61404359777');
     define('BOOKING_DAYS_BEFORE', 2);
+    define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
+
 }
 // ==============================
 // Other Settings
-//define('MAP_KEY', 'AIzaSyDmqyRuikf8RyBrNEYjXKIDghOL6KP54qU');
-define('MAP_KEY', 'AIzaSyDFYT_HcUnPlqrh1BgkyOf03nmgT7diJe0');
 define('COMPANY_ODBS', '1010295');
 define('MAX_PASSENGERS', 7);
