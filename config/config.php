@@ -104,4 +104,4 @@ if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vend
 // ==============================
 // Other Settings
 define('COMPANY_ODBS', '1010295');
-define('MAX_PASSENGERS', 7);
+define('MAX_PASSENGERS', 12);
