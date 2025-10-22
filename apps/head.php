@@ -39,7 +39,6 @@
         margin-bottom: 10px;
     }
 
-    /* Text inside popup */
     .swal2-html-container.big-alert-text,
     .alert-text {
         font-size: 14px !important;
@@ -53,24 +52,6 @@
         font-size: 14px;
         background-color: #212529 !important;
     }
-
-    /* Custom button styling */
-    .swal-custom-btn {
-        background-color: #212529 !important;
-        color: #fff !important;
-        font-size: 14px;
-        font-weight: 500;
-        padding: 8px 20px;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .swal-custom-btn:hover {
-        background-color: #343a40 !important;
-    }
-
     /* Optional title & text styling */
     .swal-custom-title {
         font-size: 20px !important;
@@ -81,5 +62,40 @@
         font-size: 14px !important;
         line-height: 1.5;
     }
+    .swal-custom-popup {
+         text-align: center;
+         padding: 20px;
+     }
+    .swal-custom-title {
+        font-size: 22px !important;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    .swal-custom-text {
+        font-size: 16px;
+        text-align: center;
+    }
+    .swal-custom-text ul {
+        list-style-type: none;
+        padding: 0;
+        display: inline-block;
+        text-align: left;
+    }
+    .swal-custom-text li {
+        margin-bottom: 5px;
+    }
+    .swal-custom-btn {
+        background: #212529;
+        color: #fff;
+        border-radius: 6px;
+        padding: 8px 20px;
+        font-size: 15px;
+        cursor: pointer;
+    }
+    .swal-custom-btn:hover {
+        background: #000;
+    }
+<
 </style>
 </head>

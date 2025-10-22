@@ -2,7 +2,7 @@
 // ==============================
 // Base Config
 // ==============================
-define('ENVIRONMENT', 'live'); // local | live
+define('ENVIRONMENT', 'local'); // local | live
 define('SITE_NAME', 'Little Black Limo');
 define('SITE_URL', 'http://127.0.0.1:8000'); // Local URL
 define('LIVE_URL', 'https://a1rides.com.au'); // Live URL
@@ -16,8 +16,8 @@ $API_URL = (ENVIRONMENT === 'local') ? LOCAL_API_URL : LIVE_API_URL;
 // ==============================
 // API Key / Tokens
 // ==============================
-define('API_TOKEN','nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');   //live
-//define('API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');   //local
+//define('API_TOKEN','nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');   //live
+define('API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');   //local
 // ==============================
 // Helper Function for API Request
 // ==============================
@@ -53,6 +53,13 @@ if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vend
     $data = $vendorProfile['data'];
     $vendor = $data['vendor'] ?? [];
     $userMeta = $data['user_meta'] ?? [];
+    // Store service types in session and array
+    $serviceTypes = [];
+    if (!empty($userMeta['_service_types'])) {
+        $serviceTypes = json_decode($userMeta['_service_types'], true) ?? [];
+        $_SESSION['service_types'] = $serviceTypes;
+    }
+
     // ✅ Contact Info (prefer vendor meta values if available)
     define('CONTACT_PHONE', $userMeta['_contact_phone'] ?? $vendor['contact_phone'] ?? $vendor['phone'] ?? '0404 359 777');
     define('CONTACT_EMAIL', $userMeta['_contact_email'] ?? $vendor['contact_email'] ?? $vendor['email'] ?? 'luxury@littleblacklimo.com.au');

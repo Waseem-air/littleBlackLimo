@@ -33,43 +33,6 @@ function showSweetAlert($title, $message = '')
 
         });
         </script>
-
-        <style>
-        .swal-custom-popup {
-            text-align: center;
-            padding: 20px;
-        }
-        .swal-custom-title {
-            font-size: 22px !important;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 10px;
-        }
-        .swal-custom-text {
-            font-size: 16px;
-            text-align: center;
-        }
-        .swal-custom-text ul {
-            list-style-type: none;
-            padding: 0;
-            display: inline-block;
-            text-align: left;
-        }
-        .swal-custom-text li {
-            margin-bottom: 5px;
-        }
-        .swal-custom-btn {
-            background: #333;
-            color: #fff;
-            border-radius: 6px;
-            padding: 8px 20px;
-            font-size: 15px;
-            cursor: pointer;
-        }
-        .swal-custom-btn:hover {
-            background: #000;
-        }
-        </style>
     ";
 }
 

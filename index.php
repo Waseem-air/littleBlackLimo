@@ -176,8 +176,28 @@
                     <input type="hidden" name="trip_type" value="oneway">
                     <div class="row oneway">
 
+                        <div class="col-12 col-md-4 col-lg-2 mb-3 mb-md-0">
+                            <div class=" rounded-4 mb-3">
+                                <label for="service_type" class="form-label">Service Type</label>
+                            <select class="form-select p-select text-left ps-0 ms-0 w-auto " style="background: none !important;" name="service_type" id="service_type" required>
+                                <?php if (!empty($serviceTypes)): ?>
+                                    <?php foreach ($serviceTypes as $serviceKey => $formType): ?>
+                                        <?php
+                                        $serviceName = ucwords(str_replace('_', ' ', $serviceKey));
+                                        $serviceValue = $serviceKey . ':' . $formType;
+                                        $selected = (strtolower($serviceKey) === 'airport_transfer') ? 'selected' : '';
+                                        ?>
+                                        <option value="<?= $serviceValue ?>" <?= $selected ?>><?= $serviceName ?></option>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <option value="airport_transfer:booking_form" selected>Airport Transfer</option>
+                                <?php endif; ?>
+                            </select>
+                            </div>
+                        </div>
+
                         <!-- From -->
-                        <div class="col-12 col-md-6 col-lg-3 mb-3  d-flex justify-content-between align-items-end">
+                        <div class="col-12 col-md-6 col-lg-2 mb-3  d-flex justify-content-between align-items-end">
                             <div class="w-100">
                                 <label for="oneway_pick" class="form-label">From</label>
                                 <input type="text" name="pick" id="oneway_pick"
@@ -188,7 +208,7 @@
 
 
                         <!-- To -->
-                        <div class="col-12 col-md-6 col-lg-3 mb-3 mb-md-0">
+                        <div class="col-12 col-md-6 col-lg-2 mb-3 mb-md-0">
                             <label for="oneway_drop" class="form-label">To</label>
                             <input type="text" name="drop" id="oneway_drop"
                                    class="form-control search-bar-input placesAPI"
@@ -220,7 +240,7 @@
 
                         <!-- Button -->
                         <div class="col-12 col-md-3 col-lg-2">
-                            <input type="submit" name="fetchBooking"  class="btn btn-dark booking-btn w-100" value="Book Now"/>
+                            <input type="submit" name="fetchBooking"  class="btn btn-dark booking-btn w-100" id="mainBookingBtn" value="Book Now"/>
                         </div>
                     </div>
                 </form>
@@ -387,11 +407,14 @@
 </div>
 
 <!-- blog Section End -->
-
+<!-- Bootstrap customServiceModal Custom Services -->
+<?php require_once('customServiceModal.php'); ?>
 <?php require_once('apps/multi_stops_popup.php'); ?>
 <?php require_once('apps/footer.php'); ?>
 <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete&language=en&key=<?php echo MAP_KEY; ?>"
         async defer></script>
 <script src="assets/js/custom.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="assets/js/booking-contact-form-ajax.js"></script>
 </body>
 </html>
