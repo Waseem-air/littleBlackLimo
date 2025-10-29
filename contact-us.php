@@ -96,8 +96,8 @@ if (isset($_POST['sendEmail'])) {
 
         <div class="row mb-3">
           <div class="col-12">
-            <label for="datetime" class="form-label fs-6">Date & Times Required</label>
-            <textarea id="datetime" name="email_date_time" class="form-control datetime" placeholder="Date & Times Required" rows="4"></textarea>
+            <label for="email_date_time" class="form-label fs-6">Date & Times Required</label>
+            <textarea id="email_date_time" name="email_date_time" class="form-control" placeholder="Date & Times Required" rows="4"></textarea>
           </div>
         </div>
 
