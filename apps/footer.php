@@ -56,9 +56,14 @@
                 <div id="map" class="w-100 border rounded footer-map-img" style="height:250px;"></div>
             </div>
 
-            <div class="col-12">
-                <p class="mt-3">©Copyrights 2024 littleblacklimo | All Rights Reserved. Designed by A1 APPS</p>
+            <div class="col-12 text-center">
+                <p class="mt-3">
+                    © 2024 Little Black Limo | All Rights Reserved |
+                    Developed by <a href="https://a1apps.com.au/" target="_blank">A1 APPS</a>
+                </p>
             </div>
+
+
         </div>
     </div>
 </section>
