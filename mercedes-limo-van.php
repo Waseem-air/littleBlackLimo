@@ -19,7 +19,7 @@
             <!-- Section 1: Image Left + Text Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6">
-                    <img src="assets/images/mercedes-van-1.jpeg" alt="Mercedes Limo Van" class="img-fluid limo-main-img">
+                    <img src="assets/images/mercedes-van-1.png" alt="Mercedes Limo Van" class="img-fluid limo-main-img">
                 </div>
                 <div class="col-md-6 ps-md-5">
                     <h2 class="fw-bold mt-only-sm">Weddings & School Balls</h2>
@@ -38,10 +38,10 @@
             <!-- Gallery -->
             <div class="row g-4 mt-5 justify-content-center">
                 <div class="col-md-6 col-12 text-center">
-                    <img src="assets/images/mercedes-van-2.jpeg" class="limo-gallery-img w-100" alt="">
+                    <img src="assets/images/mercedes-van-2.png" class="limo-gallery-img w-100" alt="">
                 </div>
                 <div class="col-md-6 col-12 text-center">
-                    <img src="assets/images/mercedes-van-3.jpeg" class="limo-gallery-img w-100" alt="">
+                    <img src="assets/images/mercedes-van-3.png" class="limo-gallery-img w-100" alt="">
                 </div>
             </div>
         </div>

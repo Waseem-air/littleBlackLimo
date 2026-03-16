@@ -28,14 +28,14 @@
                     </p>
                 </div>
                 <div class="col-md-6">
-                    <img src="assets/images/corporate-van-1.jpeg" alt="Corporate Limo Van" class="img-fluid limo-main-img">
+                    <img src="assets/images/corporate-van-1.png" alt="Corporate Limo Van" class="img-fluid limo-main-img">
                 </div>
             </div>
 
             <!-- Gallery -->
             <div class="row g-4 mt-5">
                 <div class="col-md-12 text-center">
-                    <img src="assets/images/corporate-van-2.jpeg" class="limo-main-img img-fluid" alt="">
+                    <img src="assets/images/corporate-van-2.png" class="limo-main-img img-fluid" alt="">
                 </div>
             </div>
         </div>

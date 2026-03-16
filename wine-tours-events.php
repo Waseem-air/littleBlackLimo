@@ -19,7 +19,7 @@
             <!-- Section 1: Image Left + Text Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 text-center">
-                    <img src="assets/images/wine-tours-1.jpeg" alt="Wine Tours" class="img-fluid limo-main-img">
+                    <img src="assets/images/wine-tours-1.png" alt="Wine Tours" class="img-fluid limo-main-img">
                 </div>
                 <div class="col-md-6 ps-md-5">
                     <h2 class="fw-bold mt-only-sm">Experience the Best Tours</h2>
@@ -35,7 +35,7 @@
             <!-- Gallery -->
             <div class="row g-4 mt-5">
                 <div class="col-md-12 text-center">
-                    <img src="assets/images/wine-tours-2.jpeg" class="limo-main-img img-fluid" alt="">
+                    <img src="assets/images/wine-tours-2.png" class="limo-main-img img-fluid" alt="">
                 </div>
             </div>
         </div>

@@ -19,7 +19,7 @@
             <!-- Section 1: Image Left + Text Right -->
             <div class="row align-items-center mb-4">
                 <div class="col-md-6 text-center">
-                    <img src="assets/images/mini-coach-1.jpeg" alt="Yutong Mini Coach" class="img-fluid limo-main-img">
+                    <img src="assets/images/mini-coach-1.png" alt="Yutong Mini Coach" class="img-fluid limo-main-img">
                 </div>
                 <div class="col-md-6 ps-md-5">
                     <h2 class="fw-bold mt-only-sm">Mini Coach</h2>
@@ -35,10 +35,10 @@
             <!-- Gallery -->
             <div class="row g-4 mt-5 justify-content-center">
                 <div class="col-md-6 col-12 text-center">
-                    <img src="assets/images/mini-coach-2.jpeg" class="limo-gallery-img img-fluid" alt="">
+                    <img src="assets/images/mini-coach-2.png" class="limo-gallery-img img-fluid" alt="">
                 </div>
                 <div class="col-md-6 col-12 text-center">
-                    <img src="assets/images/mini-coach-3.jpeg" class="limo-gallery-img img-fluid" alt="">
+                    <img src="assets/images/mini-coach-3.png" class="limo-gallery-img img-fluid" alt="">
                 </div>
             </div>
         </div>
