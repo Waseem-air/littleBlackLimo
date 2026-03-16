@@ -549,6 +549,22 @@ body {
   height: 260.55px!important;  /* ratio maintain ho */
   object-fit: cover; /* image ka shape barabar rahe */
 }
+.limo-gallery-img {
+  width: 100%;
+  height: 350px; /* Standardize height for equal grid look */
+  object-fit: cover; /* Ensures equal height while filling the area */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  display: block;
+  margin: 0 auto;
+}
+.limo-main-img {
+  width: 100%;
+  height: 450px; /* Slightly taller for the main focus image */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
 @media (max-width: 768px) {
   .combineimage {
     margin-top: 10px; /* mobile screens ke liye */
