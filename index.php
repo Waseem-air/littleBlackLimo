@@ -358,42 +358,39 @@
 
 
 <!-- blog Section Start -->
+<section class="py-5">
+    <div class="container">
+        <div class="row montserrat-p">
+            <div class="col-12 text-center mb-3">
+                <h3 class="charm">Latest News about Little Black Limo</h3>
+            </div>
 
+            <!-- Blog 1 -->
+            <div class="col-12 col-md-6 mt-4 text-center">
+                <a href="https://www.weddingcarswa.asn.au/about-wcla/">
+                    <img src="assets/images/blog-3.png" alt="WCLA" class="img-fluid">
+                </a>
+                <h6 class="mt-4 fw-bold montserrat">Little Black Limo is proud to be part of WCLA.</h6>
+                <p>
+                    The Wedding Car and Limousine Association W.A. is a body formed
+                    to promote professionalism in the wedding car and limousine industry.
+                </p>
+            </div>
 
-<div class="container">
-    <div class="row mt-5 montserrat-p">
-        <div class="col-12 text-center">
-            <h3 class="charm">Latest News about Little Black Limo</h3>
-        </div>
-
-        <!-- Blog 1 -->
-        <div class="col-12 col-md-6 mt-4 text-center">
-            <a href="https://www.weddingcarswa.asn.au/about-wcla/">
-                <img src="assets/images/blog-3.png" alt="WCLA" class="img-fluid">
-            </a>
-            <h6 class="mt-4 fw-bold montserrat">Little Black Limo is proud to be part of WCLA.</h6>
-            <p>
-                The Wedding Car and Limousine Association W.A. is a body formed
-                to promote professionalism in the wedding car and limousine industry.
-            </p>
-        </div>
-
-        <!-- Blog 2 -->
-        <div class="col-12 col-md-6 mt-4 text-center">
-            <img src="assets/images/blog-2.png" alt="" class="img-fluid">
-            <h6 class="mt-3">Supplied or BYO</h6>
-            <p class="mt-2 mb-0">
-                Little Black Limo is licenced for BYO and the supply of <br class="d-none d-lg-block"> alcohol.
-            </p>
-            <p>
-                Drivers have RSA and we are fully insured with all DOT <br class="d-none d-lg-block"> licenses.
-            </p>
+            <!-- Blog 2 -->
+            <div class="col-12 col-md-6 mt-4 text-center">
+                <img src="assets/images/blog-2.png" alt="" class="img-fluid">
+                <h6 class="mt-3">Supplied or BYO</h6>
+                <p class="mt-2 mb-0">
+                    Little Black Limo is licenced for BYO and the supply of <br class="d-none d-lg-block"> alcohol.
+                </p>
+                <p>
+                    Drivers have RSA and we are fully insured with all DOT <br class="d-none d-lg-block"> licenses.
+                </p>
+            </div>
         </div>
     </div>
-
-
-</div>
-
+</section>
 <!-- blog Section End -->
 <!-- Bootstrap customServiceModal Custom Services -->
 <?php require_once('customServiceModal.php'); ?>
