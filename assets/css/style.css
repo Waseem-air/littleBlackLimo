@@ -67,7 +67,7 @@ body {
 }
 @media (max-width: 991px) {
   .collapse {
-   /*background-color: white;  */ /* ensures z-index works */
+   background-color: white;  /* ensures z-index works */
    padding-left: 20px;
    padding-bottom: 20px;
    border-radius: 0 0 10px 10px;
