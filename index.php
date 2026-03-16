@@ -368,11 +368,13 @@
 
         <!-- Blog 1 -->
         <div class="col-12 col-md-6 mt-4 text-center">
-            <img src="assets/images/blog-1.png" alt="" class="img-fluid">
-            <h6 class="mt-4">Business</h6>
+            <a href="https://www.weddingcarswa.asn.au/about-wcla/">
+                <img src="assets/images/blog-3.png" alt="WCLA" class="img-fluid">
+            </a>
+            <h6 class="mt-4 fw-bold montserrat">Little Black Limo is proud to be part of WCLA.</h6>
             <p>
-                Little Black Limo is a Western Australian Wedding <br class="d-none d-lg-block">
-                Association accredited business.
+                The Wedding Car and Limousine Association W.A. is a body formed
+                to promote professionalism in the wedding car and limousine industry.
             </p>
         </div>
 
@@ -389,21 +391,7 @@
         </div>
     </div>
 
-    <!-- Blog 3 -->
-    <div class="row align-items-center mt-5 text-center">
-        <div class="col-12 col-md-6 mb-4 mb-md-0 p-5">
-            <img src="assets/images/blog-3.png" alt="" class="w-100">
-        </div>
-        <div class="col-12 col-md-6 text-center text-md-start p-5">
-            <h1 class="fw-bold montserrat">Little Black Limo is <br class="d-none d-lg-block"> proud to be part of <br class="d-none d-lg-block"> WCLA.</h1>
-            <p>
-                The Wedding Car and Limousine Association W.A. is a body formed
-                to promote professionalism in the wedding car and limousine industry.
-                We are here to ensure the highest standards of ethics are maintained
-                by our members at all times.
-            </p>
-        </div>
-    </div>
+
 </div>
 
 <!-- blog Section End -->
