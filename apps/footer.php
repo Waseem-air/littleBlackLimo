@@ -210,11 +210,14 @@
 
 <script>
     function initMap() {
+        const mapElement = document.getElementById("map");
+        if (!mapElement) return;
+
         // Wembley WA 6014 Location
         const wembleyLocation = {lat: -31.9330, lng: 115.8190};
 
         // Create map centered on Wembley
-        const map = new google.maps.Map(document.getElementById("map"), {
+        const map = new google.maps.Map(mapElement, {
             center: wembleyLocation,
             zoom: 14,
         });
@@ -227,9 +230,17 @@
         });
     }
 
-    // Run map after page loads
-    window.onload = initMap;
+    // Combined callback for Google Maps API
+    function googleMapsCallback() {
+        initMap();
+        if (typeof initAutocomplete === 'function') {
+            initAutocomplete();
+        }
+    }
 </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=googleMapsCallback&language=en&key=<?php echo MAP_KEY; ?>"
+        async defer></script>
 
 
 
