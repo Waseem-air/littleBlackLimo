@@ -1620,10 +1620,23 @@ hr {
   height: 486px;
 }
 
-/* ✅ For mobile screens (max width 767px) */
 @media (max-width: 767px) {
   .weeding-bg {
     background: url('../images/weeding-bg.png') no-repeat center center;
+    background-size: cover;
+    height: 205px;
+  }
+}
+
+.mercedes-limo-van-bg {
+  background: url('../images/new-vans-image.jpeg') no-repeat center center;
+  background-size: cover;
+  height: 486px;
+}
+
+@media (max-width: 767px) {
+  .mercedes-limo-van-bg {
+    background: url('../images/new-vans-image.jpeg') no-repeat center center;
     background-size: cover;
     height: 205px;
   }

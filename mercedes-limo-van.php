@@ -4,7 +4,7 @@
 <body>
   <?php require_once('apps/header.php'); ?>
   
-        <section class="weeding-bg">
+        <section class="mercedes-limo-van-bg">
             <div class="container">
                 <div class="row ">
                     <div class="col-12 pt-5 mt-5 vertical-center text-white text-center">

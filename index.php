@@ -6,8 +6,12 @@
 
 <div id="simpleCarousel" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
+       
         <div class="carousel-item active">
             <img src="assets/images/slider-1.jpg" class="d-block w-100" alt="1">
+        </div>
+         <div class="carousel-item ">
+            <img src="assets/images/new-vans-image.jpeg" class="d-block w-100" alt="New Van">
         </div>
         <div class="carousel-item">
             <img src="assets/images/slider-2.jpg" class="d-block w-100" alt="2">
@@ -40,6 +44,9 @@
         </button>
         <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="4" aria-label="Slide 5">
             <img src="assets/images/custom-circle.png" alt="dot 5">
+        </button>
+        <button type="button" data-bs-target="#simpleCarousel" data-bs-slide-to="5" aria-label="Slide 6">
+            <img src="assets/images/custom-circle.png" alt="dot 6">
         </button>
     </div>
 </div>
