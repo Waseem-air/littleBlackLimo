@@ -95,6 +95,12 @@ body {
   height: auto !important;
   padding: 10px 0 !important;
   transition: all 0.4s ease;
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.9) 100%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1050;
 }
 
 .nav-logo {
@@ -146,25 +152,113 @@ body {
   /* optional: white border */
 }
 
-@media (max-width: 991px) {
-  .collapse {
-    /* background-color: white; */  /* ensures z-index works */
-     padding-left: 20px;
-     padding-bottom: 20px;
-     border-radius: 0 0 10px 10px;
-  }
-}
-
-@media (min-width: 992px) {
-  .text-lg-white {
-    color: #fff !important;
-  }
-}
-
 @media (max-width: 991.98px) {
-  .mobile-booknow {
+  .navbar-collapse {
     background-color: #000 !important;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 0 !important;
+    z-index: 9999 !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+    max-height: 85vh;
+    overflow-y: auto;
+  }
+
+  .navbar-collapse.show {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-nav {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .nav-item {
+    padding: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  .nav-link {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     color: #fff !important;
+    padding: 15px 20px !important;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  /* Inline Dropdowns for Mobile */
+  .dropdown-menu {
+    position: static !important;
+    float: none !important;
+    background-color: rgba(255, 255, 255, 0.03) !important;
+    border: none !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    transform: none !important;
+    display: none;
+  }
+
+  .dropdown-menu.show {
+    display: block !important;
+  }
+
+  .dropdown-item {
+    text-align: center;
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  }
+
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+
+  .navbar-nav .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+  }
+
+  .mobile-booknow {
+    margin: 15px 20px 25px 20px;
+    width: calc(100% - 40px) !important;
+    height: 52px !important;
+    background: #fff !important;
+    color: #000 !important;
+    border-radius: 8px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .nav-mb-button {
+    height: 40px;
+    padding: 0 15px !important;
+    border-radius: 8px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+    background: #fff !important;
+    color: #000 !important;
   }
 }
 

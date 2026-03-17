@@ -1,26 +1,26 @@
   <nav class="navbar navbar-expand-lg bg-color p-0 m-0">
-        <div class="container-fluid container-fluid-header d-flex align-items-center">
-            <!-- Left side: Toggle + Logo -->
-            <div class="d-flex align-items-center order-0">
-                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+        <div class="container-fluid container-fluid-header px-3 py-2 position-relative">
+            <!-- Mobile View: Toggle + Centered Logo + Book Now -->
+            <div class="d-flex w-100 align-items-center justify-content-between d-lg-none">
+                <button class="navbar-toggler border-0 p-0" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03"
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <a class="navbar-brand mb-0 p-0 d-none d-lg-flex" href="index.php">
-                    <img src="assets/images/logo.svg" alt="Logo" class="nav-logo">
+                <a class="navbar-brand m-0 p-0 position-absolute start-50 translate-middle-x" href="index.php">
+                    <img src="assets/images/mobile-logo.svg" alt="Logo" style="height: 40px;">
                 </a>
 
-                <a class="navbar-brand mb-0 p-0 d-flex d-lg-none" href="index.php">
-                    <img src="assets/images/mobile-logo.svg" alt="Logo" style="height: 60px;">
+                <a href="booking.php"
+                    class="btn bg-white text-dark montserrat nav-mb-button d-flex align-items-center justify-content-center">
+                    Book now
                 </a>
             </div>
 
-            <!-- Mobile Book Now Button -->
-            <a href="booking.php"
-                class="btn bg-white text-dark montserrat d-flex align-items-center justify-content-center text-center d-lg-none order-2 nav-mb-button fs-6">
-                Book now
+            <!-- Desktop View: Logo (Hidden on Mobile) -->
+            <a class="navbar-brand d-none d-lg-flex" href="index.php">
+                <img src="assets/images/logo.svg" alt="Logo" class="nav-logo">
             </a>
 
             <!-- Collapsible Menu -->
