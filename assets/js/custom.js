@@ -1,42 +1,49 @@
+let autocompleteInstances = [];
+
+function renumberTrips() {
+    document.querySelectorAll('.trip-segment').forEach((segment, index) => {
+        const tripNum = index + 1;
+        const titleDiv = segment.querySelector('.text-uppercase');
+        if(titleDiv) titleDiv.textContent = `Stop ${tripNum}`;
+    });
+}
+
+function fixAutocompleteZIndex() {
+    const style = document.createElement('style');
+    style.innerHTML = `.pac-container { z-index: 1060 !important; }`;
+    document.head.appendChild(style);
+}
+
+function initPlacesAutocomplete(inputElement) {
+    if (!inputElement.dataset.autocompleteInitialized) {
+        const autocomplete = new google.maps.places.Autocomplete(inputElement, {
+            componentRestrictions: { country: "au" }
+        });
+        autocomplete.addListener('place_changed', function () {
+            const place = autocomplete.getPlace();
+        });
+        inputElement.dataset.autocompleteInitialized = 'true';
+        autocompleteInstances.push(autocomplete);
+    }
+}
+
+function initializeExistingAutocompletes() {
+    document.querySelectorAll('.placesAPI').forEach(input => {
+        initPlacesAutocomplete(input);
+    });
+}
+
+// Initialize Google autocomplete
+window.initAutocomplete = function () {
+    fixAutocompleteZIndex();
+    initializeExistingAutocompletes();
+};
+
 document.addEventListener('DOMContentLoaded', function () {
     const addStopHerePlaceholder = "Add stop here";
     const removeStopText = "Remove";
 
     let tripCount = document.querySelectorAll('.trip-segment').length - 1; // count existing segments
-    let autocompleteInstances = [];
-
-    function renumberTrips() {
-        document.querySelectorAll('.trip-segment').forEach((segment, index) => {
-            const tripNum = index + 1;
-            const titleDiv = segment.querySelector('.text-uppercase');
-            if(titleDiv) titleDiv.textContent = `Stop ${tripNum}`;
-        });
-    }
-
-    function fixAutocompleteZIndex() {
-        const style = document.createElement('style');
-        style.innerHTML = `.pac-container { z-index: 1060 !important; }`;
-        document.head.appendChild(style);
-    }
-
-    function initPlacesAutocomplete(inputElement) {
-        if (!inputElement.dataset.autocompleteInitialized) {
-            const autocomplete = new google.maps.places.Autocomplete(inputElement, {
-                componentRestrictions: { country: "au" }
-            });
-            autocomplete.addListener('place_changed', function () {
-                const place = autocomplete.getPlace();
-            });
-            inputElement.dataset.autocompleteInitialized = 'true';
-            autocompleteInstances.push(autocomplete);
-        }
-    }
-
-    function initializeExistingAutocompletes() {
-        document.querySelectorAll('.placesAPI').forEach(input => {
-            initPlacesAutocomplete(input);
-        });
-    }
 
     // Add stop
     document.getElementById('addSegment')?.addEventListener('click', function() {
@@ -69,16 +76,16 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    // Initialize Google autocomplete
-    window.initAutocomplete = function () {
-        fixAutocompleteZIndex();
-        initializeExistingAutocompletes();
-    };
-
     // Trigger autocomplete when modal opens
     $('#multipleTripModal').on('shown.bs.modal', function () {
         if (window.google && google.maps && google.maps.places) {
             initAutocomplete();
         }
     });
+
+    // Also call it here just in case Google Maps loaded before this script
+    if (window.google && google.maps && google.maps.places) {
+        initAutocomplete();
+    }
 });
+

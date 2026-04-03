@@ -403,8 +403,6 @@
 <?php require_once('customServiceModal.php'); ?>
 <?php require_once('apps/multi_stops_popup.php'); ?>
 <?php require_once('apps/footer.php'); ?>
-<script src="assets/js/custom.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="assets/js/booking-contact-form-ajax.js"></script>
 </body>
 </html>
