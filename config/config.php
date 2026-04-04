@@ -16,8 +16,8 @@ $API_URL = (ENVIRONMENT === 'local') ? LOCAL_API_URL : LIVE_API_URL;
 // ==============================
 // API Key / Tokens
 // ==============================
-define('API_TOKEN','nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');   //live
-//define('API_TOKEN', 'dlB4zJalzIsKiA3o4drTeKz93p7zkry9gEh9A98dNJdbqoCzpun8KV45hqhl');   //local
+define('API_TOKEN', 'nZRapXpITUnir8FrRuPNzyYrz8by9TIlOt5re9taic46rOB0DK6mMTBtV1Jp');   //live
+//define('API_TOKEN', 'vXferuKfFMehVsIZN0NbIRguSpPckLr3mCnDjo6HxYVcGsCtnYP7PdLdlP5F');   //local
 // ==============================
 // Helper Function for API Request
 // ==============================
@@ -40,7 +40,8 @@ function curlGet($endpoint)
     $error = curl_error($ch);
     curl_close($ch);
 
-    if ($error) return null;
+    if ($error)
+        return null;
     return json_decode($response, true);
 }
 
@@ -72,19 +73,19 @@ if (isset($vendorProfile['success']) && $vendorProfile['success'] && isset($vend
     define('CONTACT_INSTA', $userMeta['_instagram_link'] ?? 'https://www.instagram.com/Little_Limo/#');
     define('CONTACT_TIKTOK', $userMeta['_tiktok_link'] ?? 'https://www.tiktok.com/@little.black.limo');
 
-// Payment method toggles
+    // Payment method toggles
     define('CASH_PAYMENT', isset($userMeta['_cash_payment']) && $userMeta['_cash_payment'] == 1 ? 1 : 0);
     define('STRIPE_PAYMENT', isset($userMeta['_stripe_payment']) && $userMeta['_stripe_payment'] == 1 ? 1 : 0);
 
     define(
         'CONTACT_WHATSAPP',
         isset($userMeta['_whatsapp_phone']) && !empty($userMeta['_whatsapp_phone'])
-            ? 'https://wa.me/' . preg_replace('/\D/', '', $userMeta['_whatsapp_phone']) // removes spaces, +, etc.
-            : 'https://wa.me/61404359777'
+        ? 'https://wa.me/' . preg_replace('/\D/', '', $userMeta['_whatsapp_phone']) // removes spaces, +, etc.
+        : 'https://wa.me/61404359777'
     );
 
     // ✅ Booking Settings
-    define('BOOKING_DAYS_BEFORE', (int)($vendor['booking_days_before'] ?? 2));
+    define('BOOKING_DAYS_BEFORE', (int) ($vendor['booking_days_before'] ?? 2));
 
     // ✅ Define all user_meta as constants (optional)
     foreach ($userMeta as $key => $value) {
